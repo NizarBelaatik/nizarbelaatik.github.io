@@ -1,0 +1,139 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "experience": "Expérience",
+    "education": "Éducation",
+    "certifications": "Certifications",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Bonjour, je suis",
+    "name": "Votre Nom",
+    "subtitle": "Étudiant en Master Data Science & Développeur Full-Stack",
+    "description": "Passionné par la transformation de données complexes en solutions intelligentes. Spécialisé en Machine Learning, Deep Learning et développement d'applications web évolutives. Actuellement en Master Data Science & Big Data.",
+    "viewWork": "Voir Mon Travail",
+    "getInTouch": "Me Contacter",
+    "downloadCV": "Télécharger CV"
+  },
+  "about": {
+    "title": "À Propos",
+    "subtitle": "Découvrez la personne derrière le code",
+    "content1": "Je suis un étudiant passionné en Master Data Science, spécialisé en Machine Learning, Deep Learning et technologies Big Data. Actuellement en dernière année, je me concentre sur la transformation de données complexes en insights actionnables et solutions intelligentes.",
+    "content2": "Avec une solide base en ingénierie logicielle et science des données, je fais le lien entre les modèles théoriques et les applications pratiques. J'aime construire des solutions de bout en bout qui résolvent des problèmes réels.",
+    "content3": "Quand je ne code pas ou n'analyse pas de données, vous pouvez me trouver en train d'explorer de nouvelles technologies, de contribuer à des projets open-source, ou d'écrire sur mon parcours d'apprentissage.",
+    "yearsExp": "Années d'Expérience",
+    "projectsCompleted": "Projets Complétés",
+    "researchPapers": "Articles de Recherche",
+    "viewStory": "Voir Mon Parcours"
+  },
+  "skills": {
+    "title": "Expertise Technique",
+    "subtitle": "Compétences complètes en science des données, IA, ingénierie logicielle et technologies cloud",
+    "dsMlAi": "Data Science, ML & AI",
+    "webDev": "Développement Web & Logiciel",
+    "cloudDevOps": "Cloud & DevOps",
+    "databasesBigData": "Bases de Données & Big Data",
+    "methodologies": "Méthodologies & Bonnes Pratiques",
+    "yearsExp": "Années d'Expérience",
+    "projectsCompleted": "Projets Complétés",
+    "researchPapers": "Articles de Recherche", 
+    "dataAiSolutions": "Solutions Data & IA",
+    "productionApps": "Applications ML & Web en Production",
+    "peerReviewed": "Publications Révisées"
+  },
+  "experience": {
+    "title": "Expérience Professionnelle",
+    "subtitle": "Mon expérience professionnelle et parcours",
+    "dataScienceIntern": {
+      "title": "Stagiaire Data Science",
+      "company": "Entreprise Technologique",
+      "duration": "Juin 2023 - Août 2023",
+      "description": "Développement de modèles de machine learning pour l'analyse prédictive et la segmentation client.",
+      "achievements": [
+        "Développé un modèle de prédiction de désabonnement avec 92% de précision",
+        "Implémenté des pipelines de données pour l'analyse en temps réel",
+        "Collaboré avec des équipes transverses pour déployer des modèles ML"
+      ]
+    },
+    "viewResume": "Voir CV Complet"
+  },
+  "education": {
+    "title": "Éducation",
+    "subtitle": "Mon parcours académique et qualifications",
+    "masters": {
+      "degree": "Master Data Science & Big Data",
+      "university": "Nom de l'Université",
+      "duration": "Sep 2022 - Présent",
+      "description": "Étudiant en dernière année, spécialisé en machine learning, deep learning et technologies big data.",
+      "achievements": [
+        "Moyenne: 3.8/4.0",
+        "Recherche focalisée sur TALN et Vision par Ordinateur",
+        "Assistant d'enseignement pour le cours Machine Learning"
+      ]
+    }
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Certifications professionnelles et compétences validées"
+  },
+
+  "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Présentation de mes meilleurs travaux dans différents domaines",
+    "all": "Tous les Projets",
+    "webDev": "Développement Web",
+    "mobile": "Développement Mobile",
+    "machineLearning": "Machine Learning",
+    "deepLearning": "Deep Learning",
+    "dataScience": "Science des Données",
+    "research": "Articles de Recherche",
+    "computerVision": "Vision par Ordinateur",
+    "nlp": "Traitement du Langage",
+    "bigData": "Big Data",
+    "cloud": "Cloud & DevOps",
+    "viewAll": "Voir Tous les Projets",
+    "featured": "Projets en Vedette",
+    "totalProjects": "projets au total",
+    "viewDetails": "Voir Détails",
+    "loadMore": "Charger Plus de Projets",
+    "searchPlaceholder": "Rechercher des projets...",
+    "sort": {
+      "featured": "En Vedette",
+      "newest": "Plus Récents",
+      "oldest": "Plus Anciens",
+      "name": "Alphabétique"
+    },
+    "status": {
+      "completed": "Terminé",
+      "research": "Recherche",
+      "inProgress": "En Cours"
+    }
+  },
+  "contact": {
+    "title": "Me Contacter",
+    "subtitle": "Un projet en tête ou envie de collaborer ? J'aimerais avoir de vos nouvelles !",
+    "letsConnect": "Restons Connectés",
+    "connectText": "Je suis toujours ouvert à discuter de nouvelles opportunités, projets intéressants, ou simplement échanger sur la technologie et la data science.",
+    "location": "Localisation",
+    "email": "Email",
+    "phone": "Téléphone",
+    "followMe": "Suivez-moi",
+    "sendMessage": "Envoyer un Message",
+    "name": "Votre Nom",
+    "emailPlaceholder": "jean@exemple.com",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Collaboration sur Projet",
+    "message": "Votre Message",
+    "messagePlaceholder": "Parlez-moi de votre projet ou dites simplement bonjour !",
+    "send": "Envoyer Message"
+  },
+  "footer": {
+    "description": "Étudiant en Master Data Science & Développeur Full-Stack passionné par la création de solutions innovantes grâce au code et aux données.",
+    "quickLinks": "Liens Rapides",
+    "getInTouch": "Me Contacter",
+    "rights": "Tous droits réservés.",
+    "madeWith": "Fait avec"
+  }
+}

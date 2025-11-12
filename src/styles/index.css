@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-dark: #0a0a16;
+  --color-primary-light: #f5f7fa;
+  --color-accent-blue: #00a8ff;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-green: #10b981;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-primary-dark text-white transition-colors duration-300;
+  }
+  
+  body.light {
+    @apply bg-primary-light text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-blue text-white px-6 py-3 rounded-full font-semibold 
+           hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1 
+           hover:shadow-lg hover:shadow-blue-500/25;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-accent-blue text-accent-blue px-6 py-3 rounded-full 
+           font-semibold hover:bg-accent-blue hover:text-white transition-all 
+           duration-300 transform hover:-translate-y-1;
+  }
+  
+  .card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl 
+           p-6 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-primary-dark text-white transition-colors duration-300;
+  }
+  
+  body.light {
+    @apply bg-primary-light text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-blue text-white px-6 py-3 rounded-full font-semibold 
+           hover:bg-blue-600 transition-all duration-300 transform hover:-translate-y-1 
+           hover:shadow-lg hover:shadow-blue-500/25;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-accent-blue text-accent-blue px-6 py-3 rounded-full 
+           font-semibold hover:bg-accent-blue hover:text-white transition-all 
+           duration-300 transform hover:-translate-y-1;
+  }
+  
+  .card {
+    @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl 
+           p-6 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300;
+  }
+  
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold text-center mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+  
+  .floating {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}

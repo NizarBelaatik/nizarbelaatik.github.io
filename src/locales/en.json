@@ -1,0 +1,142 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "experience": "Experience",
+    "education": "Education",
+    "certifications": "Certifications",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Hi, I'm",
+    "name": "Your Name",
+    "subtitle": "Data Science Master's Student & Full-Stack Developer",
+    "description": "Passionate about transforming complex data into intelligent solutions. Specializing in Machine Learning, Deep Learning, and building scalable web applications. Currently pursuing Master's in Data Science & Big Data.",
+    "viewWork": "View My Work",
+    "getInTouch": "Get In Touch",
+    "downloadCV": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Get to know the person behind the code",
+    "content1": "I'm a passionate Data Science Master's student specializing in Machine Learning, Deep Learning, and Big Data technologies. Currently in my final year, I'm focused on transforming complex data into actionable insights and intelligent solutions.",
+    "content2": "With a strong foundation in both software engineering and data science, I bridge the gap between theoretical models and practical applications. I love building end-to-end solutions that solve real-world problems.",
+    "content3": "When I'm not coding or analyzing data, you can find me exploring new technologies, contributing to open-source projects, or writing about my learning journey.",
+    "yearsExp": "Years Experience",
+    "projectsCompleted": "Projects Completed",
+    "researchPapers": "Research Papers",
+    "viewStory": "View My Story"
+  },
+  "skills": {
+    "title": "Technical Expertise",
+    "subtitle": "Comprehensive skills across data science, AI, software engineering, and cloud technologies",
+    "dsMlAi": "Data Science, ML & AI",
+    "webDev": "Web & Software Development",
+    "cloudDevOps": "Cloud & DevOps", 
+    "databasesBigData": "Databases & Big Data",
+    "methodologies": "Methodologies & Best Practices",
+    "yearsExp": "Years Experience",
+    "projectsCompleted": "Projects Completed",
+    "researchPapers": "Research Papers",
+    "dataAiSolutions": "Building Data & AI Solutions",
+    "productionApps": "Production ML & Web Apps",
+    "peerReviewed": "Peer-Reviewed Publications"
+  },
+    "experience": {
+    "title": "Professional Experience",
+    "subtitle": "My work experience and professional journey",
+    "dataScienceIntern": {
+      "title": "Data Science Intern",
+      "company": "Tech Company Inc.",
+      "duration": "Jun 2023 - Aug 2023",
+      "description": "Worked on developing machine learning models for predictive analytics and customer segmentation.",
+      "achievements": [
+        "Developed a customer churn prediction model with 92% accuracy",
+        "Implemented data pipelines for real-time analytics",
+        "Collaborated with cross-functional teams to deploy ML models"
+      ]
+    },
+    "viewResume": "View Full Resume"
+  },
+
+  "education": {
+    "title": "Education",
+    "subtitle": "My academic background and qualifications",
+    "masters": {
+      "degree": "Master's in Data Science & Big Data",
+      "university": "University Name",
+      "duration": "Sep 2022 - Present",
+      "description": "Final year student specializing in machine learning, deep learning, and big data technologies.",
+      "achievements": [
+        "GPA: 3.8/4.0",
+        "Research focus on NLP and Computer Vision",
+        "Teaching Assistant for Machine Learning course"
+      ]
+    }
+  },
+  "certifications": {
+    "title": "Certifications",
+    "subtitle": "Professional certifications and validated skills"
+  },
+
+
+
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Showcasing my best work across different domains",
+    "all": "All Projects",
+    "webDev": "Web Development",
+    "mobile": "Mobile Development",
+    "machineLearning": "Machine Learning",
+    "deepLearning": "Deep Learning",
+    "dataScience": "Data Science",
+    "research": "Research Papers",
+    "computerVision": "Computer Vision",
+    "nlp": "Natural Language Processing",
+    "bigData": "Big Data",
+    "cloud": "Cloud & DevOps",
+    "viewAll": "View All Projects",
+    "featured": "Featured Projects",
+    "totalProjects": "total projects",
+    "viewDetails": "View Details",
+    "loadMore": "Load More Projects",
+    "searchPlaceholder": "Search projects...",
+    "sort": {
+      "featured": "Featured First",
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "name": "Alphabetical"
+    },
+    "status": {
+      "completed": "Completed",
+      "research": "Research",
+      "inProgress": "In Progress"
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a project in mind or want to collaborate? I'd love to hear from you!",
+    "letsConnect": "Let's Connect",
+    "connectText": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and data science.",
+    "location": "Location",
+    "email": "Email",
+    "phone": "Phone",
+    "followMe": "Follow Me",
+    "sendMessage": "Send Message",
+    "name": "Your Name",
+    "emailPlaceholder": "john@example.com",
+    "subject": "Subject",
+    "subjectPlaceholder": "Project Collaboration",
+    "message": "Your Message",
+    "messagePlaceholder": "Tell me about your project or just say hello!",
+    "send": "Send Message"
+  },
+  "footer": {
+    "description": "Data Science Master's Student & Full-Stack Developer passionate about creating innovative solutions through code and data.",
+    "quickLinks": "Quick Links",
+    "getInTouch": "Get In Touch",
+    "rights": "All rights reserved.",
+    "madeWith": "Made with"
+  }
+}
