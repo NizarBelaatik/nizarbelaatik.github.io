@@ -27,19 +27,19 @@ const Contact = () => {
     {
       icon: Mail,
       label: 'Email',
-      value: 'your.email@example.com',
-      href: 'mailto:your.email@example.com'
+      value: 'belaatiknizar@gmail.com',
+      href: 'mailto:belaatiknizar@gmail.com'
     },
     {
       icon: Phone,
       label: 'Phone',
-      value: '+1 (555) 123-4567',
+      value: '+212 650341124',
       href: 'tel:+15551234567'
     },
     {
       icon: MapPin,
       label: 'Location',
-      value: 'Your City, Country',
+      value: 'Casablanca, Morocco',
       href: '#'
     }
   ]
@@ -48,25 +48,25 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/yourusername',
+      href: 'https://github.com/NizarBelaatik',
       color: 'hover:text-gray-400'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/yourusername',
+      href: 'https://linkedin.com/in/nizar-belaatik',
       color: 'hover:text-blue-400'
     },
     {
       icon: Twitter,
       label: 'Twitter',
-      href: 'https://twitter.com/yourusername',
+      href: 'https://twitter.com/NBelaatik',
       color: 'hover:text-blue-400'
     },
     {
       icon: Mail,
       label: 'Email',
-      href: 'mailto:your.email@example.com',
+      href: 'mailto:belaatiknizar@gmail.com',
       color: 'hover:text-red-400'
     }
   ]
@@ -138,7 +138,7 @@ const Contact = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-white font-medium mb-2">
-                    Your Name
+                    Nizar Belaatik
                   </label>
                   <input
                     type="text"

@@ -10,7 +10,7 @@
   },
   "hero": {
     "title": "Hi, I'm",
-    "name": "Your Name",
+    "name": "Nizar Belaatik",
     "subtitle": "Data Science Master's Student & Full-Stack Developer",
     "description": "Passionate about transforming complex data into intelligent solutions. Specializing in Machine Learning, Deep Learning, and building scalable web applications. Currently pursuing Master's in Data Science & Big Data.",
     "viewWork": "View My Work",
@@ -124,7 +124,7 @@
     "phone": "Phone",
     "followMe": "Follow Me",
     "sendMessage": "Send Message",
-    "name": "Your Name",
+    "name": "Nizar Belaatik",
     "emailPlaceholder": "john@example.com",
     "subject": "Subject",
     "subjectPlaceholder": "Project Collaboration",

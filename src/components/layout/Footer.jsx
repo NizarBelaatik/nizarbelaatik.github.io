@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Github, Linkedin, Mail, Heart } from 'lucide-react'
+import { socialLinks, contactMethods} from '../../data/links'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -19,11 +20,7 @@ const Footer = () => {
               creating intelligent solutions through code and data.
             </p>
             <div className="flex space-x-4">
-              {[
-                { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
-                { icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-                { icon: Mail, href: "mailto:your.email@example.com", label: "Email" },
-              ].map(({ icon: Icon, href, label }) => (
+              {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
@@ -59,9 +56,9 @@ const Footer = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Get In Touch</h3>
             <div className="space-y-3 text-gray-400">
-              <p>your.email@example.com</p>
-              <p>+1 (555) 123-4567</p>
-              <p>Your City, Country</p>
+              {contactMethods.map(({ value }) => (
+                <p>{value}</p>
+              ))}
             </div>
           </div>
         </div>
@@ -69,7 +66,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <div className="text-gray-400 mb-4 md:mb-0">
-            © {currentYear} Your Name. All rights reserved.
+            © {currentYear} Nizar Belaatik. All rights reserved.
           </div>
           <div className="flex items-center text-gray-400">
             Made with <Heart size={16} className="mx-2 text-red-500" /> using React & Tailwind CSS
