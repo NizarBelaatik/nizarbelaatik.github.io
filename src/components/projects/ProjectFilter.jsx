@@ -1,22 +1,23 @@
 import React from 'react'
-import { projectCategories } from '../../data/projects'
 
-const ProjectFilter = ({ activeFilter, onFilterChange, projectsCount }) => {
+const ProjectFilter = ({ activeFilter, onFilterChange, projectsCount, categories }) => {
   return (
-    <div className="flex flex-wrap gap-3 justify-center mb-12">
-      {Object.entries(projectCategories).map(([key, label]) => (
+    <div className="flex flex-wrap justify-center gap-4 mb-8">
+      {Object.entries(categories).map(([key, label]) => (
         <button
           key={key}
           onClick={() => onFilterChange(key)}
-          className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 ${
+          className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
             activeFilter === key
-              ? 'bg-accent-blue text-white shadow-lg shadow-blue-500/25'
-              : 'bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white border border-white/10'
+              ? 'bg-accent-blue text-white shadow-lg'
+              : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
           }`}
         >
           {label}
-          <span className="ml-2 text-sm opacity-75">
-            ({key === 'all' ? projectsCount.all : projectsCount[key] || 0})
+          <span className={`px-2 py-1 rounded-full text-xs ${
+            activeFilter === key ? 'bg-blue-500' : 'bg-gray-600'
+          }`}>
+            {projectsCount[key] || 0}
           </span>
         </button>
       ))}

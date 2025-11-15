@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { Download, ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
-
+import { socialLinks, contactMethods} from '../../data/links'
 const Hero = () => {
   const { t } = useTranslation()
 
@@ -57,11 +57,7 @@ const Hero = () => {
 
         {/* Social Links */}
         <div className="flex justify-center space-x-6">
-          {[
-            { icon: Github, href: "https://github.com/yourusername", label: "GitHub" },
-            { icon: Linkedin, href: "https://linkedin.com/in/yourusername", label: "LinkedIn" },
-            { icon: Mail, href: "mailto:your.email@example.com", label: "Email" },
-          ].map(({ icon: Icon, href, label }) => (
+          {socialLinks.map(({ icon: Icon, href, label }) => (
             <a
               key={label}
               href={href}
