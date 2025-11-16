@@ -4,7 +4,7 @@ import ProjectCard from '../projects/ProjectCard'
 import ProjectFilter from '../projects/ProjectFilter'
 import { ArrowRight } from 'lucide-react'
 import projects_ENG from '../../data/projectsData'
-
+import { projectsFeatured }  from '../../data/projectSchema'
 // Define project categories based on your new structure
 const projectCategories = {
   'all': 'All Projects',
@@ -86,7 +86,7 @@ const Projects = () => {
   // Get featured projects count by category (your new projects)
   const featuredCounts = useMemo(() => {
     const counts = {}
-    const featuredProjectIds = ['rag-system', 'gan-optimization', 'blockchain-certificate']
+    const featuredProjectIds = projectsFeatured;
     
     Object.keys(projectCategories).forEach(category => {
       if (category !== 'all') {
@@ -184,7 +184,7 @@ const Projects = () => {
         {/* Call to Action */}
         <div className="text-center">
           <Link 
-            to="/portfolio"
+            to="/projects"
             className="inline-flex items-center px-6 py-3 bg-accent-blue text-white rounded-lg font-medium hover:bg-blue-600 transition-colors group"
           >
             View All Projects

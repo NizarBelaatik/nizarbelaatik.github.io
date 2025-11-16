@@ -1,6 +1,8 @@
 import React from 'react'
-import { ExternalLink, Github, Calendar, ArrowRight, Users, Building } from 'lucide-react'
+import { ExternalLink, Github, Calendar, ArrowRight, Users, Building, Images } from 'lucide-react'
 import { Link } from 'react-router-dom'
+
+
 
 const ProjectCard = ({ project, featured = false }) => {
   // Determine if it's a new project (GAN, RAG, Blockchain)
@@ -13,46 +15,17 @@ const ProjectCard = ({ project, featured = false }) => {
     return 'completed';
   };
 
-  // Extract year from date
-  const getProjectYear = (date) => {
-    if (!date) return '2024';
-    const yearMatch = date.match(/\b(20\d{2})\b/);
-    return yearMatch ? yearMatch[1] : '2024';
+  // Get the first image from the array
+  const getFirstImage = (images) => {
+    if (!images || images.length === 0) return null;
+    return Array.isArray(images) ? images[0] : images;
   };
 
-  // Get highlights from key features
-  const getHighlights = (project) => {
-    if (project.KeyFeatures && project.KeyFeatures[0]?.Data) {
-      return project.KeyFeatures[0].Data.slice(0, 3).map(feature => feature.Title.replace(':', ''));
-    }
-    return [];
-  };
-
-  // Get metrics based on project type
-  const getMetrics = (project) => {
-    const metrics = {};
-    
-    if (project.id === 'rag-system') {
-      metrics.exercises = '1.5K+';
-      metrics.accuracy = '95%';
-      metrics.models = '3+';
-    } else if (project.id === 'gan-optimization') {
-      metrics.optimizers = '4';
-      metrics.epochs = '15';
-      metrics.dataset = 'CIFAR-10';
-    } else if (project.id === 'blockchain-certificate') {
-      metrics.assets = '50+';
-      metrics.transactions = '100+';
-      metrics.security = '100%';
-    }
-    
-    return Object.keys(metrics).length > 0 ? metrics : null;
-  };
+  // Count total images
+  const imageCount = Array.isArray(project.image) ? project.image.length : 1;
 
   const status = getProjectStatus(project);
-  const year = getProjectYear(project.date);
-  const highlights = getHighlights(project);
-  const metrics = getMetrics(project);
+  const firstImage = getFirstImage(project.image);
 
   return (
     <div className={`card group hover:scale-105 transition-all duration-300 ${
@@ -61,11 +34,28 @@ const ProjectCard = ({ project, featured = false }) => {
       
       {/* Project Image */}
       <div className="relative overflow-hidden rounded-xl mb-4">
-        <img 
-          src={project.image} 
-          alt={project.title}
-          className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
-        />
+        {firstImage ? (
+          <img 
+            src={firstImage} 
+            alt={project.title}
+            className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+          />
+        ) : (
+          <div className="w-full h-48 bg-gradient-to-br from-blue-50 to-purple-50 flex items-center justify-center">
+            <span className="text-4xl">🚀</span>
+          </div>
+        )}
+        
+        {/* Image Count Badge */}
+        {imageCount > 1 && (
+          <div className="absolute top-3 right-3">
+            <span className="px-2 py-1 rounded-full bg-black/60 text-white text-xs font-semibold backdrop-blur-sm flex items-center gap-1">
+              <Images size={12} />
+              {imageCount}
+            </span>
+          </div>
+        )}
+        
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         
         {/* Badges Container */}
@@ -81,22 +71,16 @@ const ProjectCard = ({ project, featured = false }) => {
             {status}
           </span>
 
-          {/* New Project Badge */}
-          {isNewProject && (
-            <span className="px-2 py-1 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold border border-green-500/30">
-              New
-            </span>
-          )}
         </div>
 
         {/* Featured Badge */}
-        {featured && (
-          <div className="absolute top-3 right-3">
+        {/*featured && (
+          <div className="absolute top-12 left-3">
             <span className="px-2 py-1 rounded-full bg-accent-blue/20 text-accent-blue text-xs font-semibold border border-accent-blue/30">
               Featured
             </span>
           </div>
-        )}
+        )*/}
 
         {/* Hover Actions */}
         <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -131,7 +115,7 @@ const ProjectCard = ({ project, featured = false }) => {
         </div>
       </div>
 
-      {/* Project Info */}
+      {/* Rest of the ProjectCard content remains the same */}
       <div className="flex-1">
         {/* Header with title and metadata */}
         <div className="flex items-start justify-between mb-2">
@@ -144,7 +128,7 @@ const ProjectCard = ({ project, featured = false }) => {
             <div className="flex items-center gap-4 mt-1 text-sm text-gray-400">
               <span className="flex items-center">
                 <Calendar size={14} className="mr-1" />
-                {year}
+                {getProjectYear(project.date)}
               </span>
               
               {project.client_for && (
@@ -168,7 +152,7 @@ const ProjectCard = ({ project, featured = false }) => {
           {project.description}
         </p>
 
-        {/* Technologies - Enhanced */}
+        {/* Technologies */}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technology?.slice(0, 4).map((tech, index) => (
             <span 
@@ -185,40 +169,6 @@ const ProjectCard = ({ project, featured = false }) => {
           )}
         </div>
 
-        {/* Highlights */}
-        {highlights.length > 0 && (
-          <div className="mb-4">
-            <div className="text-sm text-gray-400 mb-2">Key Features:</div>
-            <div className="flex flex-wrap gap-1">
-              {highlights.slice(0, 2).map((highlight, index) => (
-                <span 
-                  key={index}
-                  className="px-2 py-1 bg-accent-blue/10 text-accent-blue text-xs rounded border border-accent-blue/20"
-                >
-                  {highlight}
-                </span>
-              ))}
-              {highlights.length > 2 && (
-                <span className="px-2 py-1 bg-white/5 text-gray-400 text-xs rounded border border-white/10">
-                  +{highlights.length - 2} more
-                </span>
-              )}
-            </div>
-          </div>
-        )}
-
-        {/* Metrics */}
-        {metrics && (
-          <div className="grid grid-cols-3 gap-2 mb-4 p-3 bg-white/5 rounded-lg">
-            {Object.entries(metrics).map(([key, value]) => (
-              <div key={key} className="text-center">
-                <div className="text-accent-blue font-bold text-sm">{value}</div>
-                <div className="text-gray-400 text-xs capitalize">{key}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
         {/* Action Button */}
         <Link 
           to={`/projects/${project.id}`}
@@ -232,4 +182,11 @@ const ProjectCard = ({ project, featured = false }) => {
   )
 }
 
-export default ProjectCard
+// Helper function to extract year
+const getProjectYear = (date) => {
+  if (!date) return '2024';
+  const yearMatch = date.match(/\b(20\d{2})\b/);
+  return yearMatch ? yearMatch[1] : '2024';
+};
+
+export default ProjectCard;

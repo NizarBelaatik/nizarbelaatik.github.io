@@ -197,3 +197,12 @@ section{
   
   --tw-gradient-to: #0a0a16 var(--tw-gradient-to-position);
 }
+
+
+
+
+@media (min-width: 1024px) {
+    .md\:flex {
+        display: flex!important;
+    }
+}
