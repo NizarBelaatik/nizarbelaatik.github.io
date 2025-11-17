@@ -8,6 +8,9 @@
     "skills": "Compétences",
     "contact": "Contact"
   },
+  "resume": {
+    "resume_link": "/resume/CV.pdf"
+  },
   "hero": {
     "title": "Bonjour, je suis",
     "name": "Votre Nom",

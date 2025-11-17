@@ -151,7 +151,8 @@ const Skills = () => {
         </div>
 
         {/* Experience Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="card text-center group hover:border-accent-blue/30">
             <div className="text-accent-blue text-3xl font-bold mb-2">3+</div>
             <div className="text-white font-semibold text-lg">{t('skills.yearsExp')}</div>
@@ -167,7 +168,8 @@ const Skills = () => {
             <div className="text-white font-semibold text-lg">{t('skills.researchPapers')}</div>
             <div className="text-gray-400 text-sm mt-1">{t('skills.peerReviewed')}</div>
           </div>
-        </div>
+        </div> */}
+        
       </div>
     </section>
   )

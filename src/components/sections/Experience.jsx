@@ -4,36 +4,26 @@ import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react'
 
 const Experience = () => {
   const { t } = useTranslation()
-
+  
   const experiences = [
     {
       id: 1,
-      title: t('experience.dataScienceIntern.title'),
-      company: t('experience.dataScienceIntern.company'),
-      location: "San Francisco, CA",
+      title: "Data Science Intern",
+      company: "WafR",
+      location: "Casablanca, Morocco",
       type: "Internship",
-      duration: t('experience.dataScienceIntern.duration'),
-      description: t('experience.dataScienceIntern.description'),
-      achievements: t('experience.dataScienceIntern.achievements', { returnObjects: true }),
-      technologies: ["Python", "Scikit-learn", "TensorFlow", "SQL", "AWS"],
-      category: "professional"
-    },
-    {
-      id: 2,
-      title: "Freelance Web Developer",
-      company: "Self-Employed",
-      location: "Remote",
-      type: "Freelance",
-      duration: "2021 - 2022",
-      description: "Built full-stack web applications for various clients across different industries.",
+      duration: "Jul 2025 — Sep 2025",
+      description: "Designed and implemented data-driven solutions for retail expansion strategy using geospatial analysis and machine learning.",
       achievements: [
-        "Developed 10+ web applications using modern frameworks",
-        "Improved client website performance by 40%",
-        "Maintained 100% client satisfaction rate"
+        "Designed and implemented a data-driven zoning system to identify and cluster potential grocery store locations across Morocco",
+        "Developed a capacity-constrained clustering algorithm integrating demographic and geographic data to balance zones by store count and population",
+        "Collected, cleaned, and analyzed large-scale geospatial datasets using Python, pandas, geopandas, and scikit-learn",
+        "Created predictive models and interactive Folium maps to support strategic retail expansion decisions"
       ],
-      technologies: ["React", "Node.js", "MongoDB", "TypeScript", "AWS"],
-      category: "professional"
-    }
+      technologies: ["Python", "pandas", "geopandas", "scikit-learn", "Folium", "Clustering Algorithms", "Geospatial Analysis"],
+      category: "internship"
+    },
+
   ]
 
   const getCategoryColor = (category) => {
@@ -128,9 +118,8 @@ const Experience = () => {
           {/* Call to Action */}
           <div className="text-center mt-12">
             <a 
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href={t('resume.resume_link')}
+              download
               className="btn-outline inline-flex items-center group"
             >
               {t('experience.viewResume')}

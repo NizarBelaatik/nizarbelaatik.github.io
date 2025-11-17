@@ -46,7 +46,7 @@ const Hero = () => {
           </a>
           
           <a 
-            href="/resume.pdf" 
+            href={t('resume.resume_link')}
             download
             className="btn-outline inline-flex items-center group"
           >

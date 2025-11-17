@@ -8,6 +8,9 @@
     "skills": "Skills",
     "contact": "Contact"
   },
+  "resume": {
+    "resume_link": "/resume/Resume.pdf"
+  },
   "hero": {
     "title": "Hi, I'm",
     "name": "Nizar Belaatik",
