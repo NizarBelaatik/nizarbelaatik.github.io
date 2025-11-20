@@ -1,11 +1,11 @@
 import React from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
-import { ThemeProvider } from './hooks/useTheme.jsx'
-import Header from './components/layout/Header.jsx'
-import Footer from './components/layout/Footer.jsx'
-import Home from './pages/Home.jsx'
-import ProjectsPage from './pages/ProjectsPage.jsx'
-import ProjectDetail from './pages/ProjectDetail.jsx'
+import { ThemeProvider } from './hooks/useTheme'
+import Header from './components/layout/Header'
+import Footer from './components/layout/Footer'
+import Home from './pages/Home'
+import ProjectsPage from './pages/ProjectsPage'
+import ProjectDetail from './pages/ProjectDetail'
 
 function App() {
   return (
