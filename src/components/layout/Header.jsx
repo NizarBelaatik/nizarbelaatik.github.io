@@ -13,13 +13,13 @@ const Header = () => {
   const navigate = useNavigate()
 
   const navigation = [
-    { name: t('nav.home'), href: '/', type: 'route' },
-    { name: t('nav.projects'), href: '/projects', type: 'route' },
-    { name: t('nav.experience'), href: '#experience', type: 'anchor' },
-    { name: t('nav.education'), href: '#education', type: 'anchor' },
-    { name: t('nav.certifications'), href: '#certifications', type: 'anchor' },
-    { name: t('nav.skills'), href: '#skills', type: 'anchor' },
-    { name: t('nav.contact'), href: '#contact', type: 'anchor' },
+    { name: t('nav.home'), href: '/', type: 'route' ,nav_name: 'home'},
+    { name: t('nav.projects'), href: '/projects', type: 'route',nav_name: 'projects' },
+    { name: t('nav.experience'), href: '#experience', type: 'anchor' ,nav_name: 'experience'},
+    { name: t('nav.education'), href: '#education', type: 'anchor', nav_name: 'education' },
+    { name: t('nav.certifications'), href: '#certifications', type: 'anchor' ,  nav_name: 'certifications'},
+    { name: t('nav.skills'), href: '#skills', type: 'anchor' , nav_name: 'skills' },
+    { name: t('nav.contact'), href: '#contact', type: 'anchor' , nav_name: 'contact' },
   ]
 
 
@@ -97,7 +97,7 @@ const Header = () => {
               ) : (
                 <Link
                   key={item.name}
-                  to={item.href}
+                  to={item.href} // for SPA routes
                   className={`text-lg font-medium transition-colors hover:text-accent-blue ${
                     location.pathname === item.href ? 'text-accent-blue' : 'text-white'
                   }`}
@@ -107,7 +107,6 @@ const Header = () => {
                 </Link>
               )
             )}
-
           </nav>
 
           {/* Right Section */}
