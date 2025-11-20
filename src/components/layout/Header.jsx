@@ -79,7 +79,7 @@ const Header = () => {
             onClick={handleHomeClick}
             className="text-2xl font-bold text-gradient cursor-pointer"
           >
-            Nizar Belaatik
+            Nizar Belaatik ......
           </a>
 
           {/* Desktop Nav */}
