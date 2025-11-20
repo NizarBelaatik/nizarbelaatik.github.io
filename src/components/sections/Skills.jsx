@@ -113,14 +113,14 @@ const Skills = () => {
                 <div className="p-3 bg-accent-blue/20 rounded-xl mr-4">
                   <category.icon size={24} className="text-accent-blue" />
                 </div>
-                <h3 className="text-2xl font-bold text-white">{category.title}</h3>
+                <h3 className="text-2xl font-bold text-primary">{category.title}</h3>
               </div>
 
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill) => (
                   <span 
                     key={skill}
-                    className="px-3 py-2 bg-white/5 rounded-lg text-white border border-white/10 hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300 text-sm"
+                    className="px-3 py-2 bg-white/5 rounded-lg text-primary border border-white/10 hover:border-accent-blue/30 hover:bg-accent-blue/10 transition-all duration-300 text-sm"
                   >
                     {skill}
                   </span>
@@ -136,7 +136,7 @@ const Skills = () => {
             <div className="p-3 bg-accent-purple/20 rounded-xl mr-4">
               <Cpu size={24} className="text-accent-purple" />
             </div>
-            <h3 className="text-2xl font-bold text-white">{t('skills.methodologies')}</h3>
+            <h3 className="text-2xl font-bold text-primary">{t('skills.methodologies')}</h3>
           </div>
           <div className="flex flex-wrap gap-3">
             {methodologies.map((method) => (
@@ -155,17 +155,17 @@ const Skills = () => {
         {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="card text-center group hover:border-accent-blue/30">
             <div className="text-accent-blue text-3xl font-bold mb-2">3+</div>
-            <div className="text-white font-semibold text-lg">{t('skills.yearsExp')}</div>
+            <div className="text-primary font-semibold text-lg">{t('skills.yearsExp')}</div>
             <div className="text-gray-400 text-sm mt-1">{t('skills.dataAiSolutions')}</div>
           </div>
           <div className="card text-center group hover:border-accent-green/30">
             <div className="text-accent-green text-3xl font-bold mb-2">50+</div>
-            <div className="text-white font-semibold text-lg">{t('skills.projectsCompleted')}</div>
+            <div className="text-primary font-semibold text-lg">{t('skills.projectsCompleted')}</div>
             <div className="text-gray-400 text-sm mt-1">{t('skills.productionApps')}</div>
           </div>
           <div className="card text-center group hover:border-accent-purple/30">
             <div className="text-accent-purple text-3xl font-bold mb-2">2</div>
-            <div className="text-white font-semibold text-lg">{t('skills.researchPapers')}</div>
+            <div className="text-primary font-semibold text-lg">{t('skills.researchPapers')}</div>
             <div className="text-gray-400 text-sm mt-1">{t('skills.peerReviewed')}</div>
           </div>
         </div> */}

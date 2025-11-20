@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------------- Base styles ---------------------- */
 @layer base {
   :root {
     --primary-dark: #0a0a16;
@@ -11,139 +12,118 @@
     --accent-green: #059669;
     --text-dark: #1e293b;
     --text-light: #64748b;
-    --s:#f8fafc;
-    --s:#f1f5f9;
   }
 
   html {
     scroll-behavior: smooth;
   }
-  
+
   body {
-    @apply bg-[#0a0a16] text-white transition-colors duration-300;
+    @apply bg-[var(--primary-dark)] text-white transition-colors duration-300;
   }
-  
+
   body.light {
-    @apply bg-gradient-to-br from-[#f8fafc] to-[#f1f5f9] text-slate-800;
+    @apply bg-[var(--primary-light)] text-slate-800;
+  }
+
+  /* Default section backgrounds using CSS variables */
+  section {
+    background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark)/80);
+    transition: background-color 0.3s;
+  }
+
+  body.light section {
+    background: linear-gradient(to bottom, var(--primary-light), #ffffff);
   }
 }
 
+
+.text-primary {
+  @apply text-white;
+}
+
+.light .text-primary {
+  @apply text-slate-800; /* or whatever light text color you prefer */
+}
+
+/* ---------------------- Components ---------------------- */
 @layer components {
   .btn-primary {
-    @apply bg-[#0066cc] text-white px-6 py-3 rounded-full font-semibold 
+    @apply bg-[var(--accent-blue)] text-white px-6 py-3 rounded-full font-semibold 
            hover:bg-blue-700 transition-all duration-300 transform hover:-translate-y-1 
            hover:shadow-lg hover:shadow-blue-500/25;
   }
-  
-  .light .btn-primary {
-    @apply bg-[#0066cc] text-white hover:bg-blue-700 hover:shadow-blue-600/25;
+
+  body.light .btn-primary {
+    @apply bg-[var(--accent-blue)] text-white hover:bg-blue-700 hover:shadow-blue-600/25;
   }
-  
+
   .btn-outline {
-    @apply border-2 border-[#00a8ff] text-[#00a8ff] px-6 py-3 rounded-full 
-           font-semibold hover:bg-[#00a8ff] hover:text-[#0a0a16] transition-all 
+    @apply border-2 border-[var(--accent-blue)] text-[var(--accent-blue)] px-6 py-3 rounded-full 
+           font-semibold hover:bg-[var(--accent-blue)] hover:text-[var(--primary-dark)] transition-all 
            duration-300 transform hover:-translate-y-1;
   }
-  
-  .light .btn-outline {
-    @apply border-[#0066cc] text-[#0066cc] hover:bg-[#0066cc] hover:text-white;
+
+  body.light .btn-outline {
+    @apply border-[var(--accent-blue)] text-[var(--accent-blue)] hover:bg-[var(--accent-blue)] hover:text-white;
   }
-  
+
   .card {
     @apply bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl 
            p-6 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300;
   }
-  
-  .light .card {
+
+  body.light .card {
     @apply bg-white/90 backdrop-blur-sm border border-slate-200 rounded-2xl 
            p-6 hover:shadow-xl hover:shadow-slate-400/20 transition-all duration-300
            hover:border-slate-300;
   }
-  
+
   .section-title {
     @apply text-4xl md:text-5xl font-bold text-center mb-4;
+    line-height: 2;
   }
-  
+
   .section-subtitle {
     @apply text-xl text-gray-400 text-center mb-12 max-w-2xl mx-auto;
   }
-  
-  .light .section-subtitle {
+
+  body.light .section-subtitle {
     @apply text-slate-600;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-[#00a8ff] to-[#8b5cf6] bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[var(--accent-blue)] to-[var(--accent-purple)] bg-clip-text text-transparent;
   }
 
-  .light .text-gradient {
+  body.light .text-gradient {
     @apply bg-gradient-to-r from-[#0066cc] to-[#7c3aed] bg-clip-text text-transparent;
   }
 
-  /* Enhanced light mode specific components */
-  .light .stat-card {
-    @apply bg-gradient-to-br from-white to-slate-50 border border-slate-200 
-           shadow-sm hover:shadow-md hover:border-slate-300;
-  }
-
-  .light .project-overview-card {
-    @apply bg-white border border-slate-200 shadow-sm hover:shadow-md 
-           hover:border-blue-200 transition-all duration-300;
-  }
-
-  .light .nav-links a {
-    @apply text-slate-700 hover:text-[#0066cc] font-medium;
-  }
-
-  .light .theme-toggle {
-    @apply bg-slate-100 border-slate-300 hover:bg-slate-200 text-slate-700;
-  }
-
-  .light footer {
-    @apply bg-white border-t border-slate-200 text-slate-700;
-  }
-
-  .light .contact-item {
-    @apply bg-slate-50 border-slate-200 text-slate-700;
-  }
-
-  .light .form-control {
-    @apply bg-white border-slate-300 text-slate-800 placeholder-slate-500;
-  }
-
-  .light .form-control:focus {
-    @apply border-[#0066cc] ring-[#0066cc] ring-2;
-  }
-
-  .light .skill {
-    @apply bg-slate-100 text-slate-800 border-slate-300 hover:bg-slate-200;
-  }
-
-  .light .timeline-content {
-    @apply bg-white border-slate-200 shadow-sm;
-  }
-
-  .light .filter-btn {
-    @apply bg-white border-slate-300 text-slate-700 hover:border-[#0066cc] 
-           hover:text-[#0066cc] transition-all duration-200;
-  }
-
-  .light .filter-btn.active {
-    @apply border-[#0066cc] bg-blue-50 text-[#0066cc] font-semibold;
-  }
-
-  .light .social-link {
-    @apply bg-slate-100 border-slate-300 text-slate-700 hover:bg-[#0066cc] 
-           hover:text-white hover:border-[#0066cc];
+  /* Light mode specific components */
+  body.light .stat-card,
+  body.light .project-overview-card,
+  body.light .nav-links a,
+  body.light .theme-toggle,
+  body.light footer,
+  body.light .contact-item,
+  body.light .form-control,
+  body.light .skill,
+  body.light .timeline-content,
+  body.light .filter-btn,
+  body.light .filter-btn.active,
+  body.light .social-link {
+    @apply transition-colors duration-300;
   }
 }
 
+/* ---------------------- Utilities ---------------------- */
 @layer utilities {
   @keyframes float {
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
   }
-  
+
   .floating {
     animation: float 6s ease-in-out infinite;
   }
@@ -152,57 +132,39 @@
     text-shadow: 0 2px 4px rgba(0,0,0,0.1);
   }
 
-  .light .text-shadow {
+  body.light .text-shadow {
     text-shadow: 0 1px 2px rgba(0,0,0,0.05);
   }
 }
 
-/* Enhanced scrollbar for both modes */
+/* ---------------------- Scrollbar ---------------------- */
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: #1f2937;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #4b5563;
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #6b7280;
 }
 
-.light ::-webkit-scrollbar-track {
+body.light ::-webkit-scrollbar-track {
   background: #e2e8f0;
 }
-
-.light ::-webkit-scrollbar-thumb {
+body.light ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border-radius: 4px;
 }
-
-.light ::-webkit-scrollbar-thumb:hover {
+body.light ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
 
-.light section{
-  background-color: #e6e6ff!important;
-  --tw-gradient-to: none;
-}
-
-section{
-  
-  --tw-gradient-to: #0a0a16 var(--tw-gradient-to-position);
-}
-
-
-
-
+/* ---------------------- Media Queries ---------------------- */
 @media (min-width: 1024px) {
-    .md\:flex {
-        display: flex!important;
-    }
+  .md\:flex {
+    display: flex!important;
+  }
 }

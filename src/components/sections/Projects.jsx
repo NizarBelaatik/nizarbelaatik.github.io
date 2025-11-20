@@ -118,11 +118,11 @@ const Projects = () => {
   }, [])
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-b from-gray-900 to-gray-800">
+    <section id="projects" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-4xl font-bold text-primary mb-4">
             Featured Projects
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -158,8 +158,9 @@ const Projects = () => {
           </div>
         )}
 
-        {/* Category Overview */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12">
+        {/* Category Overview 
+           total nbr by project*/}
+        {/*  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6 mb-12">
           {Object.entries(projectCategories)
             .filter(([key]) => key !== 'all')
             .map(([key, label]) => (
@@ -179,13 +180,14 @@ const Projects = () => {
               </div>
             ))
           }
-        </div>
+        </div> */}
+
 
         {/* Call to Action */}
         <div className="text-center">
           <Link 
             to="/projects"
-            className="inline-flex items-center px-6 py-3 bg-accent-blue text-white rounded-lg font-medium hover:bg-blue-600 transition-colors group"
+            className="inline-flex items-center px-6 py-3 bg-accent-blue text-primary rounded-lg font-medium hover:bg-blue-600 transition-colors group"
           >
             View All Projects
             <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />

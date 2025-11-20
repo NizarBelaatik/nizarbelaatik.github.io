@@ -117,108 +117,192 @@ const projects_ENG = [
   },
 
   // 2. GAN Optimization Research
-  {
-    id: "gan-optimization",
-    folderid: "gan-optimization", 
-    projectType: "research",
-    platforme: "Machine Learning Research",
-    title: "GAN Optimization: Comparative Study of Optimization Algorithms",
-    image: getProjectImages('project-gan-optimization'),
-    category: "AI Research & Computer Vision",
-    date: "2024",
-    client_for: "Academic Research",
-    role: "ML Research Engineer",
-    description: "Comprehensive research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset.",
-    github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
-    research_paper: "#",
-    
-    technology: ["PyTorch", "Python", "DCGAN", "CIFAR-10"],
-    technology_used: {
-      'ml_framework': ["PyTorch", "NumPy", "Matplotlib"],
-      'architecture': ["DCGAN", "CNN"],
-      'optimizers': ["Adam", "RMSprop", "SGD+Momentum", "Lookahead"],
-      'evaluation': ["Loss Analysis", "Visual Quality Assessment", "Mode Collapse Detection"]
-    },
-    
-    RoleResp: [{
-      Title_1: "ML Research Engineer",
-      Data: [
-        {
-          Title: "Experimental Design",
-          Data: [
-            "Designed controlled experiments comparing 4 optimization algorithms",
-            "Implemented DCGAN architecture with consistent hyperparameters",
-            "Developed evaluation metrics for training stability and output quality"
-          ]
-        },
-        {
-          Title: "Model Training & Analysis",
-          Data: [
-            "Trained multiple GAN models with different optimizers",
-            "Analyzed loss curves and convergence behavior",
-            "Evaluated mode collapse frequency and image diversity"
-          ]
-        },
-        {
-          Title: "Research Documentation",
-          Data: [
-            "Documented findings with quantitative and qualitative analysis",
-            "Created visualizations for loss curves and generated samples",
-            "Produced practical recommendations for optimizer selection"
-          ]
-        }
-      ],
-    }],
-    
-    KeyFeatures: [{
-      Title_1: null,
-      Data: [
-        {
-          Title: "Comprehensive Benchmarking",
-          Data: [
-            "Compared Adam, RMSprop, SGD+Momentum, and Lookahead optimizers",
-            "Quantitative analysis of training stability and convergence",
-            "Qualitative assessment of generated image quality and diversity"
-          ]
-        },
-        {
-          Title: "Practical Insights",
-          Data: [
-            "Identified Lookahead as most stable optimizer for GAN training",
-            "Provided optimizer selection guidelines for different use cases",
-            "Demonstrated trade-offs between convergence speed and stability"
-          ]
-        },
-        {
-          Title: "Research Methodology",
-          Data: [
-            "Controlled experiments with identical architecture and dataset",
-            "Both quantitative (loss curves) and qualitative (visual analysis) evaluation",
-            "Reproducible experimental setup and code"
-          ]
-        }
-      ],
-    }],
-    
-    VisualsMedia: {
-      ScreenShot: [
-        { 
-          image: ['gan-loss-curves.png'],
-          info: ['Comparison of generator and discriminator loss curves across optimizers']
-        },
-        { 
-          image: ['gan-samples.png'],
-          info: ['Generated image samples showing evolution across training epochs']
-        }
-      ],
-      Diagrams: [
-        { 
-          image: ['gan-architecture.png'],
-          info: ['DCGAN architecture diagram and experimental setup']
-        }
-      ]
-    },
+  
+
+
+
+
+
+
+
+
+
+
+
+// In your projects_ENG array, add the GAN project:
+
+{
+  id: "gan-optimization",
+  folderid: "gan-optimization", 
+  projectType: "research",
+  platforme: "Machine Learning Research",
+  title: "GAN Optimization: Comparative Study of Optimization Algorithms",
+  image: getProjectImages('project-gan-optimization'),
+  category: "Deep Learning & GANs",
+  date: "Jun-2025",
+  client_for: "Academic Research",
+  role: "ML Research Engineer",
+  description: "Comprehensive research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset.",
+  github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
+  research_paper: "#",
+  
+  technology: ["PyTorch", "Python", "DCGAN", "CIFAR-10", "Adam", "RMSprop", "SGD", "Lookahead"],
+  technology_used: {
+    'ml_framework': ["PyTorch", "NumPy", "Matplotlib", "Seaborn"],
+    'architecture': ["DCGAN", "CNN", "Generator-Discriminator"],
+    'optimizers': ["Adam", "RMSprop", "SGD+Momentum", "Lookahead"],
+    'dataset': ["CIFAR-10", "Image Processing"],
+    'evaluation': ["Loss Analysis", "FID Score", "Visual Quality Assessment", "Mode Collapse Detection"]
   },
+  
+  researchResults: {
+    fidScores: [
+      { optimizer: "SGD with Momentum", score: 284.68, rank: 1 },
+      { optimizer: "RMSprop", score: 286.49, rank: 2 },
+      { optimizer: "Lookahead", score: 293.12, rank: 3 },
+      { optimizer: "Adam", score: 294.13, rank: 4 }
+    ],
+    keyFindings: [
+      "Lookahead showed the most stable convergence with minimal oscillations",
+      "Adam converged fastest but exhibited occasional instability",
+      "SGD with Momentum provided steady but slower improvement",
+      "RMSprop was prone to divergence and repetitive patterns"
+    ]
+  },
+  
+  RoleResp: [{
+    Title_1: "ML Research Engineer",
+    Data: [
+      {
+        Title: "Experimental Design & Implementation",
+        Data: [
+          "Designed controlled experiments comparing 4 optimization algorithms on DCGAN architecture",
+          "Implemented consistent training pipeline with PyTorch on CIFAR-10 dataset",
+          "Developed evaluation metrics including FID scores and loss analysis"
+        ]
+      },
+      {
+        Title: "Performance Analysis",
+        Data: [
+          "Calculated Fréchet Inception Distance (FID) for quantitative comparison",
+          "Analyzed training stability through loss curve visualization",
+          "Evaluated visual quality and diversity across 15 training epochs"
+        ]
+      }
+    ],
+  }],
+  
+  KeyFeatures: [{
+    Title_1: "Research Methodology",
+    Data: [
+      {
+        Title: "Comprehensive Benchmarking",
+        Data: [
+          "Systematic comparison of Adam, RMSprop, SGD+Momentum, and Lookahead optimizers",
+          "Quantitative analysis using loss curves and Fréchet Inception Distance (FID)",
+          "Qualitative assessment through visual inspection of generated samples"
+        ]
+      },
+      {
+        Title: "Technical Implementation",
+        Data: [
+          "DCGAN architecture with consistent hyperparameters across all experiments",
+          "Training on CIFAR-10 dataset (60,000 images, 10 classes)",
+          "15 epochs training with batch size 64 and binary cross-entropy loss"
+        ]
+      },
+      {
+        Title: "Key Findings & Insights",
+        Data: [
+          "Identified Lookahead as most stable optimizer with smooth convergence",
+          "Adam showed fastest convergence but occasional instability",
+          "SGD with Momentum provided stable but slower training progression",
+          "RMSprop exhibited sensitivity to adversarial dynamics"
+        ]
+      }
+    ],
+  }],
+  
+  ChallSolu: [{
+    Title_1: "Research Challenges & Solutions",
+    Data: [
+      {
+        Title: "Training Instability & Mode Collapse",
+        Data: [
+          "Challenge: GAN training prone to divergence and mode collapse with certain optimizers",
+          "Solution: Implemented Lookahead optimizer and careful hyperparameter tuning",
+          "Result: Achieved stable training with diverse output generation"
+        ]
+      },
+      {
+        Title: "Objective Evaluation Metrics",
+        Data: [
+          "Challenge: Subjective nature of GAN evaluation makes comparison difficult",
+          "Solution: Combined quantitative (FID scores, loss curves) and qualitative (visual inspection) methods",
+          "Result: Comprehensive assessment of both stability and output quality"
+        ]
+      },
+      {
+        Title: "Reproducible Research",
+        Data: [
+          "Challenge: Ensuring consistent experimental conditions across optimizer comparisons",
+          "Solution: Standardized architecture, dataset, and training procedures",
+          "Result: Fair and reproducible benchmarking of optimization algorithms"
+        ]
+      }
+    ],
+  }],
+  
+  VisualsMedia: {
+    ScreenShot: [
+      { 
+        image: ['gan-loss-curves.png', 'gan-comparison.png'],
+        info: ['Generator and discriminator loss curves across optimizers', 'Comparative analysis of training stability']
+      },
+      { 
+        image: ['gan-samples-evolution.png', 'gan-epoch-comparison.png'],
+        info: ['Generated image progression across training epochs', 'Visual quality comparison at different training stages']
+      }
+    ],
+    Diagrams: [
+      { 
+        image: ['gan-architecture.png', 'gan-experimental-setup.png'],
+        info: ['DCGAN architecture diagram', 'Experimental setup and methodology flowchart']
+      }
+    ],
+    ResearchData: [
+      {
+        image: ['gan-fid-scores.png', 'gan-results-table.png'],
+        info: ['FID score comparison across optimizers', 'Quantitative results summary table']
+      }
+    ]
+  },
+  
+  // Add specific metrics for this project
+  metrics: {
+    optimizers_tested: "4",
+    training_epochs: "15",
+    dataset_size: "60,000 images",
+    best_fid_score: "284.68 (SGD)",
+    key_finding: "Lookahead = Most Stable"
+  }
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   // 3. Blockchain Certificate Registry
   {
@@ -230,7 +314,7 @@ const projects_ENG = [
     image: getProjectImages('project-blockchain-certificate'),
     category: "Blockchain & Web3",
     date: "2024", 
-    client_for: "Personal Project",
+    client_for: "Academic Project",
     role: "Blockchain Full-Stack Developer",
     description: "A full-stack decentralized application for registering and managing digital certificates on the Ethereum blockchain. Users can register file hashes, transfer ownership, and manage digital assets securely.",
     github_link: "https://github.com/NizarBelaatik/digital-ownership-dapp",
@@ -583,7 +667,7 @@ const projects_ENG = [
     },
 
     {
-      id: "2",
+      id: "student-life-management-system",
       folderid:"2",
       projectType:"web",
       platforme:"Web Application: The system is a web-based platform accessible via modern web browsers. This allows students, administrators, and responsible personnel to interact with the system from any device with an internet connection.",
@@ -592,7 +676,7 @@ const projects_ENG = [
       category: "Education Management System: This application falls under the category of educational management systems, focusing on enhancing administrative efficiency and improving student services. It supports functionalities like schedule management, document handling, and communication within an academic institution.",
       date:"February 2023 - June 2023",
       project_for:"Faculte Des science Ben M'Sik",
-      client_for:'',
+      client_for:'Academic Project',
       role: "Full-Stack",
       description: "The Student Life Management System is a web application designed to streamline student interactions with their academic institution. It facilitates the management of various aspects such as scheduling, document requests, and administrative tasks. The system aims to enhance the student experience by providing a user-friendly platform for accessing and managing academic and administrative services.",
       github_link: "#",

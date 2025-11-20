@@ -1,13 +1,24 @@
 const getProjectImages = (projectFolder) => {
-  // Glob imports all images under /public/images/projects
-  const modules = import.meta.glob('/public/images/projects/**/*.{png,jpg,jpeg,svg}', {
-    eager: true, // immediately import so we can use URLs
-    import: 'default'
-  });
+  try {
+    const modules = import.meta.glob('/public/images/projects/**/*.{png,jpg,jpeg,svg}', {
+      eager: true,
+      import: 'default'
+    });
 
-  return Object.keys(modules)
-    .filter(path => path.includes(`/projects/${projectFolder}/`))
-    .map(path => modules[path]);
+    const projectImages = Object.keys(modules)
+      .filter(path => path.includes(`/projects/${projectFolder}/`))
+      .map(path => modules[path]);
+
+    // Fallback if no images found
+    if (projectImages.length === 0) {
+      return ['/images/projects/default-research.png'];
+    }
+
+    return projectImages;
+  } catch (error) {
+    console.warn(`Could not load images for ${projectFolder}:`, error);
+    return ['/images/projects/default-research.png'];
+  }
 };
 
 export default getProjectImages;

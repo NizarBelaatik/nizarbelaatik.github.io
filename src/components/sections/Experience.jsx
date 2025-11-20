@@ -4,8 +4,9 @@ import { Calendar, MapPin, ExternalLink, Briefcase } from 'lucide-react'
 
 const Experience = () => {
   const { t } = useTranslation()
-  
-  const experiences = [
+  //const experiences = t('experiences')
+  const experiences = t("experiences", { returnObjects: true });
+  const experiences2 = [
     {
       id: 1,
       title: "Data Science Intern",
@@ -52,12 +53,12 @@ const Experience = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="space-y-8">
-            {experiences.map((exp, index) => (
+            {experiences.map((exp) => (
               <div key={exp.id} className="card group hover:border-accent-blue/30 transition-all duration-300">
                 <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between mb-4">
                   <div className="flex-1">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-2">
-                      <h3 className="text-xl font-bold text-white group-hover:text-accent-blue transition-colors">
+                      <h3 className="text-xl font-bold text-primary group-hover:text-accent-blue transition-colors">
                         {exp.title}
                       </h3>
                       <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getCategoryColor(exp.category)}`}>
@@ -85,25 +86,23 @@ const Experience = () => {
                   </div>
                 </div>
 
-                {/* Achievements */}
                 {exp.achievements && (
                   <div className="mb-4">
-                    <h4 className="text-white font-semibold mb-2">Key Achievements:</h4>
+                    <h4 className="text-primary font-semibold mb-2">Key Achievements:</h4>
                     <ul className="space-y-1">
-                      {exp.achievements.map((achievement, idx) => (
+                      {exp.achievements.map((ach, idx) => (
                         <li key={idx} className="text-gray-400 text-sm flex items-start">
                           <span className="text-accent-blue mr-2">•</span>
-                          {achievement}
+                          {ach}
                         </li>
                       ))}
                     </ul>
                   </div>
                 )}
 
-                {/* Technologies */}
                 <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech, idx) => (
-                    <span 
+                    <span
                       key={idx}
                       className="px-3 py-1 bg-white/5 rounded-lg text-sm text-gray-300 border border-white/10"
                     >
@@ -114,19 +113,8 @@ const Experience = () => {
               </div>
             ))}
           </div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-12">
-            <a 
-              href={t('resume.resume_link')}
-              download
-              className="btn-outline inline-flex items-center group"
-            >
-              {t('experience.viewResume')}
-              <ExternalLink size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-            </a>
-          </div>
         </div>
+
       </div>
     </section>
   )

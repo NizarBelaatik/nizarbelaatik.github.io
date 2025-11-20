@@ -3,7 +3,7 @@
     "home": "Accueil",
     "projects": "Projets",
     "experience": "Expérience",
-    "education": "Éducation",
+    "education": "Formation",
     "certifications": "Certifications",
     "skills": "Compétences",
     "contact": "Contact"
@@ -11,26 +11,55 @@
   "resume": {
     "resume_link": "/resume/CV.pdf"
   },
+  "status": {
+    "completed": "Terminé",
+    "research": "Recherche",
+    "inProgress": "En Cours",
+    "current": "Actuel"
+  },
+  "categories": {
+    "all": "Tous",
+    "webDev": "Développement Web",
+    "mobile": "Développement Mobile",
+    "ai": "Intelligence Artificielle",
+    "machineLearning": "Apprentissage automatique",
+    "machine-learning": "Apprentissage automatique",
+    "deepLearning": "Deep Learning",
+    "deep-learning": "Deep Learning",
+    "dataScience": "Data Science",
+    "data-analytics": "Analyse de données",
+    "research": "Articles de recherche",
+    "computerVision": "Vision par ordinateur",
+    "nlp": "Traitement du langage naturel",
+    "bigData": "Big Data",
+    "cloud": "Cloud & DevOps",
+    "data-engineering": "Ingénierie des données",
+    "programming": "Programmation",
+    "project-management": "Gestion de projet",
+    "professional": "Compétences professionnelles"
+  },
+
   "hero": {
     "title": "Bonjour, je suis",
-    "name": "Votre Nom",
-    "subtitle": "Étudiant en Master Data Science & Développeur Full-Stack",
-    "description": "Passionné par la transformation de données complexes en solutions intelligentes. Spécialisé en Machine Learning, Deep Learning et développement d'applications web évolutives. Actuellement en Master Data Science & Big Data.",
-    "viewWork": "Voir Mon Travail",
+    "name": "Nizar Belaatik",
+    "subtitle": "Étudiant en Master Data Science & Passionné d'IA",
+    "description": "Étudiant en dernière année de Master Data Science & Big Data, spécialisé en Deep Learning, IA Générative et solutions data scalables. Je développe des applications intelligentes qui relient la recherche de pointe à l'implémentation pratique.",
+    "viewWork": "Voir Mes Projets",
     "getInTouch": "Me Contacter",
     "downloadCV": "Télécharger CV"
   },
   "about": {
     "title": "À Propos",
-    "subtitle": "Découvrez la personne derrière le code",
-    "content1": "Je suis un étudiant passionné en Master Data Science, spécialisé en Machine Learning, Deep Learning et technologies Big Data. Actuellement en dernière année, je me concentre sur la transformation de données complexes en insights actionnables et solutions intelligentes.",
-    "content2": "Avec une solide base en ingénierie logicielle et science des données, je fais le lien entre les modèles théoriques et les applications pratiques. J'aime construire des solutions de bout en bout qui résolvent des problèmes réels.",
-    "content3": "Quand je ne code pas ou n'analyse pas de données, vous pouvez me trouver en train d'explorer de nouvelles technologies, de contribuer à des projets open-source, ou d'écrire sur mon parcours d'apprentissage.",
-    "yearsExp": "Années d'Expérience",
-    "projectsCompleted": "Projets Complétés",
-    "researchPapers": "Articles de Recherche",
-    "viewStory": "Voir Mon Parcours"
+    "subtitle": "Spécialiste Data Science avec Expertise Full-Stack",
+    "content1": "Je suis étudiant en 2ème année de Master Data Science & Big Data, spécialisé en Data Science avec focus sur le Deep Learning, l'IA Générative et les techniques avancées de machine learning.",
+    "content2": "Mon parcours académique m'a doté d'une expertise complète à travers le spectre des données—de l'analyse statistique et du machine learning aux technologies Big Data et l'infrastructure cloud. J'ai une expérience pratique avec Hadoop, Spark, Kafka et les systèmes distribués.",
+    "content3": "À travers 15+ projets diversifiés, j'ai développé des compétences pratiques dans la construction de solutions IA de bout en bout, de la collecte et du traitement des données au déploiement de modèles et au développement d'applications web.",
+    "mastersYear": "2ème Année",
+    "projectsCompleted": "Projets Techniques",
+    "aiSpecialization": "Spécialisation IA",
+    "viewStory": "Voir Projets"
   },
+  
   "skills": {
     "title": "Expertise Technique",
     "subtitle": "Compétences complètes en science des données, IA, ingénierie logicielle et technologies cloud",
@@ -48,38 +77,77 @@
   },
   "experience": {
     "title": "Expérience Professionnelle",
-    "subtitle": "Mon expérience professionnelle et parcours",
-    "dataScienceIntern": {
-      "title": "Stagiaire Data Science",
-      "company": "Entreprise Technologique",
-      "duration": "Juin 2023 - Août 2023",
-      "description": "Développement de modèles de machine learning pour l'analyse prédictive et la segmentation client.",
+    "subtitle": "Mon expérience professionnelle et parcours"
+  },
+  "experiences": [
+    {
+      "id": 1,
+      "title": "Stagiaire en Data Science",
+      "company": "WafR",
+      "location": "Casablanca, Maroc",
+      "type": "Stage",
+      "duration": "Juil 2025 — Sep 2025",
+      "description": "Conception et mise en œuvre de solutions data-driven pour la stratégie d’expansion retail en utilisant l’analyse géospatiale et le machine learning.",
       "achievements": [
-        "Développé un modèle de prédiction de désabonnement avec 92% de précision",
-        "Implémenté des pipelines de données pour l'analyse en temps réel",
-        "Collaboré avec des équipes transverses pour déployer des modèles ML"
+        "Conçu et implémenté un système de zonage basé sur les données pour identifier et regrouper les emplacements potentiels de points de vente à travers le Maroc",
+        "Développé un algorithme de clustering sous contraintes intégrant des données démographiques et géographiques afin d’équilibrer les zones selon le nombre de magasins et la population",
+        "Collecté, nettoyé et analysé de grands ensembles de données géospatiales à l’aide de Python, pandas, geopandas et scikit-learn",
+        "Créé des modèles prédictifs et des cartes interactives Folium pour appuyer les décisions stratégiques d’expansion retail"
+      ],
+      "technologies": ["Python", "pandas", "geopandas", "scikit-learn", "Folium", "Algorithmes de Clustering", "Analyse Géospatiale"],
+      "category": "internship"
+    }
+  ],
+  "education": {
+    "title": "Formation",
+    "subtitle": "Mon parcours académique et qualifications",
+    "achievementsTitle": "Réalisations Clés",
+    "coursesTitle": "Cours Pertinents",
+    "masters": {
+      "label": "Master",
+      "degree": "Master en Data Science & Big Data",
+      "university": "Faculté des Sciences Ben M'Sik, UH2C",
+      "location": "Casablanca, Maroc",
+      "duration": "2024 - 2026",
+      "description": "Spécialisé en parcours Data Science avec focus sur le Deep Learning, l'IA Générative, le Machine Learning et les technologies Big Data. Formation complète alliant fondements théoriques et applications pratiques.",
+      "achievements": [
+        "Spécialisé en parcours Data Science avec focus Deep Learning et IA Générative",
+        "Expérience pratique avec Hadoop, Spark, Kafka et systèmes distribués",
+        "Multiples projets de recherche en IA incluant optimisation GAN et systèmes RAG",
+        "Développement de projets de bout en bout, de la collecte de données au déploiement"
+      ],
+      "relevantCourses": [
+        "Deep Learning", "IA Générative", "Machine Learning", "Traitement du Langage Naturel", 
+        "Vision par Ordinateur", "Analyse de Big Data", "Méthodes Statistiques", "Fouille de Données",
+        "Systèmes Distribués", "Cloud Computing", "Ingénierie des Données", "Python pour la Data Science"
       ]
     },
-    "viewResume": "Voir CV Complet"
-  },
-  "education": {
-    "title": "Éducation",
-    "subtitle": "Mon parcours académique et qualifications",
-    "masters": {
-      "degree": "Master Data Science & Big Data",
-      "university": "Nom de l'Université",
-      "duration": "Sep 2022 - Présent",
-      "description": "Étudiant en dernière année, spécialisé en machine learning, deep learning et technologies big data.",
+    "bachelors": {
+      "label": "Licence",
+      "degree": "Licence en Sciences Informatiques",
+      "university": "Faculté des Sciences Ben M'Sik, UH2C",
+      "location": "Casablanca, Maroc",
+      "duration": "2020 - 2023",
+      "description": "Fondation complète en principes informatiques avec focus sur les algorithmes, structures de données, ingénierie logicielle et développement web.",
       "achievements": [
-        "Moyenne: 3.8/4.0",
-        "Recherche focalisée sur TALN et Vision par Ordinateur",
-        "Assistant d'enseignement pour le cours Machine Learning"
+        "Solide base en ingénierie logicielle et développement web",
+        "Expérience avec des projets de développement full-stack",
+        "Expertise en conception et gestion de bases de données",
+        "Compétences en conception et optimisation d'algorithmes"
+      ],
+      "relevantCourses": [
+        "Structures de Données & Algorithmes", "Systèmes de Bases de Données", "Ingénierie Logicielle",
+        "Systèmes d'Exploitation", "Réseaux Informatiques", "Développement Web", "Programmation Orientée Objet",
+        "Statistiques & Probabilités", "Algèbre Linéaire", "Analyse & Conception de Systèmes"
       ]
     }
   },
+
   "certifications": {
     "title": "Certifications",
-    "subtitle": "Certifications professionnelles et compétences validées"
+    "subtitle": "Certifications professionnelles et compétences validées",
+    "completedTitle": "Certifications Complétées",
+    "show":"Voir le certificat"
   },
 
   "projects": {
@@ -113,6 +181,27 @@
       "research": "Recherche",
       "inProgress": "En Cours"
     }
+  },
+  
+  "projectDetail": {
+    "title": "Détails du Projet",
+    "notFound": "Projet Non Trouvé",
+    "backToProjects": "Retour aux Projets",
+    "featured": "En Vedette",
+    "viewCode": "Voir le Code",
+    "liveDemo": "Démo Live",
+    "viewResearch": "Voir la Recherche",
+    "roleResponsibilities": "Rôle & Responsabilités",
+    "keyFeatures": "Fonctionnalités Principales",
+    "challengesSolutions": "Défis & Solutions",
+    "keyHighlights": "Points Clés",
+    "projectMetrics": "Métriques du Projet",
+    "technologyStack": "Stack Technologique",
+    "researchPaper": "Article de recherche",
+    "methodology": "Méthodologie",
+    "findings": "Résultats clés",
+    "experimentalSetup": "Configuration expérimentale"
+
   },
   "contact": {
     "title": "Me Contacter",

@@ -8,29 +8,61 @@
     "skills": "Skills",
     "contact": "Contact"
   },
+  "status": {
+    "completed": "Completed",
+    "research": "Research",
+    "inProgress": "In Progress",
+    "current": "Current"
+  },
+  "categories": {
+    "all": "All",
+    "webDev": "Web Development",
+    "mobile": "Mobile Development",
+    "ai": "Artificielle Intelligente",
+    "machineLearning": "Machine Learning",
+    "machine-learning": "Machine Learning",
+    "deepLearning": "Deep Learning",
+    "deep-learning": "Deep Learning",
+    "dataScience": "Data Science",
+    "data-analytics": "Data Analytics",
+    "research": "Research Papers",
+    "computerVision": "Computer Vision",
+    "nlp": "Natural Language Processing",
+    "bigData": "Big Data",
+    "cloud": "Cloud & DevOps",
+    "data-engineering": "Data Engineering",
+    "programming": "Programming",
+    "project-management": "Project Management",
+    "professional": "Professional Skills"
+  },
+
+
   "resume": {
     "resume_link": "/resume/Resume.pdf"
   },
+  
+  
   "hero": {
     "title": "Hi, I'm",
-    "name": "Nizar Belaatik",
-    "subtitle": "Data Science Master's Student & Full-Stack Developer",
-    "description": "Passionate about transforming complex data into intelligent solutions. Specializing in Machine Learning, Deep Learning, and building scalable web applications. Currently pursuing Master's in Data Science & Big Data.",
-    "viewWork": "View My Work",
-    "getInTouch": "Get In Touch",
-    "downloadCV": "Download CV"
+    "name": "Nizar Belaatik", 
+    "subtitle": "Data Science Master's Student & AI Enthusiast",
+    "description": "Final-year Master's candidate in Data Science & Big Data, specializing in Deep Learning, Generative AI, and scalable data solutions. Building intelligent applications that bridge cutting-edge research with practical implementation.",
+    "viewWork": "View My Projects",
+    "getInTouch": "Get In Touch", 
+    "downloadCV": "Download Resume"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Get to know the person behind the code",
-    "content1": "I'm a passionate Data Science Master's student specializing in Machine Learning, Deep Learning, and Big Data technologies. Currently in my final year, I'm focused on transforming complex data into actionable insights and intelligent solutions.",
-    "content2": "With a strong foundation in both software engineering and data science, I bridge the gap between theoretical models and practical applications. I love building end-to-end solutions that solve real-world problems.",
-    "content3": "When I'm not coding or analyzing data, you can find me exploring new technologies, contributing to open-source projects, or writing about my learning journey.",
-    "yearsExp": "Years Experience",
-    "projectsCompleted": "Projects Completed",
-    "researchPapers": "Research Papers",
-    "viewStory": "View My Story"
+    "subtitle": "Data Science Specialist with Full-Stack Expertise",
+    "content1": "I am a 2nd-year Master's student in Data Science & Big Data, specializing in the Data Science track with focus on Deep Learning, Generative AI, and advanced machine learning techniques.",
+    "content2": "My academic journey has equipped me with comprehensive expertise across the data spectrum—from statistical analysis and machine learning to big data technologies and cloud infrastructure. I've hands-on experience with Hadoop, Spark, Kafka, and distributed systems.",
+    "content3": "Through 15+ diverse projects, I've developed practical skills in building end-to-end AI solutions, from data collection and processing to model deployment and web application development.",
+    "mastersYear": "2nd Year",
+    "projectsCompleted": "Technical Projects", 
+    "aiSpecialization": "AI Specialization",
+    "viewStory": "View Projects"
   },
+
   "skills": {
     "title": "Technical Expertise",
     "subtitle": "Comprehensive skills across data science, AI, software engineering, and cloud technologies",
@@ -46,41 +78,80 @@
     "productionApps": "Production ML & Web Apps",
     "peerReviewed": "Peer-Reviewed Publications"
   },
-    "experience": {
+  "experience": {
     "title": "Professional Experience",
-    "subtitle": "My work experience and professional journey",
-    "dataScienceIntern": {
-      "title": "Data Science Intern",
-      "company": "Tech Company Inc.",
-      "duration": "Jun 2023 - Aug 2023",
-      "description": "Worked on developing machine learning models for predictive analytics and customer segmentation.",
-      "achievements": [
-        "Developed a customer churn prediction model with 92% accuracy",
-        "Implemented data pipelines for real-time analytics",
-        "Collaborated with cross-functional teams to deploy ML models"
-      ]
-    },
-    "viewResume": "View Full Resume"
+    "subtitle": "My work experience and professional journey"
   },
+  "experiences": [
+    {
+      "id": 1,
+      "title": "Data Science Intern",
+      "company": "WafR",
+      "location": "Casablanca, Morocco",
+      "type": "Internship",
+      "duration": "Jul 2025 — Sep 2025",
+      "description": "Designed and implemented data-driven solutions for retail expansion strategy using geospatial analysis and machine learning.",
+      "achievements": [
+        "Designed and implemented a data-driven zoning system to identify and cluster potential grocery store locations across Morocco",
+        "Developed a capacity-constrained clustering algorithm integrating demographic and geographic data to balance zones by store count and population",
+        "Collected, cleaned, and analyzed large-scale geospatial datasets using Python, pandas, geopandas, and scikit-learn",
+        "Created predictive models and interactive Folium maps to support strategic retail expansion decisions"
+      ],
+      "technologies": ["Python", "pandas", "geopandas", "scikit-learn", "Folium", "Clustering Algorithms", "Geospatial Analysis"],
+      "category": "internship"
+    }
+  ],
 
   "education": {
     "title": "Education",
     "subtitle": "My academic background and qualifications",
+    "achievementsTitle": "Key Achievements",
+    "coursesTitle": "Relevant Coursework",
     "masters": {
+      "label": "Master's Degree",
       "degree": "Master's in Data Science & Big Data",
-      "university": "University Name",
-      "duration": "Sep 2022 - Present",
-      "description": "Final year student specializing in machine learning, deep learning, and big data technologies.",
+      "university": "Faculté des Sciences Ben M'Sik, UH2C",
+      "location": "Casablanca, Morocco",
+      "duration": "2024 - 2026",
+      "description": "Specialized in Data Science track with focus on Deep Learning, Generative AI, Machine Learning, and Big Data technologies. Comprehensive training in both theoretical foundations and practical applications.",
       "achievements": [
-        "GPA: 3.8/4.0",
-        "Research focus on NLP and Computer Vision",
-        "Teaching Assistant for Machine Learning course"
+        "Specialized in Data Science track with Deep Learning and Generative AI focus",
+        "Hands-on experience with Hadoop, Spark, Kafka, and distributed systems",
+        "Multiple AI research projects including GAN optimization and RAG systems",
+        "End-to-end project development from data collection to deployment"
+      ],
+      "relevantCourses": [
+        "Deep Learning", "Generative AI", "Machine Learning", "Natural Language Processing", 
+        "Computer Vision", "Big Data Analytics", "Statistical Methods", "Data Mining",
+        "Distributed Systems", "Cloud Computing", "Data Engineering", "Python for Data Science"
+      ]
+    },
+    "bachelors": {
+      "label": "Bachelor's Degree",
+      "degree": "Bachelor of Science in Computer Science",
+      "university": "Faculté des Sciences Ben M'Sik, UH2C",
+      "location": "Casablanca, Morocco",
+      "duration": "2020 - 2023",
+      "description": "Comprehensive foundation in computer science principles with focus on algorithms, data structures, software engineering, and web development.",
+      "achievements": [
+        "Strong foundation in software engineering and web development",
+        "Experience with full-stack development projects",
+        "Database design and management expertise",
+        "Algorithm design and optimization skills"
+      ],
+      "relevantCourses": [
+        "Data Structures & Algorithms", "Database Systems", "Software Engineering",
+        "Operating Systems", "Computer Networks", "Web Development", "Object-Oriented Programming",
+        "Statistics & Probability", "Linear Algebra", "System Analysis & Design"
       ]
     }
   },
+
   "certifications": {
     "title": "Certifications",
-    "subtitle": "Professional certifications and validated skills"
+    "subtitle": "Professional certifications and validated skills",
+    "completedTitle": "Completed Certifications",
+    "show":"Show Credential"
   },
 
 
@@ -116,6 +187,25 @@
       "research": "Research",
       "inProgress": "In Progress"
     }
+  },
+  "projectDetail": {
+    "title": "Project Details",
+    "notFound": "Project Not Found",
+    "backToProjects": "Back to Projects",
+    "featured": "Featured",
+    "viewCode": "View Code",
+    "liveDemo": "Live Demo",
+    "viewResearch": "View Research",
+    "roleResponsibilities": "Role & Responsibilities",
+    "keyFeatures": "Key Features",
+    "challengesSolutions": "Challenges & Solutions",
+    "keyHighlights": "Key Highlights",
+    "projectMetrics": "Project Metrics",
+    "technologyStack": "Technology Stack",
+    "researchPaper": "Research Paper",
+    "methodology": "Methodology",
+    "findings": "Key Findings",
+    "experimentalSetup": "Experimental Setup"
   },
   "contact": {
     "title": "Get In Touch",

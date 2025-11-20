@@ -49,7 +49,7 @@ const ProjectCard = ({ project, featured = false }) => {
         {/* Image Count Badge */}
         {imageCount > 1 && (
           <div className="absolute top-3 right-3">
-            <span className="px-2 py-1 rounded-full bg-black/60 text-white text-xs font-semibold backdrop-blur-sm flex items-center gap-1">
+            <span className="px-2 py-1 rounded-full bg-black/60 text-primary text-xs font-semibold backdrop-blur-sm flex items-center gap-1">
               <Images size={12} />
               {imageCount}
             </span>
@@ -120,7 +120,7 @@ const ProjectCard = ({ project, featured = false }) => {
         {/* Header with title and metadata */}
         <div className="flex items-start justify-between mb-2">
           <div className="flex-1">
-            <h3 className="text-xl font-bold text-white group-hover:text-accent-blue transition-colors line-clamp-1">
+            <h3 className="text-xl font-bold text-primary group-hover:text-accent-blue transition-colors line-clamp-1">
               {project.title}
             </h3>
             
@@ -172,7 +172,7 @@ const ProjectCard = ({ project, featured = false }) => {
         {/* Action Button */}
         <Link 
           to={`/projects/${project.id}`}
-          className="w-full bg-accent-blue text-white py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition-colors font-medium flex items-center justify-center"
+          className="w-full bg-accent-blue text-primary py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition-colors font-medium flex items-center justify-center"
         >
           View Details
           <ArrowRight size={16} className="ml-2" />

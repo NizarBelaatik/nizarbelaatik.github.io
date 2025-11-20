@@ -26,7 +26,7 @@ const Footer = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 bg-white/5 rounded-lg hover:bg-accent-blue hover:text-white transition-all duration-300 transform hover:scale-110"
+                  className="p-3 bg-white/5 rounded-lg hover:bg-accent-blue hover:text-primary transition-all duration-300 transform hover:scale-110"
                   aria-label={label}
                 >
                   <Icon size={20} />
@@ -37,7 +37,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-primary font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-3">
               {['Home', 'Projects', 'About', 'Contact'].map((item) => (
                 <li key={item}>
@@ -54,7 +54,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-white font-semibold mb-4">Get In Touch</h3>
+            <h3 className="text-primary font-semibold mb-4">Get In Touch</h3>
             <div className="space-y-3 text-gray-400">
               {contactMethods.map(({ value }) => (
                 <p>{value}</p>
@@ -64,12 +64,9 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
-          <div className="text-gray-400 mb-4 md:mb-0">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center flex items-center">
+          <div className="text-gray-400 mb-4 md:mb-0 ">
             © {currentYear} Nizar Belaatik. All rights reserved.
-          </div>
-          <div className="flex items-center text-gray-400">
-            Made with <Heart size={16} className="mx-2 text-red-500" /> using React & Tailwind CSS
           </div>
         </div>
       </div>

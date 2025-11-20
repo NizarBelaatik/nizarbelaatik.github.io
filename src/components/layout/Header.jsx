@@ -110,12 +110,15 @@ const Header = () => {
           <div className="flex items-center space-x-4">
             <LanguageSwitcher />
 
-            <button
+            {/* dark/light mode toggle*/}
+            {/*  <button
               onClick={toggleTheme}
               className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
             >
               {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
             </button>
+            */}
+           
 
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}

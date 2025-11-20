@@ -72,26 +72,29 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="section-title text-gradient">
-            Get In Touch
-          </h2>
-          <p className="section-subtitle">
-            Have a project in mind or want to collaborate? I'd love to hear from you!
+  <section id="contact" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80">
+    <div className="container mx-auto px-6">
+      
+      {/* Section Title */}
+      <div className="text-center mb-16">
+        <h2 className="section-title text-gradient">Get In Touch</h2>
+        <p className="section-subtitle">
+          Have a project in mind or want to collaborate? I'd love to hear from you!
+        </p>
+      </div>
+
+      {/* One Column Layout */}
+      <div className="max-w-5xl mx-auto space-y-12 mx-auto space-y-12">
+
+        {/* Header */}
+        <div className="text-center">
+          <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
+          <p className="text-gray-400 mb-8">
+            I'm always open to discussing new opportunities, interesting projects,
+            or just having a chat about technology and data science.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Contact Information */}
-          <div>
-            <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-            <p className="text-gray-400 mb-8">
-              I'm always open to discussing new opportunities, interesting projects, 
-              or just having a chat about technology and data science.
-            </p>
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Contact Methods */}
             <div className="space-y-4 mb-8">
               {contactMethods.map(({ icon: Icon, label, value, href }) => (
@@ -111,108 +114,47 @@ const Contact = () => {
               ))}
             </div>
 
-            {/* Social Links */}
-            <div>
-              <h4 className="text-white font-semibold mb-4">Follow Me</h4>
-              <div className="flex space-x-4">
-                {socialLinks.map(({ icon: Icon, href, color, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`p-3 bg-white/5 rounded-lg text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 ${color}`}
-                    aria-label={label}
-                  >
-                    <Icon size={24} />
-                  </a>
-                ))}
-              </div>
-            </div>
-          </div>
+            {/* CTA Card */}
+            <div className="card flex flex-col justify-center space-y-4 mb-8 p-10 text-center">
+              <h3 className="text-2xl font-bold text-white mb-4">Let’s Work Together</h3>
 
-          {/* Contact Form */}
-          <div className="card">
-            <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-white font-medium mb-2">
-                    Nizar Belaatik
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-white font-medium mb-2">
-                    Your Email
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors"
-                    placeholder="john@example.com"
-                  />
-                </div>
-              </div>
+              <p className="text-gray-400 mb-8">
+                Reach out anytime — I’ll get back to you as soon as possible.
+              </p>
 
-              <div>
-                <label htmlFor="subject" className="block text-white font-medium mb-2">
-                  Subject
-                </label>
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors"
-                  placeholder="Project Collaboration"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="message" className="block text-white font-medium mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows="6"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors resize-none"
-                  placeholder="Tell me about your project or just say hello!"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="btn-primary w-full inline-flex items-center justify-center group"
+              <a
+                href="mailto:belaatiknizar@gmail.com"
+                className="btn-primary w-full inline-flex items-center justify-center"
               >
-                Send Message
-                <Send size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
+                Email Me
+                <Mail size={18} className="ml-2" />
+              </a>
+            </div>
+        </div>
+        {/* Social Links */}
+        <div className="text-center">
+          <h4 className="text-white font-semibold mb-4">Follow Me</h4>
+          <div className="flex justify-center space-x-4">
+            {socialLinks.map(({ icon: Icon, href, color, label }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`p-3 bg-white/5 rounded-lg text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 ${color}`}
+                aria-label={label}
+              >
+                <Icon size={24} />
+              </a>
+            ))}
           </div>
         </div>
+
       </div>
-    </section>
-  )
+    </div>
+  </section>
+)
+
 }
 
 export default Contact

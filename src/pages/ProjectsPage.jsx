@@ -123,7 +123,7 @@ const ProjectsPage = () => {
   }, [])
 
   return (
-    <div className="pt-32 pb-20 min-h-screen bg-gray-900">
+    <div className="pt-32 pb-20 bg-gradient-to-b from-primary-dark/80 to-primary-dark">
       <div className="container mx-auto px-6">
         {/* Page Header */}
         <div className="text-center mb-12">
@@ -135,55 +135,101 @@ const ProjectsPage = () => {
           </p>
         </div>
 
-        {/* Controls Bar */}
-        <div className="flex flex-col lg:flex-row gap-4 justify-between items-center mb-8 p-6 bg-gray-800 rounded-lg border border-gray-700">
-          {/* Search */}
-          <div className="relative w-full lg:w-64">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-            <input
-              type="text"
-              placeholder="Search projects..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-accent-blue transition-colors"
-            />
-          </div>
+        {/* Controls Bar - New Certificate Style */}
+<div className="
+  flex flex-col lg:flex-row gap-6 justify-between items-center
+  mb-10 p-6 rounded-xl
+  bg-white/5 border border-white/10 backdrop-blur-lg
+  shadow-lg transition-all
+">
+  
+  {/* Search */}
+  <div className="relative w-full lg:w-72">
+    <Search
+      className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+      size={20}
+    />
+    <input
+      type="text"
+      placeholder="Search projects..."
+      value={searchQuery}
+      onChange={(e) => setSearchQuery(e.target.value)}
+      className="
+        w-full pl-10 pr-4 py-3 rounded-lg
+        bg-white/5 border border-white/10 text-white
+        placeholder-gray-400
+        focus:outline-none focus:border-accent-blue
+        transition-colors
+      "
+    />
+  </div>
 
-          {/* View Controls */}
-          <div className="flex items-center space-x-4">
-            {/* Sort Dropdown */}
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-accent-blue transition-colors"
-            >
-              <option value="featured">Featured First</option>
-              <option value="newest">Newest First</option>
-              <option value="oldest">Oldest First</option>
-              <option value="name">Alphabetical</option>
-            </select>
+  {/* View Controls */}
+  <div className="flex items-center gap-4">
 
-            {/* View Toggle */}
-            <div className="flex bg-gray-700 rounded-lg p-1 border border-gray-600">
-              <button
-                onClick={() => setViewMode('grid')}
-                className={`p-2 rounded transition-colors ${
-                  viewMode === 'grid' ? 'bg-accent-blue text-white' : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                <Grid size={20} />
-              </button>
-              <button
-                onClick={() => setViewMode('list')}
-                className={`p-2 rounded transition-colors ${
-                  viewMode === 'list' ? 'bg-accent-blue text-white' : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                <List size={20} />
-              </button>
-            </div>
-          </div>
-        </div>
+    {/* Sort Dropdown */}
+    <div className="relative">
+  <select
+    value={sortBy}
+    onChange={(e) => setSortBy(e.target.value)}
+    className="
+      appearance-none px-4 py-3 w-48
+      bg-white/5 border border-white/10
+      rounded-lg text-white
+      focus:outline-none focus:border-accent-blue
+      transition-colors
+      cursor-pointer
+    "
+  >
+    <option className="bg-gray-900 text-white" value="featured">Featured First</option>
+    <option className="bg-gray-900 text-white" value="newest">Newest First</option>
+    <option className="bg-gray-900 text-white" value="oldest">Oldest First</option>
+    <option className="bg-gray-900 text-white" value="name">Alphabetical</option>
+  </select>
+
+  {/* Custom Dropdown Arrow */}
+  <svg
+    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 pointer-events-none"
+    width="16" height="16" fill="none" stroke="currentColor"
+    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+    viewBox="0 0 24 24"
+  >
+    <path d="M6 9l6 6 6-6" />
+  </svg>
+</div>
+
+
+    {/* View Toggle */}
+    <div className="
+      flex bg-white/5 rounded-lg p-1 border border-white/10
+    ">
+      <button
+        onClick={() => setViewMode('grid')}
+        className={`
+          p-2 rounded transition-colors
+          ${viewMode === 'grid'
+            ? 'bg-accent-blue/30 text-accent-blue'
+            : 'text-gray-400 hover:text-white'}
+        `}
+      >
+        <Grid size={20} />
+      </button>
+
+      <button
+        onClick={() => setViewMode('list')}
+        className={`
+          p-2 rounded transition-colors
+          ${viewMode === 'list'
+            ? 'bg-accent-blue/30 text-accent-blue'
+            : 'text-gray-400 hover:text-white'}
+        `}
+      >
+        <List size={20} />
+      </button>
+    </div>
+  </div>
+</div>
+
 
         {/* Project Filter */}
         <ProjectFilter 

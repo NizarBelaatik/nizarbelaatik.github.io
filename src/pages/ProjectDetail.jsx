@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { ArrowLeft, ExternalLink, Github, Calendar, Tag, Users, Building, ChevronLeft, ChevronRight, X } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
+import { ArrowLeft, ExternalLink, Github, Calendar, Tag, Users, Building, ChevronLeft, ChevronRight, X, Briefcase } from 'lucide-react'
 import projects_ENG from '../data/projectsData'
-import { projectsFeatured }  from '../data/projectSchema'
-
+import { projectsFeatured } from '../data/projectSchema'
 
 const ProjectDetail = () => {
   const { id } = useParams()
+  const { t } = useTranslation()
   const project = projects_ENG.find(p => p.id === id)
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
@@ -14,12 +15,12 @@ const ProjectDetail = () => {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-primary-dark/80 to-primary-dark">
         <div className="text-center">
-          <h1 className="text-4xl font-bold text-white mb-4">Project Not Found</h1>
+          <h1 className="text-4xl font-bold text-white mb-4">{t('projectDetail.notFound')}</h1>
           <Link to="/projects" className="inline-flex items-center px-6 py-3 bg-accent-blue text-white rounded-lg font-medium hover:bg-blue-600 transition-colors">
             <ArrowLeft size={20} className="mr-2" />
-            Back to Projects
+            {t('projectDetail.backToProjects')}
           </Link>
         </div>
       </div>
@@ -38,7 +39,7 @@ const ProjectDetail = () => {
     return yearMatch ? yearMatch[1] : '2024'
   }
 
-  const isFeatured = projectsFeatured.includes(project.id)//'rag-system', 'gan-optimization', 'blockchain-certificate'
+  const isFeatured = projectsFeatured.includes(project.id)
 
   const getProjectImages = (images) => {
     if (!images) return []
@@ -57,33 +58,43 @@ const ProjectDetail = () => {
 
   const closeModal = () => setIsModalOpen(false)
 
-  return (
-    <div className="pt-32 pb-20 min-h-screen bg-gray-900">
-      <div className="container mx-auto px-6">
+  const getStatusColor = (status) => {
+    const colors = {
+      completed: 'bg-green-500/20 text-green-400 border-green-500/30',
+      research: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
+      development: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+    }
+    return colors[status] || colors.completed
+  }
 
+  return (
+    <div className="pt-32 pb-20 bg-gradient-to-b from-primary-dark/80 to-primary-dark">
+      <div className="container mx-auto px-6">
+        {/* Header Section */}
         <Link 
           to="/projects"
-          className="inline-flex items-center text-gray-400 hover:text-accent-blue transition-colors mb-8"
+          className="inline-flex items-center text-gray-400 hover:text-accent-blue transition-colors mb-8 group"
         >
-          <ArrowLeft size={20} className="mr-2" />
-          Back to Projects
+          <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
+          {t('projectDetail.backToProjects')}
         </Link>
 
+        {/* Main Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-
+          {/* Images Section */}
           <div className="space-y-4">
             <div 
-              className="rounded-2xl overflow-hidden cursor-pointer bg-gray-800"
+              className="card group hover:border-accent-blue/30 transition-all duration-300 cursor-pointer"
               onClick={() => openModal(0)}
             >
               {images.length > 0 ? (
                 <img 
                   src={images[0]} 
                   alt={project.title}
-                  className="w-full h-96 object-cover hover:scale-105 transition-transform duration-300"
+                  className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               ) : (
-                <div className="w-full h-96 flex items-center justify-center">
+                <div className="w-full h-96 flex items-center justify-center bg-gray-800 rounded-xl">
                   <span className="text-4xl">🚀</span>
                 </div>
               )}
@@ -94,9 +105,9 @@ const ProjectDetail = () => {
                 {images.slice(0, 4).map((img, index) => (
                   <div
                     key={index}
-                    className={`rounded-lg overflow-hidden cursor-pointer border-2 ${
-                      index === 0 ? 'border-accent-blue' : 'border-transparent'
-                    } hover:border-accent-blue transition-colors`}
+                    className={`rounded-lg overflow-hidden cursor-pointer border-2 transition-colors ${
+                      index === 0 ? 'border-accent-blue' : 'border-transparent hover:border-accent-blue'
+                    }`}
                     onClick={() => openModal(index)}
                   >
                     <img 
@@ -118,22 +129,17 @@ const ProjectDetail = () => {
             )}
           </div>
 
+          {/* Project Info Section */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <span className={`px-3 py-1 rounded-full text-sm font-semibold ${
-                getProjectStatus(project) === 'completed' 
-                  ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                  : getProjectStatus(project) === 'research'
-                  ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                  : 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
-              }`}>
+              <span className={`px-3 py-1 rounded-full text-sm font-semibold border ${getStatusColor(getProjectStatus(project))}`}>
                 {getProjectStatus(project)}
               </span>
-              {isFeatured && (
+              {/* isFeatured && (
                 <span className="px-3 py-1 rounded-full bg-accent-blue/20 text-accent-blue text-sm font-semibold border border-accent-blue/30">
-                  Featured
+                  {t('projectDetail.featured')}
                 </span>
-              )}
+              ) */}
             </div>
 
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
@@ -144,39 +150,41 @@ const ProjectDetail = () => {
               {project.description}
             </p>
 
+            {/* Project Metadata */}
             <div className="space-y-4 mb-8">
               <div className="flex items-center text-gray-400">
-                <Calendar size={18} className="mr-3" />
+                <Calendar size={18} className="mr-3 text-accent-blue" />
                 <span>{getProjectYear(project.date)}</span>
               </div>
               <div className="flex items-center text-gray-400">
-                <Tag size={18} className="mr-3" />
+                <Tag size={18} className="mr-3 text-accent-blue" />
                 <span className="capitalize">{project.category || 'Software Development'}</span>
               </div>
               {project.client_for && (
                 <div className="flex items-center text-gray-400">
-                  <Building size={18} className="mr-3" />
+                  <Building size={18} className="mr-3 text-accent-blue" />
                   <span>{project.client_for}</span>
                 </div>
               )}
               {project.role && (
                 <div className="flex items-center text-gray-400">
-                  <Users size={18} className="mr-3" />
+                  <Users size={18} className="mr-3 text-accent-blue" />
                   <span>{project.role}</span>
                 </div>
               )}
             </div>
 
+            {/* Action Buttons */}
             <div className="flex flex-wrap gap-4">
               {project.github_link && project.github_link !== "#" && (
                 <a 
                   href={project.github_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-600 transition-colors border border-gray-600"
+                  className="inline-flex items-center px-6 py-3 bg-gray-700 text-white rounded-lg font-medium hover:bg-gray-600 transition-colors border border-gray-600 group"
                 >
-                  <Github size={18} className="mr-2" />
-                  View Code
+                  <Github size={18} className="mr-2 group-hover:scale-110 transition-transform" />
+                  {t('projectDetail.viewCode')}
                 </a>
               )}
               {(project.live_demo || project.research_paper) && (
@@ -184,16 +192,17 @@ const ProjectDetail = () => {
                   href={project.live_demo || project.research_paper}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 bg-accent-blue text-white rounded-lg font-medium hover:bg-blue-600 transition-colors"
+                  className="inline-flex items-center px-6 py-3 bg-accent-blue text-white rounded-lg font-medium hover:bg-blue-600 transition-colors group"
                 >
-                  <ExternalLink size={18} className="mr-2" />
-                  {project.live_demo ? 'Live Demo' : 'View Research'}
+                  <ExternalLink size={18} className="mr-2 group-hover:scale-110 transition-transform" />
+                  {project.live_demo ? t('projectDetail.liveDemo') : t('projectDetail.viewResearch')}
                 </a>
               )}
             </div>
           </div>
         </div>
 
+        {/* Image Modal */}
         {isModalOpen && images.length > 0 && (
           <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4">
             <div className="relative max-w-6xl max-h-full">
@@ -236,26 +245,26 @@ const ProjectDetail = () => {
           </div>
         )}
 
+        {/* Detailed Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content */}
           <div className="lg:col-span-2 space-y-8">
-
-
-
+            {/* Role & Responsibilities */}
             {project.RoleResp && project.RoleResp.length > 0 && (
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <h3 className="text-3xl font-bold text-white mb-4">Role & Responsibilities</h3>
+              <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+                <h3 className="text-3xl font-bold text-white mb-6">{t('projectDetail.roleResponsibilities')}</h3>
                 <div className="space-y-6">
                   {project.RoleResp.map((roleSection, index) => (
                     <div key={index}>
                       {roleSection.Title_1 && (
-                        <h4 className="text-white font-semibold mb-3 text-lg">{roleSection.Title_1}</h4>
+                        <h4 className="text-white font-semibold mb-4 text-lg">{roleSection.Title_1}</h4>
                       )}
                       {roleSection.Data && (
                         <div className="space-y-4">
                           {roleSection.Data.map((item, itemIndex) => (
                             <div key={itemIndex}>
                               {item.Title && (
-                                <h5 className="text-accent-blue font-medium mb-2">{item.Title}</h5>
+                                <h5 className="text-accent-blue font-medium mb-3">{item.Title}</h5>
                               )}
                               {item.Data && (
                                 <ul className="space-y-2">
@@ -277,21 +286,22 @@ const ProjectDetail = () => {
               </div>
             )}
 
+            {/* Key Features */}
             {project.KeyFeatures && project.KeyFeatures.length > 0 && (
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <h3 className="text-3xl font-bold text-white mb-4">Key Features</h3>
+              <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+                <h3 className="text-3xl font-bold text-white mb-6">{t('projectDetail.keyFeatures')}</h3>
                 <div className="space-y-6">
                   {project.KeyFeatures.map((featureSection, index) => (
                     <div key={index}>
                       {featureSection.Title_1 && (
-                        <h4 className="text-white font-semibold mb-3 text-lg">{featureSection.Title_1}</h4>
+                        <h4 className="text-white font-semibold mb-4 text-lg">{featureSection.Title_1}</h4>
                       )}
                       {featureSection.Data && (
                         <div className="space-y-4">
                           {featureSection.Data.map((item, itemIndex) => (
                             <div key={itemIndex}>
                               {item.Title && (
-                                <h5 className="text-accent-blue font-medium mb-2">{item.Title}</h5>
+                                <h5 className="text-accent-blue font-medium mb-3">{item.Title}</h5>
                               )}
                               {item.Data && (
                                 <ul className="space-y-2">
@@ -313,9 +323,10 @@ const ProjectDetail = () => {
               </div>
             )}
 
+            {/* Challenges & Solutions */}
             {project.ChallSolu && project.ChallSolu.length > 0 && (
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <h3 className="text-3xl font-bold text-white mb-4">Challenges & Solutions</h3>
+              <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+                <h3 className="text-3xl font-bold text-white mb-6">{t('projectDetail.challengesSolutions')}</h3>
                 <div className="space-y-6">
                   {project.ChallSolu.map((challengeSection, index) => (
                     <div key={index}>
@@ -324,7 +335,7 @@ const ProjectDetail = () => {
                           {challengeSection.Data.map((item, itemIndex) => (
                             <div key={itemIndex} className="bg-gray-700/50 rounded-lg p-4">
                               {item.Title && (
-                                <h5 className="text-accent-blue font-medium mb-2">{item.Title}</h5>
+                                <h5 className="text-accent-blue font-medium mb-3">{item.Title}</h5>
                               )}
                               {item.Data && (
                                 <ul className="space-y-2">
@@ -345,13 +356,38 @@ const ProjectDetail = () => {
                 </div>
               </div>
             )}
+
+            
+            {/* Compact FID display for sidebar */}
+            {project.researchResults && project.researchResults.fidScores && (
+              <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+                <h4 className="text-white font-semibold mb-4">FID Score Comparison</h4>
+                <div className="space-y-3">
+                  {project.researchResults.fidScores.map((result, index) => (
+                    <div key={index} className="flex justify-between items-center">
+                      <span className="text-gray-400 text-sm">{result.optimizer}</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-accent-blue font-mono text-sm">{result.score}</span>
+                        {result.rank === 1 && (
+                          <span className="px-2 py-1 bg-green-500/20 text-green-400 text-xs rounded">Best</span>
+                        )}
+                        {result.rank === 4 && (
+                          <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs rounded">Worst</span>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
+          {/* Sidebar */}
           <div className="space-y-6">
-
+            {/* Key Highlights */}
             {project.KeyFeatures && (
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <h4 className="text-xl text-white font-semibold mb-4">Key Highlights</h4>
+              <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+                <h4 className="text-xl text-white font-semibold mb-4">{t('projectDetail.keyHighlights')}</h4>
                 <ul className="space-y-3">
                   {project.KeyFeatures[0]?.Data?.slice(0, 5).map((feature, index) => (
                     <li key={index} className="text-gray-300 text-sm flex items-start">
@@ -363,6 +399,7 @@ const ProjectDetail = () => {
               </div>
             )}
 
+            {/* Project Metrics */}
             {(() => {
               const metrics = {}
               if (project.id === 'rag-system') {
@@ -370,9 +407,12 @@ const ProjectDetail = () => {
                 metrics.accuracy = '95%'
                 metrics.models = '3+'
               } else if (project.id === 'gan-optimization') {
-                metrics.optimizers = '4'
-                metrics.epochs = '15'
-                metrics.dataset = 'CIFAR-10'
+                metrics.optimizers = project.metrics?.optimizers_tested || '4'
+                metrics.epochs = project.metrics?.training_epochs || '15'
+                metrics.dataset = project.metrics?.dataset_size || 'CIFAR-10'
+                //metrics.best_fid = project.metrics?.best_fid_score || '284.68'
+                metrics.best_fid = '284.68 (SGD)'
+                metrics.worst_fid = '294.13 (Adam)'
               } else if (project.id === 'blockchain-certificate') {
                 metrics.assets = '50+'
                 metrics.transactions = '100+'
@@ -380,12 +420,12 @@ const ProjectDetail = () => {
               }
 
               return Object.keys(metrics).length > 0 ? (
-                <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                  <h4 className="text-white font-semibold mb-4">Project Metrics</h4>
+                <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+                  <h4 className="text-white font-semibold mb-4">{t('projectDetail.projectMetrics')}</h4>
                   <div className="space-y-3">
                     {Object.entries(metrics).map(([key, value]) => (
                       <div key={key} className="flex justify-between items-center">
-                        <span className="text-gray-400 capitalize">{key}</span>
+                        <span className="text-gray-400 capitalize">{key.replace('_', ' ')}</span>
                         <span className="text-accent-blue font-semibold">{value}</span>
                       </div>
                     ))}
@@ -394,9 +434,10 @@ const ProjectDetail = () => {
               ) : null
             })()}
 
+            {/* Technology Stack */}
             {project.technology_used && (
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <h4 className="ttext-xl ext-white font-semibold mb-4">Technology Stack</h4>
+              <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+                <h4 className="text-xl text-white font-semibold mb-4">{t('projectDetail.technologyStack')}</h4>
                 <div className="space-y-4">
                   {Object.entries(project.technology_used).map(([category, techs]) => (
                     techs && techs.length > 0 && (
@@ -420,7 +461,6 @@ const ProjectDetail = () => {
                 </div>
               </div>
             )}
-
           </div>
         </div>
       </div>

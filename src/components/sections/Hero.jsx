@@ -1,9 +1,11 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Download, ArrowRight, Github, Linkedin, Mail } from 'lucide-react'
-import { socialLinks, contactMethods} from '../../data/links'
+import { Download, ArrowRight } from 'lucide-react'
+import { socialLinks } from '../../data/links'
+
 const Hero = () => {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
+  const currentLanguage = i18n.language
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden mt-20 pt-10">
@@ -19,7 +21,7 @@ const Hero = () => {
         <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-accent-blue/20 shadow-2xl shadow-blue-500/25 floating">
           <img 
             src="https://media.licdn.com/dms/image/v2/D5603AQHfKq0Nxr8m5w/profile-displayphoto-shrink_800_800/B56ZPk9ButG4Ac-/0/1734713024465?e=1764806400&v=beta&t=yidZzvVKkuXGQgpu-HSTFZtnfePmjtEiEiEeZt7mZAU" 
-            alt="Profile" 
+            alt={t('hero.name')}
             className="w-full h-full object-cover"
           />
         </div>
@@ -34,8 +36,21 @@ const Hero = () => {
           {t('hero.subtitle')}
         </div>
 
-        <p className="text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-          {t('hero.description')}
+        {/* Dynamic Description */}
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
+          {currentLanguage === 'en' ? (
+            <>
+              Master's candidate in Data Science & Big Data specializing in machine learning, 
+              deep learning, and scalable AI solutions. Passionate about transforming complex 
+              data into intelligent applications that drive business value and innovation.
+            </>
+          ) : (
+            <>
+              Étudiant en dernière année de Master Data Science & Big Data, spécialisé en machine learning, 
+              deep learning et solutions IA scalables. Passionné par la transformation de données complexes 
+              en applications intelligentes qui créent de la valeur business et de l'innovation.
+            </>
+          )}
         </p>
 
         {/* Action Buttons */}
@@ -63,7 +78,7 @@ const Hero = () => {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-3 bg-white/5 rounded-full hover:bg-accent-blue hover:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
+              className="p-3 bg-white/5 rounded-full hover:bg-accent-blue hover:text-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
               aria-label={label}
             >
               <Icon size={24} />
