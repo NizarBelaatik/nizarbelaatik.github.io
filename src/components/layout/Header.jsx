@@ -14,7 +14,7 @@ const Header = () => {
 
   const navigation = [
     { name: t('nav.home'), href: '/', type: 'route' ,nav_name: 'home'},
-    { name: t('nav.projects'), href: '#projects', type: 'anchor',nav_name: 'projects' },
+    { name: t('nav.projects'), href: '/projects', type: 'route',nav_name: 'projects' },
     { name: t('nav.experience'), href: '#experience', type: 'anchor' ,nav_name: 'experience'},
     { name: t('nav.education'), href: '#education', type: 'anchor', nav_name: 'education' },
     { name: t('nav.certifications'), href: '#certifications', type: 'anchor' ,  nav_name: 'certifications'},
@@ -79,7 +79,7 @@ const Header = () => {
             onClick={handleHomeClick}
             className="text-2xl font-bold text-gradient cursor-pointer"
           >
-            Nizar Belaatik ......
+            Nizar Belaatik
           </a>
 
           {/* Desktop Nav */}
@@ -94,10 +94,10 @@ const Header = () => {
                 >
                   {item.name}
                 </a>
-              ) : (
+              ) : item.nav_name === 'projects' ? (
                 <Link
                   key={item.name}
-                  to={item.href} // for SPA routes
+                  to={item.href} // SPA route
                   className={`text-lg font-medium transition-colors hover:text-accent-blue ${
                     location.pathname === item.href ? 'text-accent-blue' : 'text-white'
                   }`}
@@ -105,9 +105,21 @@ const Header = () => {
                 >
                   {item.name}
                 </Link>
+              ) : (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-lg font-medium transition-colors hover:text-accent-blue ${
+                    location.pathname === item.href ? 'text-accent-blue' : 'text-white'
+                  }`}
+                >
+                  {item.name}
+                </a>
               )
             )}
           </nav>
+
 
           {/* Right Section */}
           <div className="flex items-center space-x-4">
@@ -137,18 +149,7 @@ const Header = () => {
           <div className="md:hidden mt-4 pb-4">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) =>
-                item.type === 'route' ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={item.href === '/' ? handleHomeClick : () => setIsMenuOpen(false)}
-                    className={`text-lg font-medium transition-colors hover:text-accent-blue ${
-                      location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                    }`}
-                  >
-                    {item.name}
-                  </a>
-                ) : (
+                item.type === 'anchor' ? (
                   <a
                     key={item.name}
                     href={item.href}
@@ -157,11 +158,35 @@ const Header = () => {
                   >
                     {item.name}
                   </a>
+                ) : item.nav_name === 'projects' ? (
+                  <Link
+                    key={item.name}
+                    to={item.href} // SPA route
+                    className={`text-lg font-medium transition-colors hover:text-accent-blue ${
+                      location.pathname === item.href ? 'text-accent-blue' : 'text-white'
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`text-lg font-medium transition-colors hover:text-accent-blue ${
+                      location.pathname === item.href ? 'text-accent-blue' : 'text-white'
+                    }`}
+                  >
+                    {item.name}
+                  </a>
                 )
               )}
             </nav>
           </div>
         )}
+
+
       </div>
     </header>
   )
