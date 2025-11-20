@@ -22,6 +22,8 @@ const Header = () => {
     { name: t('nav.contact'), href: '#contact', type: 'anchor' },
   ]
 
+
+
   const scrollToSection = (id) => {
     const element = document.querySelector(id)
     if (element) {
@@ -47,17 +49,18 @@ const Header = () => {
     }
   }
 
-  const handleAnchorClick = (href, e) => {
+  const handleAnchorClick = (id, e) => {
     e.preventDefault()
     setIsMenuOpen(false)
 
     if (location.pathname !== '/') {
-      navigate(`/${href}`)
-      setTimeout(() => scrollToSection(href), 150)
+      navigate('/') // go to home page first
+      setTimeout(() => scrollToSection(id), 150)
     } else {
-      scrollToSection(href)
+      scrollToSection(id)
     }
   }
+
 
   React.useEffect(() => {
     if (location.pathname === '/' && location.hash) {
@@ -82,18 +85,7 @@ const Header = () => {
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) =>
-              item.type === 'route' ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={item.href === '/' ? handleHomeClick : undefined}
-                  className={`text-lg font-medium transition-colors hover:text-accent-blue ${
-                    location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                  }`}
-                >
-                  {item.name}
-                </a>
-              ) : (
+              item.type === 'anchor' ? (
                 <a
                   key={item.name}
                   href={item.href}
@@ -102,8 +94,20 @@ const Header = () => {
                 >
                   {item.name}
                 </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-lg font-medium transition-colors hover:text-accent-blue ${
+                    location.pathname === item.href ? 'text-accent-blue' : 'text-white'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
               )
             )}
+
           </nav>
 
           {/* Right Section */}
