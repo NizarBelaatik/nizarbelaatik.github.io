@@ -95,32 +95,16 @@ const Header = () => {
                   {item.name}
                 </a>
               ) : (
-                
-                
-
-                item.nav_name === 'projects' ? (
-                  <Link
-                    key={item.name}
-                    to="/projects" // for SPA routes
-                    className={`text-lg font-medium transition-colors hover:text-accent-blue ${
-                      location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.href} // for SPA routes
-                    className={`text-lg font-medium transition-colors hover:text-accent-blue ${
-                      location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )
+                <Link
+                  key={item.name}
+                  to={item.href} // for SPA routes
+                  className={`text-lg font-medium transition-colors hover:text-accent-blue ${
+                    location.pathname === item.href ? 'text-accent-blue' : 'text-white'
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
               )
             )}
           </nav>
