@@ -1,10 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Github, Linkedin, Mail, Heart } from 'lucide-react'
-import { socialLinks, contactMethods} from '../../data/links'
+import { useTranslation } from 'react-i18next'
+import { socialLinks, contactMethods } from '../../data/links'
 
 const Footer = () => {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
+
+  const quickLinks = [
+    { name: t('footer.links.home'), path: '/' },
+    { name: t('footer.links.projects'), path: '/projects' },
+    { name: t('footer.links.about'), path: '/#about' },
+    { name: t('footer.links.contact'), path: '/#contact' }
+  ]
 
   return (
     <footer className="bg-primary-dark border-t border-white/10 py-12">
@@ -13,11 +22,10 @@ const Footer = () => {
           {/* Brand */}
           <div className="md:col-span-2">
             <Link to="/" className="text-2xl font-bold text-gradient mb-4 inline-block">
-              Portfolio
+              {t('footer.brand')}
             </Link>
             <p className="text-gray-400 mb-6 max-w-md">
-              Data Science Master's Student & Full-Stack Developer passionate about 
-              creating intelligent solutions through code and data.
+              {t('footer.description')}
             </p>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (
@@ -37,15 +45,15 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-primary font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-primary font-semibold mb-4">{t('footer.quickLinks')}</h3>
             <ul className="space-y-3">
-              {['Home', 'Projects', 'About', 'Contact'].map((item) => (
-                <li key={item}>
+              {quickLinks.map((item) => (
+                <li key={item.name}>
                   <Link 
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase()}`}
+                    to={item.path}
                     className="text-gray-400 hover:text-accent-blue transition-colors"
                   >
-                    {item}
+                    {item.name}
                   </Link>
                 </li>
               ))}
@@ -54,19 +62,19 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-primary font-semibold mb-4">Get In Touch</h3>
+            <h3 className="text-primary font-semibold mb-4">{t('footer.getInTouch')}</h3>
             <div className="space-y-3 text-gray-400">
-              {contactMethods.map(({ value }) => (
-                <p>{value}</p>
-              ))}
+              <p>{t('contact.methods.email.value')}</p>
+              <p>{t('contact.methods.phone.value')}</p>
+              <p>{t('contact.methods.location.value')}</p>
             </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center flex items-center">
-          <div className="text-gray-400 mb-4 md:mb-0 ">
-            © {currentYear} Nizar Belaatik. All rights reserved.
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center items-center">
+          <div className="text-gray-400 flex items-center">
+            {t('footer.copyright', { year: currentYear, name: "Nizar Belaatik" })}
           </div>
         </div>
       </div>

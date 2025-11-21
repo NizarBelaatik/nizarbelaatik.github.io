@@ -159,6 +159,7 @@
   "projects": {
     "title": "My Projects",
     "subtitle": "Showcasing my best work across different domains",
+    "discoverMyProjects": "Explore my complete portfolio of {{number}}+ projects across various domains and technologies",
     "all": "All Projects",
     "webDev": "Web Development",
     "mobile": "Mobile Development",
@@ -207,29 +208,44 @@
     "findings": "Key Findings",
     "experimentalSetup": "Experimental Setup"
   },
+  
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Have a project in mind or want to collaborate? I'd love to hear from you!",
-    "letsConnect": "Let's Connect",
-    "connectText": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and data science.",
-    "location": "Location",
-    "email": "Email",
-    "phone": "Phone",
+    "connect": "Let's Connect",
+    "description": "I'm always open to discussing new opportunities, interesting projects, or just having a chat about technology and data science.",
+    "workTogether": "Let's Work Together",
+    "reachOut": "Feel free to reach out, and I'll respond within a few hours.",
+    "emailMe": "Email Me",
     "followMe": "Follow Me",
-    "sendMessage": "Send Message",
-    "name": "Nizar Belaatik",
-    "emailPlaceholder": "john@example.com",
-    "subject": "Subject",
-    "subjectPlaceholder": "Project Collaboration",
-    "message": "Your Message",
-    "messagePlaceholder": "Tell me about your project or just say hello!",
-    "send": "Send Message"
+    "methods": {
+      "email": {
+        "label": "Email",
+        "value": "belaatiknizar@gmail.com",
+        "href": "mailto:belaatiknizar@gmail.com"
+      },
+      "phone": {
+        "label": "Phone",
+        "value": "+212 650341124",
+        "href": "tel:+212650341124"
+      },
+      "location": {
+        "label": "Location",
+        "value": "Casablanca, Morocco",
+        "href": "#"
+      }
+    }
   },
   "footer": {
-    "description": "Data Science Master's Student & Full-Stack Developer passionate about creating innovative solutions through code and data.",
-    "quickLinks": "Quick Links",
+    "brand": "Portfolio",
+    "description": "Data Science Master's Student specializing in ML, Deep Learning & Big Data. Transforming complex data into intelligent solutions and actionable insights.",    "quickLinks": "Quick Links",
     "getInTouch": "Get In Touch",
-    "rights": "All rights reserved.",
-    "madeWith": "Made with"
+    "copyright": "© {{year}} {{name}}. All rights reserved.",
+    "links": {
+      "home": "Home",
+      "projects": "Projects",
+      "about": "About",
+      "contact": "Contact"
+    }
   }
 }

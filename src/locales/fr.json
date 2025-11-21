@@ -153,6 +153,7 @@
   "projects": {
     "title": "Mes Projets",
     "subtitle": "Présentation de mes meilleurs travaux dans différents domaines",
+    "discoverMyProjects":"Découvrez mon portfolio complet de plus de {{number}} projets couvrant divers domaines et technologies.",
     "all": "Tous les Projets",
     "webDev": "Développement Web",
     "mobile": "Développement Mobile",
@@ -204,28 +205,44 @@
 
   },
   "contact": {
-    "title": "Me Contacter",
-    "subtitle": "Un projet en tête ou envie de collaborer ? J'aimerais avoir de vos nouvelles !",
-    "letsConnect": "Restons Connectés",
-    "connectText": "Je suis toujours ouvert à discuter de nouvelles opportunités, projets intéressants, ou simplement échanger sur la technologie et la data science.",
-    "location": "Localisation",
-    "email": "Email",
-    "phone": "Téléphone",
+    "title": "Contactez-moi",
+    "subtitle": "Vous avez un projet en tête ou souhaitez collaborer ? J'aimerais beaucoup avoir de vos nouvelles !",
+    "connect": "Restons en Contact",
+    "description": "Je suis toujours ouvert à discuter de nouvelles opportunités, de projets intéressants, ou simplement à échanger sur la technologie et la science des données.",
+    "workTogether": "Travaillons Ensemble",
+    "reachOut": "N'hésitez pas à me contacter, je réponds généralement dans les heures qui suivent.",
+    "emailMe": "Envoyez-moi un email",
     "followMe": "Suivez-moi",
-    "sendMessage": "Envoyer un Message",
-    "name": "Votre Nom",
-    "emailPlaceholder": "jean@exemple.com",
-    "subject": "Sujet",
-    "subjectPlaceholder": "Collaboration sur Projet",
-    "message": "Votre Message",
-    "messagePlaceholder": "Parlez-moi de votre projet ou dites simplement bonjour !",
-    "send": "Envoyer Message"
+    "methods": {
+      "email": {
+        "label": "Email",
+        "value": "belaatiknizar@gmail.com",
+        "href": "mailto:belaatiknizar@gmail.com"
+      },
+      "phone": {
+        "label": "Téléphone",
+        "value": "+212 650341124",
+        "href": "tel:+212650341124"
+      },
+      "location": {
+        "label": "Localisation",
+        "value": "Casablanca, Maroc",
+        "href": "#"
+      }
+    }
   },
+
+  
   "footer": {
-    "description": "Étudiant en Master Data Science & Développeur Full-Stack passionné par la création de solutions innovantes grâce au code et aux données.",
-    "quickLinks": "Liens Rapides",
-    "getInTouch": "Me Contacter",
-    "rights": "Tous droits réservés.",
-    "madeWith": "Fait avec"
+    "brand": "Portfolio",
+    "description": "Étudiant en Master Data Science spécialisé ML, Deep Learning & Big Data. Je transforme des données complexes en solutions intelligentes et insights actionnables.",    "quickLinks": "Liens Rapides",
+    "getInTouch": "Contact",
+    "copyright": "© {{year}} {{name}}. Tous droits réservés.",
+    "links": {
+      "home": "Accueil",
+      "projects": "Projets",
+      "about": "À Propos",
+      "contact": "Contact"
+    }
   }
 }

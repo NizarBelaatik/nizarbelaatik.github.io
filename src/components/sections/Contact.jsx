@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const Contact = () => {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -18,31 +20,8 @@ const Contact = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    // Handle form submission here
     console.log('Form submitted:', formData)
-    // You can integrate with a service like Formspree or EmailJS
   }
-
-  const contactMethods = [
-    {
-      icon: Mail,
-      label: 'Email',
-      value: 'belaatiknizar@gmail.com',
-      href: 'mailto:belaatiknizar@gmail.com'
-    },
-    {
-      icon: Phone,
-      label: 'Phone',
-      value: '+212 650341124',
-      href: 'tel:+15551234567'
-    },
-    {
-      icon: MapPin,
-      label: 'Location',
-      value: 'Casablanca, Morocco',
-      href: '#'
-    }
-  ]
 
   const socialLinks = [
     {
@@ -72,43 +51,45 @@ const Contact = () => {
   ]
 
   return (
-  <section id="contact" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80">
-    <div className="container mx-auto px-6">
-      
-      {/* Section Title */}
-      <div className="text-center mb-16">
-        <h2 className="section-title text-gradient">Get In Touch</h2>
-        <p className="section-subtitle">
-          Have a project in mind or want to collaborate? I'd love to hear from you!
-        </p>
-      </div>
-
-      {/* One Column Layout */}
-      <div className="max-w-5xl mx-auto space-y-12 mx-auto space-y-12">
-
-        {/* Header */}
-        <div className="text-center">
-          <h3 className="text-2xl font-bold text-white mb-6">Let's Connect</h3>
-          <p className="text-gray-400 mb-8">
-            I'm always open to discussing new opportunities, interesting projects,
-            or just having a chat about technology and data science.
+    <section id="contact" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80">
+      <div className="container mx-auto px-6">
+        
+        {/* Section Title */}
+        <div className="text-center mb-16">
+          <h2 className="section-title text-gradient">{t('contact.title')}</h2>
+          <p className="section-subtitle">
+            {t('contact.subtitle')}
           </p>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+        {/* One Column Layout */}
+        <div className="max-w-5xl mx-auto space-y-12">
+
+          {/* Header */}
+          <div className="text-center">
+            <h3 className="text-2xl font-bold text-white mb-6">{t('contact.connect')}</h3>
+            <p className="text-gray-400 mb-8">
+              {t('contact.description')}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Contact Methods */}
             <div className="space-y-4 mb-8">
-              {contactMethods.map(({ icon: Icon, label, value, href }) => (
+              {['email', 'phone', 'location'].map((method) => (
                 <a
-                  key={label}
-                  href={href}
+                  key={method}
+                  href={t(`contact.methods.${method}.href`)}
                   className="flex items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 group"
                 >
                   <div className="p-3 bg-accent-blue/20 rounded-lg mr-4 group-hover:bg-accent-blue/30 transition-colors">
-                    <Icon size={20} className="text-accent-blue" />
+                    {method === 'email' && <Mail size={20} className="text-accent-blue" />}
+                    {method === 'phone' && <Phone size={20} className="text-accent-blue" />}
+                    {method === 'location' && <MapPin size={20} className="text-accent-blue" />}
                   </div>
                   <div>
-                    <div className="text-white font-medium">{label}</div>
-                    <div className="text-gray-400">{value}</div>
+                    <div className="text-white font-medium">{t(`contact.methods.${method}.label`)}</div>
+                    <div className="text-gray-400">{t(`contact.methods.${method}.value`)}</div>
                   </div>
                 </a>
               ))}
@@ -116,45 +97,45 @@ const Contact = () => {
 
             {/* CTA Card */}
             <div className="card flex flex-col justify-center space-y-4 mb-8 p-10 text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">Let’s Work Together</h3>
+              <h3 className="text-2xl font-bold text-white mb-4">{t('contact.workTogether')}</h3>
 
               <p className="text-gray-400 mb-8">
-                Reach out anytime — I’ll get back to you as soon as possible.
+                {t('contact.reachOut')}
               </p>
 
               <a
                 href="mailto:belaatiknizar@gmail.com"
                 className="btn-primary w-full inline-flex items-center justify-center"
               >
-                Email Me
+                {t('contact.emailMe')}
                 <Mail size={18} className="ml-2" />
               </a>
             </div>
-        </div>
-        {/* Social Links */}
-        <div className="text-center">
-          <h4 className="text-white font-semibold mb-4">Follow Me</h4>
-          <div className="flex justify-center space-x-4">
-            {socialLinks.map(({ icon: Icon, href, color, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`p-3 bg-white/5 rounded-lg text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 ${color}`}
-                aria-label={label}
-              >
-                <Icon size={24} />
-              </a>
-            ))}
           </div>
+
+          {/* Social Links */}
+          <div className="text-center">
+            <h4 className="text-white font-semibold mb-4">{t('contact.followMe')}</h4>
+            <div className="flex justify-center space-x-4">
+              {socialLinks.map(({ icon: Icon, href, color, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`p-3 bg-white/5 rounded-lg text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 ${color}`}
+                  aria-label={label}
+                >
+                  <Icon size={24} />
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
-
       </div>
-    </div>
-  </section>
-)
-
+    </section>
+  )
 }
 
 export default Contact

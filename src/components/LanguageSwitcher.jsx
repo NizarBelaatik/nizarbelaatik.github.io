@@ -24,7 +24,7 @@ const LanguageSwitcher = () => {
         <span className="hidden sm:block">{currentLanguage.name}</span>
       </button>
       
-      <div className="absolute top-full right-0 mt-2 w-48 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+      <div className="absolute top-full right-0 mt-2 w-48 bg-primary-dark/80 backdrop-blur-sm border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
         {languages.map((language) => (
           <button
             key={language.code}
