@@ -2,7 +2,11 @@ import React, { useState, useMemo } from 'react'
 import ProjectCard from '../components/projects/ProjectCard'
 import ProjectFilter from '../components/projects/ProjectFilter'
 import { Search, Filter, Grid, List } from 'lucide-react'
-import projects_ENG from '../data/projectsData'
+//import projects_ENG from '../data/projectsData_ENG'
+
+import projects_ENG from '../data/projectsData_ENG'
+import projects_FR from '../data/projectsData_FR'
+import { useTranslation } from 'react-i18next'
 
 // Define project categories based on your new structure
 const projectCategories = {
@@ -20,9 +24,13 @@ const ProjectsPage = () => {
   const [viewMode, setViewMode] = useState('grid')
   const [sortBy, setSortBy] = useState('featured')
 
+
+  const { t, i18n } = useTranslation()
+  const projectsDATA = i18n.language === "fr" ? projects_FR : projects_ENG
+
   // Filter and search projects
   const filteredProjects = useMemo(() => {
-    let filtered = projects_ENG
+    let filtered = projectsDATA
 
     // Apply category filter
     if (activeFilter !== 'all') {
@@ -90,15 +98,15 @@ const ProjectsPage = () => {
     })
 
     return filtered
-  }, [activeFilter, searchQuery, sortBy])
+  }, [activeFilter, searchQuery, sortBy,projectsDATA])
 
   // Calculate project counts
   const projectsCount = useMemo(() => {
-    const counts = { all: projects_ENG.length }
+    const counts = { all: projectsDATA.length }
     
     Object.keys(projectCategories).forEach(category => {
       if (category !== 'all') {
-        counts[category] = projects_ENG.filter(project => {
+        counts[category] = projectsDATA.filter(project => {
           switch (category) {
             case 'ai-ml':
               return project.category?.includes('AI') || 
@@ -128,10 +136,10 @@ const ProjectsPage = () => {
         {/* Page Header */}
         <div className="text-center mb-12">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            All Projects
+            {t('projects.viewAll')}
           </h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            Explore my complete portfolio of {projects_ENG.length}+ projects across various domains and technologies
+            Explore my complete portfolio of {projectsDATA.length}+ projects across various domains and technologies
           </p>
         </div>
 
@@ -242,7 +250,7 @@ const ProjectsPage = () => {
         {/* Results Info */}
         <div className="flex justify-between items-center mb-8">
           <div className="text-gray-400">
-            Showing {filteredProjects.length} of {projects_ENG.length} projects
+            Showing {filteredProjects.length} of {projectsDATA.length} projects
             {activeFilter !== 'all' && ` in ${projectCategories[activeFilter]}`}
             {searchQuery && ` matching "${searchQuery}"`}
           </div>

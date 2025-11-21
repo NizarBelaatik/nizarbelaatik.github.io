@@ -3,7 +3,7 @@ import React, { useState, useMemo } from 'react';
 import ProjectFilter from '../components/projects/ProjectFilter';
 import ProjectCard from '../components/projects/ProjectCard';
 import SkillsSection from '../components/projects/SkillsSection';
-import projects_ENG from '../data/projectsData';
+import projects_ENG from '../data/projectsData_ENG';
 
 const Portfolio = () => {
   const [activeFilter, setActiveFilter] = useState('all');

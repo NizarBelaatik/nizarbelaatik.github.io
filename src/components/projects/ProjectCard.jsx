@@ -1,10 +1,13 @@
 import React from 'react'
 import { ExternalLink, Github, Calendar, ArrowRight, Users, Building, Images } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 
 
 const ProjectCard = ({ project, featured = false }) => {
+  const { t, i18n } = useTranslation()
+  
   // Determine if it's a new project (GAN, RAG, Blockchain)
   const isNewProject = ['gan-optimization', 'rag-system', 'blockchain-certificate'].includes(project.id);
   
@@ -174,7 +177,7 @@ const ProjectCard = ({ project, featured = false }) => {
           to={`/projects/${project.id}`}
           className="w-full bg-accent-blue text-primary py-2 px-4 rounded-lg text-center hover:bg-blue-600 transition-colors font-medium flex items-center justify-center"
         >
-          View Details
+          {t('projects.viewDetails')}
           <ArrowRight size={16} className="ml-2" />
         </Link>
       </div>

@@ -1,7 +1,6 @@
 // projectsData.js
 import getProjectImages from '../components/projects/getProjectImages';
 
-
 const projects_ENG = [
   // ========== NEW AI/BLOCKCHAIN PROJECTS ==========
   
@@ -117,194 +116,338 @@ const projects_ENG = [
   },
 
   // 2. GAN Optimization Research
-  
-
-
-
-
-
-
-
-
-
-
-
-// In your projects_ENG array, add the GAN project:
-
-{
-  id: "gan-optimization",
-  folderid: "gan-optimization", 
-  projectType: "research",
-  platforme: "Machine Learning Research",
-  title: "GAN Optimization: Comparative Study of Optimization Algorithms",
-  image: getProjectImages('project-gan-optimization'),
-  category: "Deep Learning & GANs",
-  date: "Jun-2025",
-  client_for: "Academic Research",
-  role: "ML Research Engineer",
-  description: "Comprehensive research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset.",
-  github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
-  research_paper: "#",
-  
-  technology: ["PyTorch", "Python", "DCGAN", "CIFAR-10", "Adam", "RMSprop", "SGD", "Lookahead"],
-  technology_used: {
-    'ml_framework': ["PyTorch", "NumPy", "Matplotlib", "Seaborn"],
-    'architecture': ["DCGAN", "CNN", "Generator-Discriminator"],
-    'optimizers': ["Adam", "RMSprop", "SGD+Momentum", "Lookahead"],
-    'dataset': ["CIFAR-10", "Image Processing"],
-    'evaluation': ["Loss Analysis", "FID Score", "Visual Quality Assessment", "Mode Collapse Detection"]
+  {
+    id: "gan-optimization",
+    folderid: "gan-optimization", 
+    projectType: "research",
+    platforme: "Machine Learning Research",
+    title: "GAN Optimization: Comparative Study of Optimization Algorithms",
+    image: getProjectImages('project-gan-optimization'),
+    category: "Deep Learning & GANs",
+    date: "Jun-2025",
+    client_for: "Academic Research",
+    role: "ML Research Engineer",
+    description: "Comprehensive research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset.",
+    github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
+    research_paper: "#",
+    
+    technology: ["PyTorch", "Python", "DCGAN", "CIFAR-10", "Adam", "RMSprop", "SGD", "Lookahead"],
+    technology_used: {
+      'ml_framework': ["PyTorch", "NumPy", "Matplotlib", "Seaborn"],
+      'architecture': ["DCGAN", "CNN", "Generator-Discriminator"],
+      'optimizers': ["Adam", "RMSprop", "SGD+Momentum", "Lookahead"],
+      'dataset': ["CIFAR-10", "Image Processing"],
+      'evaluation': ["Loss Analysis", "FID Score", "Visual Quality Assessment", "Mode Collapse Detection"]
+    },
+    
+    researchResults: {
+      fidScores: [
+        { optimizer: "SGD with Momentum", score: 284.68, rank: 1 },
+        { optimizer: "RMSprop", score: 286.49, rank: 2 },
+        { optimizer: "Lookahead", score: 293.12, rank: 3 },
+        { optimizer: "Adam", score: 294.13, rank: 4 }
+      ],
+      keyFindings: [
+        "Lookahead showed the most stable convergence with minimal oscillations",
+        "Adam converged fastest but exhibited occasional instability",
+        "SGD with Momentum provided steady but slower improvement",
+        "RMSprop was prone to divergence and repetitive patterns"
+      ]
+    },
+    
+    RoleResp: [{
+      Title_1: "ML Research Engineer",
+      Data: [
+        {
+          Title: "Experimental Design & Implementation",
+          Data: [
+            "Designed controlled experiments comparing 4 optimization algorithms on DCGAN architecture",
+            "Implemented consistent training pipeline with PyTorch on CIFAR-10 dataset",
+            "Developed evaluation metrics including FID scores and loss analysis"
+          ]
+        },
+        {
+          Title: "Performance Analysis",
+          Data: [
+            "Calculated Fréchet Inception Distance (FID) for quantitative comparison",
+            "Analyzed training stability through loss curve visualization",
+            "Evaluated visual quality and diversity across 15 training epochs"
+          ]
+        }
+      ],
+    }],
+    
+    KeyFeatures: [{
+      Title_1: "Research Methodology",
+      Data: [
+        {
+          Title: "Comprehensive Benchmarking",
+          Data: [
+            "Systematic comparison of Adam, RMSprop, SGD+Momentum, and Lookahead optimizers",
+            "Quantitative analysis using loss curves and Fréchet Inception Distance (FID)",
+            "Qualitative assessment through visual inspection of generated samples"
+          ]
+        },
+        {
+          Title: "Technical Implementation",
+          Data: [
+            "DCGAN architecture with consistent hyperparameters across all experiments",
+            "Training on CIFAR-10 dataset (60,000 images, 10 classes)",
+            "15 epochs training with batch size 64 and binary cross-entropy loss"
+          ]
+        },
+        {
+          Title: "Key Findings & Insights",
+          Data: [
+            "Identified Lookahead as most stable optimizer with smooth convergence",
+            "Adam showed fastest convergence but occasional instability",
+            "SGD with Momentum provided stable but slower training progression",
+            "RMSprop exhibited sensitivity to adversarial dynamics"
+          ]
+        }
+      ],
+    }],
+    
+    ChallSolu: [{
+      Title_1: "Research Challenges & Solutions",
+      Data: [
+        {
+          Title: "Training Instability & Mode Collapse",
+          Data: [
+            "Challenge: GAN training prone to divergence and mode collapse with certain optimizers",
+            "Solution: Implemented Lookahead optimizer and careful hyperparameter tuning",
+            "Result: Achieved stable training with diverse output generation"
+          ]
+        },
+        {
+          Title: "Objective Evaluation Metrics",
+          Data: [
+            "Challenge: Subjective nature of GAN evaluation makes comparison difficult",
+            "Solution: Combined quantitative (FID scores, loss curves) and qualitative (visual inspection) methods",
+            "Result: Comprehensive assessment of both stability and output quality"
+          ]
+        },
+        {
+          Title: "Reproducible Research",
+          Data: [
+            "Challenge: Ensuring consistent experimental conditions across optimizer comparisons",
+            "Solution: Standardized architecture, dataset, and training procedures",
+            "Result: Fair and reproducible benchmarking of optimization algorithms"
+          ]
+        }
+      ],
+    }],
+    
+    VisualsMedia: {
+      ScreenShot: [
+        { 
+          image: ['gan-loss-curves.png', 'gan-comparison.png'],
+          info: ['Generator and discriminator loss curves across optimizers', 'Comparative analysis of training stability']
+        },
+        { 
+          image: ['gan-samples-evolution.png', 'gan-epoch-comparison.png'],
+          info: ['Generated image progression across training epochs', 'Visual quality comparison at different training stages']
+        }
+      ],
+      Diagrams: [
+        { 
+          image: ['gan-architecture.png', 'gan-experimental-setup.png'],
+          info: ['DCGAN architecture diagram', 'Experimental setup and methodology flowchart']
+        }
+      ],
+      ResearchData: [
+        {
+          image: ['gan-fid-scores.png', 'gan-results-table.png'],
+          info: ['FID score comparison across optimizers', 'Quantitative results summary table']
+        }
+      ]
+    },
+    
+    // Add specific metrics for this project
+    metrics: {
+      optimizers_tested: "4",
+      training_epochs: "15",
+      dataset_size: "60,000 images",
+      best_fid_score: "284.68 (SGD)",
+      key_finding: "Lookahead = Most Stable"
+    }
   },
   
-  researchResults: {
-    fidScores: [
-      { optimizer: "SGD with Momentum", score: 284.68, rank: 1 },
-      { optimizer: "RMSprop", score: 286.49, rank: 2 },
-      { optimizer: "Lookahead", score: 293.12, rank: 3 },
-      { optimizer: "Adam", score: 294.13, rank: 4 }
-    ],
-    keyFindings: [
-      "Lookahead showed the most stable convergence with minimal oscillations",
-      "Adam converged fastest but exhibited occasional instability",
-      "SGD with Momentum provided steady but slower improvement",
-      "RMSprop was prone to divergence and repetitive patterns"
-    ]
+  // 2. RecruSmart Microservices Recruitment Platform
+  {
+    id: "recrusmart-microservices",
+    folderid: "recrusmart-microservices",
+    projectType: "web",
+    platforme: "Microservices Architecture Platform",
+    title: "RecruSmart - Intelligent Recruitment Platform",
+    image: getProjectImages('project-recrusmart',['recrusmart-homepage.png',
+      'recrusmart-homepage-dark.png', 
+      'recrusmart-offers.png', 
+      'recrusmart-login.png', 
+      'recrusmart-registration.png']),
+      
+    category: "Microservices & Enterprise Architecture",
+    date: "2025",
+    client_for: "Academic Project",
+    role: "Full-Stack Microservices Developer & System Architect",
+    description: "A comprehensive intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV analysis, automated matching, and multi-channel notifications.",
+    github_link: "",
+    live_demo: "",
+    
+    technology: ["Spring Boot", "Node.js", "FastAPI", "React", "Docker", "Kubernetes", "RabbitMQ", "MongoDB", "MySQL"],
+    technology_used: {
+      'backend_frameworks': ["Spring Boot (Java)", "Node.js/Express", "FastAPI (Python)"],
+      'frontend': ["React 18", "TypeScript", "Tailwind CSS"],
+      'architecture': ["Microservices", "Domain-Driven Design", "Event-Driven Architecture"],
+      'databases': ["MongoDB", "MySQL", "Cloudflare R2"],
+      'messaging': ["RabbitMQ", "Event Sourcing"],
+      'infrastructure': ["Docker", "Kubernetes", "Consul", "Spring Cloud Gateway"],
+      'ai_ml': ["spaCy", "Sentence Transformers", "Mistral 7B", "NLP"]
+    },
+    
+    RoleResp: [{
+      Title_1: "System Architect & Full-Stack Developer",
+      Data: [
+        {
+          Title: "Domain-Driven Design Implementation",
+          Data: [
+            "Designed and implemented 6 bounded contexts using strategic DDD patterns",
+            "Created context maps and defined ubiquitous language for recruitment domain",
+            "Implemented aggregates, domain events, and value objects across services"
+          ]
+        },
+        {
+          Title: "Microservices Architecture Development",
+          Data: [
+            "Built 6 independent microservices using polyglot persistence",
+            "Implemented event-driven communication with RabbitMQ",
+            "Designed and deployed API Gateway with Spring Cloud Gateway",
+            "Configured service discovery using Consul"
+          ]
+        },
+        {
+          Title: "AI Integration & Business Logic",
+          Data: [
+            "Integrated NLP models for automated CV analysis and scoring",
+            "Implemented intelligent matching algorithms between candidates and job offers",
+            "Developed notification system with multi-channel delivery (Email, WhatsApp)"
+          ]
+        }
+      ],
+    }],
+    
+    KeyFeatures: [{
+      Title_1: "Architecture & Technical Features",
+      Data: [
+        {
+          Title: "Microservices Architecture",
+          Data: [
+            "6 independent services: Auth, Candidate, Offer, AI, Interview, Notification",
+            "Polyglot persistence with MongoDB and MySQL",
+            "Event-driven communication via RabbitMQ",
+            "Containerized with Docker and orchestrated with Kubernetes"
+          ]
+        },
+        {
+          Title: "Domain-Driven Design Implementation",
+          Data: [
+            "Strategic design with bounded contexts and context mapping",
+            "Tactical patterns: Aggregates, Domain Events, Value Objects",
+            "Ubiquitous language aligned with recruitment business domain"
+          ]
+        },
+        {
+          Title: "Intelligent Recruitment Features",
+          Data: [
+            "AI-powered CV analysis using spaCy and transformer models",
+            "Automated candidate-offer matching with scoring algorithms",
+            "Multi-language support (French/Arabic) for Moroccan market",
+            "Google Calendar and Meet integration for interview scheduling"
+          ]
+        }
+      ],
+    }],
+    
+    ChallSolu: [{
+      Title_1: "Architectural Challenges & Solutions",
+      Data: [
+        {
+          Title: "Distributed Transaction Management",
+          Data: [
+            "Challenge: Maintaining data consistency across multiple services",
+            "Solution: Implemented event-driven sagas with compensating transactions",
+            "Result: Reliable business processes without distributed transactions"
+          ]
+        },
+        {
+          Title: "Service Communication & Discovery",
+          Data: [
+            "Challenge: Dynamic service location and load balancing",
+            "Solution: Used Consul for service discovery and API Gateway for routing",
+            "Result: Resilient communication with automatic failover"
+          ]
+        },
+        {
+          Title: "AI Integration in Distributed System",
+          Data: [
+            "Challenge: Integrating CPU-intensive AI processing in microservices",
+            "Solution: Isolated AI service with async processing and message queues",
+            "Result: Scalable AI features without blocking other services"
+          ]
+        }
+      ],
+    }],
+    
+    researchResults: {
+      performanceMetrics: [
+        { metric: "API Response Time", value: "< 200ms", description: "95% of requests" },
+        { metric: "Service Scalability", value: "Independent Scaling", description: "Per microservice basis" },
+        { metric: "Test Coverage", value: "80%", description: "Unit and integration tests" },
+        { metric: "Deployment Frequency", value: "CI/CD Pipeline", description: "GitHub Actions + Argo CD" }
+      ],
+      businessImpact: [
+        "70% reduction in candidate processing time",
+        "60% improvement in matching accuracy with AI",
+        "80% user satisfaction improvement with modern UX"
+      ]
+    },
+    
+    VisualsMedia: {
+      Architecture: [
+        { 
+          image: ['recrusmart-context-map.png', 'recrusmart-eda-architecture.png'],
+          info: ['Domain-Driven Design Context Map', 'Event-Driven Architecture Diagram']
+        }
+      ],
+      UML: [
+        { 
+          image: ['recrusmart-use-case.png', 'recrusmart-sequence-diagram.png', 'recrusmart-class-diagram.png', 'recrusmart-activity-diagram.png'],
+          info: ['Use Case Diagram', 'Sequence Diagram', 'Class Diagram', 'Activity Diagram']
+        }
+      ],
+      /*Implementation: [
+        { 
+          image: ['recrusmart-postman-tests.png', 'recrusmart-dockerfile.png'],
+          info: ['Postman API Testing', 'Docker Configuration']
+        }
+      ],*/
+      Interface: [
+        { 
+          image: ['recrusmart-homepage.png','recrusmart-homepage-dark.png', 'recrusmart-offers.png', 'recrusmart-login.png', 'recrusmart-registration.png'],
+          info: ['Homepage Interface','Homepage Interface (Dark Mode)', 'Job Offers Listing', 'Login Page', 'Registration Page']
+        }
+      ]
+    },
+    
+    metrics: {
+      microservices: "6",
+      bounded_contexts: "6",
+      technologies: "9+",
+      deployment: "Docker + Kubernetes",
+      communication: "REST + RabbitMQ"
+    }
   },
-  
-  RoleResp: [{
-    Title_1: "ML Research Engineer",
-    Data: [
-      {
-        Title: "Experimental Design & Implementation",
-        Data: [
-          "Designed controlled experiments comparing 4 optimization algorithms on DCGAN architecture",
-          "Implemented consistent training pipeline with PyTorch on CIFAR-10 dataset",
-          "Developed evaluation metrics including FID scores and loss analysis"
-        ]
-      },
-      {
-        Title: "Performance Analysis",
-        Data: [
-          "Calculated Fréchet Inception Distance (FID) for quantitative comparison",
-          "Analyzed training stability through loss curve visualization",
-          "Evaluated visual quality and diversity across 15 training epochs"
-        ]
-      }
-    ],
-  }],
-  
-  KeyFeatures: [{
-    Title_1: "Research Methodology",
-    Data: [
-      {
-        Title: "Comprehensive Benchmarking",
-        Data: [
-          "Systematic comparison of Adam, RMSprop, SGD+Momentum, and Lookahead optimizers",
-          "Quantitative analysis using loss curves and Fréchet Inception Distance (FID)",
-          "Qualitative assessment through visual inspection of generated samples"
-        ]
-      },
-      {
-        Title: "Technical Implementation",
-        Data: [
-          "DCGAN architecture with consistent hyperparameters across all experiments",
-          "Training on CIFAR-10 dataset (60,000 images, 10 classes)",
-          "15 epochs training with batch size 64 and binary cross-entropy loss"
-        ]
-      },
-      {
-        Title: "Key Findings & Insights",
-        Data: [
-          "Identified Lookahead as most stable optimizer with smooth convergence",
-          "Adam showed fastest convergence but occasional instability",
-          "SGD with Momentum provided stable but slower training progression",
-          "RMSprop exhibited sensitivity to adversarial dynamics"
-        ]
-      }
-    ],
-  }],
-  
-  ChallSolu: [{
-    Title_1: "Research Challenges & Solutions",
-    Data: [
-      {
-        Title: "Training Instability & Mode Collapse",
-        Data: [
-          "Challenge: GAN training prone to divergence and mode collapse with certain optimizers",
-          "Solution: Implemented Lookahead optimizer and careful hyperparameter tuning",
-          "Result: Achieved stable training with diverse output generation"
-        ]
-      },
-      {
-        Title: "Objective Evaluation Metrics",
-        Data: [
-          "Challenge: Subjective nature of GAN evaluation makes comparison difficult",
-          "Solution: Combined quantitative (FID scores, loss curves) and qualitative (visual inspection) methods",
-          "Result: Comprehensive assessment of both stability and output quality"
-        ]
-      },
-      {
-        Title: "Reproducible Research",
-        Data: [
-          "Challenge: Ensuring consistent experimental conditions across optimizer comparisons",
-          "Solution: Standardized architecture, dataset, and training procedures",
-          "Result: Fair and reproducible benchmarking of optimization algorithms"
-        ]
-      }
-    ],
-  }],
-  
-  VisualsMedia: {
-    ScreenShot: [
-      { 
-        image: ['gan-loss-curves.png', 'gan-comparison.png'],
-        info: ['Generator and discriminator loss curves across optimizers', 'Comparative analysis of training stability']
-      },
-      { 
-        image: ['gan-samples-evolution.png', 'gan-epoch-comparison.png'],
-        info: ['Generated image progression across training epochs', 'Visual quality comparison at different training stages']
-      }
-    ],
-    Diagrams: [
-      { 
-        image: ['gan-architecture.png', 'gan-experimental-setup.png'],
-        info: ['DCGAN architecture diagram', 'Experimental setup and methodology flowchart']
-      }
-    ],
-    ResearchData: [
-      {
-        image: ['gan-fid-scores.png', 'gan-results-table.png'],
-        info: ['FID score comparison across optimizers', 'Quantitative results summary table']
-      }
-    ]
-  },
-  
-  // Add specific metrics for this project
-  metrics: {
-    optimizers_tested: "4",
-    training_epochs: "15",
-    dataset_size: "60,000 images",
-    best_fid_score: "284.68 (SGD)",
-    key_finding: "Lookahead = Most Stable"
-  }
-},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // 3. Blockchain Certificate Registry
+  // 4. Blockchain Certificate Registry
   {
     id: "blockchain-certificate",
     folderid: "blockchain-certificate",
@@ -1252,3 +1395,5 @@ const projects_ENG = [
 ];
 
 export default projects_ENG;
+
+

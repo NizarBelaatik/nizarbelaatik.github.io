@@ -3,8 +3,11 @@ import { Link } from 'react-router-dom'
 import ProjectCard from '../projects/ProjectCard'
 import ProjectFilter from '../projects/ProjectFilter'
 import { ArrowRight } from 'lucide-react'
-import projects_ENG from '../../data/projectsData'
+import projects_ENG from '../../data/projectsData_ENG'
+import projects_FR from '../../data/projectsData_FR'
 import { projectsFeatured }  from '../../data/projectSchema'
+
+import { useTranslation } from 'react-i18next'
 // Define project categories based on your new structure
 const projectCategories = {
   'all': 'All Projects',
@@ -16,21 +19,26 @@ const projectCategories = {
 }
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all')
+  const { t, i18n } = useTranslation()
+  const projectsDATA = i18n.language === "fr" ? projects_FR : projects_ENG
 
+
+  const [activeFilter, setActiveFilter] = useState('all')
+  
+  console.log("Fi18n.language", i18n.language);
   // Filter projects based on active filter
   const filteredProjects = useMemo(() => {
     if (activeFilter === 'all') {
       // Show featured projects for "all" filter (your new AI/Blockchain projects)
-      return projects_ENG
+      return projectsDATA
         .filter(project => 
-          ['rag-system', 'gan-optimization', 'blockchain-certificate','1'].includes(project.id)
+          ['rag-system', 'gan-optimization', 'blockchain-certificate','recrusmart-microservices','1'].includes(project.id)
         )
         .slice(0, 6)
     }
     
     // Filter by category for specific filters
-    return projects_ENG
+    return projectsDATA
       .filter(project => {
         switch (activeFilter) {
           case 'ai-ml':
@@ -51,15 +59,15 @@ const Projects = () => {
         }
       })
       .slice(0, 6)
-  }, [activeFilter])
+  }, [activeFilter, projectsDATA])
 
   // Calculate project counts for each category
   const projectsCount = useMemo(() => {
-    const counts = { all: projects_ENG.length }
+    const counts = { all: projectsDATA.length }
     
     Object.keys(projectCategories).forEach(category => {
       if (category !== 'all') {
-        counts[category] = projects_ENG.filter(project => {
+        counts[category] = projectsDATA.filter(project => {
           switch (category) {
             case 'ai-ml':
               return project.category?.includes('AI') || 
@@ -90,7 +98,7 @@ const Projects = () => {
     
     Object.keys(projectCategories).forEach(category => {
       if (category !== 'all') {
-        counts[category] = projects_ENG.filter(project => 
+        counts[category] = projectsDATA.filter(project => 
           featuredProjectIds.includes(project.id) && 
           (() => {
             switch (category) {
@@ -123,7 +131,7 @@ const Projects = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-primary mb-4">
-            Featured Projects
+            {t('projects.featured')}
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             Showcasing my latest work in AI, blockchain, and full-stack development
@@ -189,7 +197,7 @@ const Projects = () => {
             to="/projects"
             className="inline-flex items-center px-6 py-3 bg-accent-blue text-primary rounded-lg font-medium hover:bg-blue-600 transition-colors group"
           >
-            View All Projects
+            {t('projects.viewAll')}
             <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>

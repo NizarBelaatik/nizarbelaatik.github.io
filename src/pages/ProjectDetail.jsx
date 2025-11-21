@@ -2,13 +2,15 @@ import React, { useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { ArrowLeft, ExternalLink, Github, Calendar, Tag, Users, Building, ChevronLeft, ChevronRight, X, Briefcase } from 'lucide-react'
-import projects_ENG from '../data/projectsData'
+import projects_ENG from '../data/projectsData_ENG'
+import projects_FR from '../data/projectsData_FR'
 import { projectsFeatured } from '../data/projectSchema'
 
 const ProjectDetail = () => {
   const { id } = useParams()
-  const { t } = useTranslation()
-  const project = projects_ENG.find(p => p.id === id)
+  const { t, i18n } = useTranslation()
+  const projectsDATA = i18n.language === "fr" ? projects_FR : projects_ENG
+  const project = projectsDATA.find(p => p.id === id)
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(0)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -357,7 +359,60 @@ const ProjectDetail = () => {
               </div>
             )}
 
-            
+            {project.id === 'recrusmart-microservices' && (
+            <div className="card group hover:border-accent-blue/30 transition-all duration-300">
+              <h3 className="text-3xl font-bold text-white mb-6">Architecture & System Design</h3>
+              
+              {/* Performance Metrics */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                {project.researchResults?.performanceMetrics?.map((metric, index) => (
+                  <div key={index} className="bg-gray-700/30 rounded-lg p-4 border border-gray-600">
+                    <div className="text-accent-blue font-semibold text-lg">{metric.metric}</div>
+                    <div className="text-white text-xl font-bold my-2">{metric.value}</div>
+                    <div className="text-gray-400 text-sm">{metric.description}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Architecture Highlights */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="space-y-4">
+                  <h4 className="text-xl text-white font-semibold">Microservices Architecture</h4>
+                  <ul className="space-y-2 text-gray-300">
+                    <li className="flex items-start">
+                      <span className="text-accent-blue mr-2 mt-1">•</span>
+                      <span><strong>6 Bounded Contexts</strong> aligned with DDD principles</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-accent-blue mr-2 mt-1">•</span>
+                      <span><strong>Polyglot Persistence</strong> with MongoDB & MySQL</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-accent-blue mr-2 mt-1">•</span>
+                      <span><strong>Event-Driven Communication</strong> via RabbitMQ</span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="text-accent-blue mr-2 mt-1">•</span>
+                      <span><strong>Containerized Deployment</strong> with Docker & Kubernetes</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="text-xl text-white font-semibold">Business Impact</h4>
+                  <ul className="space-y-2 text-gray-300">
+                    {project.researchResults?.businessImpact?.map((impact, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="text-accent-blue mr-2 mt-1">•</span>
+                        {impact}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          )}
+          
             {/* Compact FID display for sidebar */}
             {project.researchResults && project.researchResults.fidScores && (
               <div className="card group hover:border-accent-blue/30 transition-all duration-300">
@@ -410,13 +465,12 @@ const ProjectDetail = () => {
                 metrics.optimizers = project.metrics?.optimizers_tested || '4'
                 metrics.epochs = project.metrics?.training_epochs || '15'
                 metrics.dataset = project.metrics?.dataset_size || 'CIFAR-10'
-                //metrics.best_fid = project.metrics?.best_fid_score || '284.68'
-                metrics.best_fid = '284.68 (SGD)'
-                metrics.worst_fid = '294.13 (Adam)'
-              } else if (project.id === 'blockchain-certificate') {
-                metrics.assets = '50+'
-                metrics.transactions = '100+'
-                metrics.security = '100%'
+                metrics.best_fid = project.metrics?.best_fid_score || '284.68'
+              } else if (project.id === 'recrusmart-microservices') {
+                metrics.microservices = project.metrics?.microservices || '6'
+                metrics.technologies = project.metrics?.technologies || '9+'
+                metrics.architecture = project.metrics?.bounded_contexts || 'DDD'
+                metrics.deployment = project.metrics?.deployment || 'K8s'
               }
 
               return Object.keys(metrics).length > 0 ? (
@@ -462,6 +516,9 @@ const ProjectDetail = () => {
               </div>
             )}
           </div>
+
+
+          
         </div>
       </div>
     </div>
