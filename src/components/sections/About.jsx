@@ -42,7 +42,7 @@ const About = () => {
                   <p>
                     I'm a passionate <span className="text-accent-blue light:text-blue-600 font-semibold">Data Science Master's student </span> 
                     specializing in <span className="text-accent-purple light:text-purple-600 font-semibold">Machine Learning, Deep Learning, and Big Data technologies</span>. 
-                    Currently in my final year, I'm focused on transforming complex data into 
+                    Currently in my 2nd year, I'm focused on transforming complex data into 
                     actionable insights and intelligent solutions.
                   </p>
                   
@@ -67,7 +67,7 @@ const About = () => {
                   <p>
                     Je suis un passionné <span className="text-accent-blue light:text-blue-600 font-semibold">d'étudiant en Master Data Science </span> 
                     spécialisé en <span className="text-accent-purple light:text-purple-600 font-semibold">Machine Learning, Deep Learning et technologies Big Data</span>. 
-                    Actuellement en dernière année, je me concentre sur la transformation de données complexes 
+                    Actuellement en 2ème année, je me concentre sur la transformation de données complexes 
                     en insights actionnables et solutions intelligentes.
                   </p>
                   
