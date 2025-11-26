@@ -46,7 +46,7 @@ const Hero = () => {
             </>
           ) : (
             <>
-              Étudiant en dernière année de Master Data Science & Big Data, spécialisé en machine learning, 
+              Étudiant en 2ème année de Master Data Science & Big Data, spécialisé en machine learning, 
               deep learning et solutions IA scalables. Passionné par la transformation de données complexes 
               en applications intelligentes qui créent de la valeur business et de l'innovation.
             </>
