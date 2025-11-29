@@ -147,7 +147,11 @@
     "title": "Certifications",
     "subtitle": "Certifications professionnelles et compétences validées",
     "completedTitle": "Certifications Complétées",
-    "show":"Voir le certificat"
+    "show":"Voir le certificat",
+    "status": {
+      "completed": "Terminé",
+      "inProgress": "En Cours"
+    }
   },
 
   "projects": {

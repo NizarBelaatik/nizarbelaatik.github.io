@@ -151,7 +151,11 @@
     "title": "Certifications",
     "subtitle": "Professional certifications and validated skills",
     "completedTitle": "Completed Certifications",
-    "show":"Show Credential"
+    "show":"Show Credential",
+    "status": {
+      "completed": "Completed",
+      "inProgress": "In Progress"
+    }
   },
 
 
