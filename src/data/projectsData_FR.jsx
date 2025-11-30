@@ -24,14 +24,16 @@ const projects_FR = [
     description: "Développement d'un système national de zoning pour optimiser la couverture commerciale des épiceries informelles au Maroc. Utilisation de données géospatiales, d'indicateurs socio-démographiques et de clustering sous contraintes pour équilibrer les territoires de vente.",
     research_paper: "",
     
-    technology: ["Python", "GeoPandas", "Scikit-learn", "OpenStreetMap", "QGIS", "Folium"],
+    technology: ["Python", "GeoPandas", "Scikit-learn", "OpenStreetMap", "QGIS", "Folium", "FastAPI", "React"],
     technology_used: {
       'data_processing': ["Pandas", "NumPy", "Data Cleaning"],
       'geospatial': ["GeoPandas", "OpenStreetMap", "QGIS", "Folium"],
       'ml_clustering': ["Scikit-learn", "K-Means Contraint", "Clustering Capacité"],
       'visualization': ["Matplotlib", "Seaborn", "Folium", "QGIS"],
       'data_sources': ["RGPH 2024", "Points d'Intérêt", "Données Démographiques"],
-      'ai_ml': ["Scikit-learn", "K-Means Contraint", "Clustering Capacité"]
+      'front_end': ["React", "Tailwind CSS", "JavaScript"],
+      'back_end': ["Python", "FastAPI"],
+      //'ai_ml': ["Scikit-learn", "K-Means Contraint", "Clustering Capacité"]
     },
     
     researchResults: {

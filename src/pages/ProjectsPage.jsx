@@ -39,7 +39,9 @@ const ProjectsPage = () => {
           case 'ai-ml':
             return project.category?.includes('AI') || 
                    project.technology_used?.ai_ml ||
-                   project.title?.includes('GAN');
+                   project.title?.includes('GAN')||
+                   project.technology_used?.ml_clustering ||
+                   project.title?.includes('Data Science');
           case 'blockchain':
             return project.category?.includes('Blockchain') || 
                    project.technology_used?.blockchain;
@@ -114,7 +116,9 @@ const ProjectsPage = () => {
             case 'ai-ml':
               return project.category?.includes('AI') || 
                      project.technology_used?.ai_ml ||
-                     project.title?.includes('GAN');
+                     project.title?.includes('GAN')||
+                    project.technology_used?.ml_clustering ||
+                    project.title?.includes('Data Science');
             case 'blockchain':
               return project.category?.includes('Blockchain') || 
                      project.technology_used?.blockchain;

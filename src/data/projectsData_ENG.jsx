@@ -24,14 +24,16 @@ const projects_ENG = [
     description: "Development of a national zoning system to optimize commercial coverage of informal grocery stores in Morocco. Using geospatial data, socio-demographic indicators, and capacity-constrained clustering to balance sales territories.",
     research_paper: "",
     
-    technology: ["Python", "GeoPandas", "Scikit-learn", "OpenStreetMap", "QGIS", "Folium"],
+    technology: ["Python", "GeoPandas", "Scikit-learn", "OpenStreetMap", "QGIS", "Folium", "FastAPI", "React"],
     technology_used: {
       'data_processing': ["Pandas", "NumPy", "Data Cleaning"],
       'geospatial': ["GeoPandas", "OpenStreetMap", "QGIS", "Folium"],
       'ml_clustering': ["Scikit-learn", "Constrained K-Means", "Capacity Clustering"],
       'visualization': ["Matplotlib", "Seaborn", "Folium", "QGIS"],
       'data_sources': ["Census 2024", "Points of Interest", "Demographic Data"],
-      'ai_ml': ["Scikit-learn", "K-Means Contraint", "Clustering Capacité"]
+      'front_end': ["React", "Tailwind CSS", "JavaScript"],
+      'back_end': ["Python", "FastAPI"],
+      //'ai_ml': ["Scikit-learn", "K-Means Constrained", "Clustering Capacité"]
     },
     
     researchResults: {
