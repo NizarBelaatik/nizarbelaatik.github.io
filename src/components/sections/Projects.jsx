@@ -32,7 +32,7 @@ const Projects = () => {
       // Show featured projects for "all" filter (your new AI/Blockchain projects)
       return projectsDATA
         .filter(project => 
-          ['rag-system', 'gan-optimization', 'blockchain-certificate','recrusmart-microservices','1'].includes(project.id)
+          ['retail-zoning-system','rag-system', 'gan-optimization', 'blockchain-certificate','recrusmart-microservices','1'].includes(project.id)
         )
         .slice(0, 6)
     }
@@ -152,7 +152,7 @@ const Projects = () => {
             <ProjectCard 
               key={project.id} 
               project={project} 
-              featured={['rag-system', 'gan-optimization', 'blockchain-certificate'].includes(project.id)}
+              featured={['retail-zoning-system','rag-system', 'gan-optimization', 'blockchain-certificate'].includes(project.id)}
             />
           ))}
         </div>

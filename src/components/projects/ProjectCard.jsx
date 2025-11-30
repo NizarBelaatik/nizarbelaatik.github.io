@@ -9,7 +9,7 @@ const ProjectCard = ({ project, featured = false }) => {
   const { t, i18n } = useTranslation()
   
   // Determine if it's a new project (GAN, RAG, Blockchain)
-  const isNewProject = ['gan-optimization', 'rag-system', 'blockchain-certificate'].includes(project.id);
+  const isNewProject = ['retail-zoning-system','gan-optimization', 'rag-system', 'blockchain-certificate'].includes(project.id);
   
   // Get project status based on type
   const getProjectStatus = (project) => {

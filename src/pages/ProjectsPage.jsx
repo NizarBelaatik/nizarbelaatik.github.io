@@ -68,12 +68,13 @@ const ProjectsPage = () => {
     }
 
     // Apply sorting
-    filtered.sort((a, b) => {
+    {/* //filtered projects 
+      filtered.sort((a, b) => {
       switch (sortBy) {
         case 'featured':
           // Prioritize new AI/Blockchain projects
-          const aFeatured = ['rag-system', 'gan-optimization', 'blockchain-certificate'].includes(a.id)
-          const bFeatured = ['rag-system', 'gan-optimization', 'blockchain-certificate'].includes(b.id)
+          const aFeatured = ['retail-zoning','rag-system', 'gan-optimization', 'blockchain-certificate'].includes(a.id)
+          const bFeatured = ['retail-zoning','rag-system', 'gan-optimization', 'blockchain-certificate'].includes(b.id)
           return (bFeatured ? 1 : 0) - (aFeatured ? 1 : 0)
         case 'newest':
           // Extract year from date string
@@ -96,6 +97,8 @@ const ProjectsPage = () => {
           return 0
       }
     })
+      */}
+    
 
     return filtered
   }, [activeFilter, searchQuery, sortBy,projectsDATA])
@@ -266,7 +269,7 @@ const ProjectsPage = () => {
             <ProjectCard 
               key={project.id} 
               project={project}
-              featured={['rag-system', 'gan-optimization', 'blockchain-certificate'].includes(project.id)}
+              featured={['retail-zoning','rag-system', 'gan-optimization', 'blockchain-certificate'].includes(project.id)}
             />
           ))}
         </div>

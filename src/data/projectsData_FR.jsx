@@ -2,8 +2,207 @@
 import getProjectImages from '../components/projects/getProjectImages';
 
 const projects_FR = [
-  // ========== NOUVEAUX PROJETS IA/BLOCKCHAIN ==========
-  
+  // 0. Retail Zoning System for WafR
+  {
+    id: "retail-zoning-system",
+    folderid: "retail-zoning",
+    projectType: "research",
+    platforme: "Système de Zoning Géospatial",
+    title: "Système de Zoning Intelligent pour le Réseau de Distribution Marocain",
+    image: getProjectImages('project-retail-zoning', [
+      'zoning-national-map.png',
+      'casablanca-zones.png', 
+      'dashboard.png',
+      'tools.png',
+      'merge.png',
+      'clustering.png'
+    ]),
+    category: "Data Science & Géospatial Analytics",
+    date: "2025",
+    client_for: "WafR - Projet de Fin d'Année",
+    role: "Data Scientist & Géospatial Analyst",
+    description: "Développement d'un système national de zoning pour optimiser la couverture commerciale des épiceries informelles au Maroc. Utilisation de données géospatiales, d'indicateurs socio-démographiques et de clustering sous contraintes pour équilibrer les territoires de vente.",
+    research_paper: "",
+    
+    technology: ["Python", "GeoPandas", "Scikit-learn", "OpenStreetMap", "QGIS", "Folium"],
+    technology_used: {
+      'data_processing': ["Pandas", "NumPy", "Data Cleaning"],
+      'geospatial': ["GeoPandas", "OpenStreetMap", "QGIS", "Folium"],
+      'ml_clustering': ["Scikit-learn", "K-Means Contraint", "Clustering Capacité"],
+      'visualization': ["Matplotlib", "Seaborn", "Folium", "QGIS"],
+      'data_sources': ["RGPH 2024", "Points d'Intérêt", "Données Démographiques"],
+      'ai_ml': ["Scikit-learn", "K-Means Contraint", "Clustering Capacité"]
+    },
+    
+    researchResults: {
+      keyMetrics: [
+        { metric: "Points d'Intérêt Collectés", value: "72,000", description: "Données brutes initiales" },
+        { metric: "Épiceries Estimées", value: "69,000", description: "Après pondération et nettoyage" },
+        { metric: "Zones Commerciales Créées", value: "535", description: "Zones équilibrées nationales" },
+        { metric: "Cible Stores par Zone", value: "300-400", description: "Charge de travail équilibrée" }
+      ],
+      cityCoverage: [
+        { city: "Casablanca", zones: 32 },
+        { city: "Marrakech", zones: 27 },
+        { city: "Rabat", zones: 13 },
+        { city: "Fès", zones: 10 },
+        { city: "Agadir", zones: 10 },
+        { city: "Salé", zones: 10 },
+        { city: "Tanger", zones: 11 }
+      ]
+    },
+    
+    RoleResp: [{
+      Title_1: "Data Scientist & Analyste Géospatial",
+      Data: [
+        {
+          Title: "Collecte et Prétraitement des Données",
+          Data: [
+            "Extraction et nettoyage de 72,000 points d'intérêt (mosquées, souks, écoles, hôpitaux)",
+            "Intégration des données du RGPH 2024 pour la pondération démographique",
+            "Classification urbain-rural et déduplication des données"
+          ]
+        },
+        {
+          Title: "Modélisation et Estimation",
+          Data: [
+            "Développement d'un modèle de pondération population-densité-activité",
+            "Estimation réaliste de la distribution des épiceries à l'échelle nationale",
+            "Réduction de 72,000 à 69,000 points via stratégie de minimisation"
+          ]
+        },
+        {
+          Title: "Clustering et Zoning Intelligent",
+          Data: [
+            "Implémentation d'algorithme K-Means sous contraintes de capacité",
+            "Création de 535 zones commerciales équilibrées (300-400 stores/zone)",
+            "Assurance de la cohérence spatiale et morphologique urbaine"
+          ]
+        }
+      ],
+    }],
+    
+    KeyFeatures: [{
+      Title_1: "Méthodologie de Recherche",
+      Data: [
+        {
+          Title: "Préparation des Données Géospatiales",
+          Data: [
+            "Intégration des limites administratives et indicateurs de recensement",
+            "Alignement sur système de coordonnées commun",
+            "Enrichissement avec attributs au niveau communal"
+          ]
+        },
+        {
+          Title: "Estimation de la Demande et Pondération",
+          Data: [
+            "Pondération composite basée sur population, densité et activité des souks",
+            "Capture de la pression démographique et de l'intensité urbaine",
+            "Modélisation de l'activité commerciale des marchés traditionnels"
+          ]
+        },
+        {
+          Title: "Clustering Sous Contraintes de Capacité",
+          Data: [
+            "Algorithme respectant la charge de travail maximale par cluster",
+            "Initialisation pondérée pour éviter les biais de départ",
+            "Production de zones opérationnellement équitables"
+          ]
+        }
+      ],
+    }],
+    
+    ChallSolu: [{
+      Title_1: "Défis Techniques & Solutions",
+      Data: [
+        {
+          Title: "Nature Informelle du Commerce",
+          Data: [
+            "Défi : Absence de données officielles sur les épiceries informelles",
+            "Solution : Utilisation de proxies géospatiaux (POIs) et pondération démographique",
+            "Résultat : Estimation réaliste de 69,000 épiceries à partir de signaux indirects"
+          ]
+        },
+        {
+          Title: "Équilibrage des Territoires",
+          Data: [
+            "Défi : Création de zones équilibrées malgré la densité variable",
+            "Solution : Algorithme de clustering sous contraintes de capacité",
+            "Résultat : 535 zones avec 300-400 stores chacune, cohérentes spatialement"
+          ]
+        },
+        {
+          Title: "Couverture Nationale",
+          Data: [
+            "Défi : Inclusion des zones rurales et faible densité",
+            "Solution : Classification urbain-rural et traitement différencié",
+            "Résultat : Système couvrant l'ensemble du territoire marocain"
+          ]
+        }
+      ],
+    }],
+    
+    BusinessImpact: [{
+      Title_1: "Impact Opérationnel pour WafR",
+      Data: [
+        {
+          Title: "Optimisation des Opérations Terrain",
+          Data: [
+            "Réduction de la couverture inégale (zones surdesservies vs négligées)",
+            "Déploiement efficace des équipes commerciales",
+            "Assignation équilibrée des territoires aux équipes de vente"
+          ]
+        },
+        {
+          Title: "Prise de Décision Data-Driven",
+          Data: [
+            "Visibilité spatiale améliorée sur le réseau de distribution",
+            "Intégration des variations de population et densité dans la planification",
+            "Cadre standardisé et scalable pour la stratégie commerciale"
+          ]
+        }
+      ],
+    }],
+    
+    VisualsMedia: {
+      Maps: [
+        { 
+          image: ['zoning-national-map.png', 'casablanca-zones.png'],
+          info: [
+            'Carte nationale montrant les 535 zones commerciales',
+            'Détail du zoning à Casablanca avec 32 zones équilibrées'
+          ]
+        }
+      ],
+      Process: [
+        { 
+          image: ['merge.png', 'clustering.png'],
+          info: [
+            'Processus de fusion et intégration des données multi-sources',
+            'Visualisation de l\'algorithme de clustering sous contraintes'
+          ]
+        }
+      ],
+      Tools: [
+        { 
+          image: ['dashboard.png', 'tools.png'],
+          info: [
+            'Dashboard d\'analyse et de monitoring du système',
+            'Stack technique et outils de développement utilisés'
+          ]
+        }
+      ]
+    },
+    
+    metrics: {
+      data_points: "72,000 POIs",
+      estimated_stores: "69,000",
+      zones_created: "535",
+      target_per_zone: "300-400",
+      coverage: "National"
+    }
+  },
+
   // 1. Système RAG Intelligent
   {
     id: "rag-system",
@@ -13,12 +212,12 @@ const projects_FR = [
     title: "Système RAG Intelligent pour l'Éducation Mathématique",
     image: getProjectImages('project-rag-system'),
     category: "IA & Éducation",
-    date: "2024",
+    date: "2025",
     client_for: "Projet Académique",
     role: "Développeur Full-Stack IA",
     description: "Un système intelligent de Génération Augmentée par Récupération qui aide les étudiants à trouver et comprendre des exercices de mathématiques. Intègre du web scraping, des explications alimentées par IA, une recherche sémantique et une interface web moderne.",
     github_link: "https://github.com/NizarBelaatik/RAG_Math_College",
-    live_demo: "#",
+    live_demo: "",
     
     technology: ["Python", "FastAPI", "React", "FAISS", "HuggingFace", "OpenRouter API"],
     technology_used: {
@@ -129,7 +328,7 @@ const projects_FR = [
     role: "Ingénieur Recherche ML",
     description: "Recherche complète analysant l'impact des algorithmes d'optimisation (Adam, RMSprop, SGD, Lookahead) sur la stabilité de l'entraînement GAN et la qualité des sorties utilisant l'architecture DCGAN sur le dataset CIFAR-10.",
     github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
-    research_paper: "#",
+    research_paper: "",
     
     technology: ["PyTorch", "Python", "DCGAN", "CIFAR-10", "Adam", "RMSprop", "SGD", "Lookahead"],
     technology_used: {
@@ -303,7 +502,7 @@ const projects_FR = [
       'bases_de_donnees': ["MongoDB", "MySQL", "Cloudflare R2"],
       'messagerie': ["RabbitMQ", "Event Sourcing"],
       'infrastructure': ["Docker", "Kubernetes", "Consul", "Spring Cloud Gateway"],
-      'ia_ml': ["spaCy", "Sentence Transformers", "Mistral 7B", "NLP"]
+      'ai_ml': ["spaCy", "Sentence Transformers", "Mistral 7B", "NLP"]
     },
     
     RoleResp: [{
@@ -452,12 +651,12 @@ const projects_FR = [
     title: "Registre de Certificats Blockchain dApp",
     image: getProjectImages('project-blockchain-certificate'),
     category: "Blockchain & Web3",
-    date: "2024", 
+    date: "2025", 
     client_for: "Projet Académique",
     role: "Développeur Blockchain Full-Stack",
     description: "Une application décentralisée full-stack pour enregistrer et gérer des certificats numériques sur la blockchain Ethereum. Les utilisateurs peuvent enregistrer des hachages de fichiers, transférer la propriété et gérer des actifs numériques de manière sécurisée.",
     github_link: "https://github.com/NizarBelaatik/digital-ownership-dapp",
-    live_demo: "#",
+    live_demo: "",
     
     technology: ["Solidity", "React", "Web3.js", "Truffle", "Ganache"],
     technology_used: {

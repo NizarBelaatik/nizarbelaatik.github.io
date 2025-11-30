@@ -5,7 +5,7 @@ const SkillsSection = () => {
   const skillCategories = [
     {
       title: "AI & Machine Learning",
-      skills: ["PyTorch", "GANs", "Transformers", "Computer Vision", "NLP", "RAG Systems"],
+      skills: ["PyTorch", "GANs", "Transformers", "Computer Vision", "NLP", "RAG Systems", "TensorFlow", "Scikit-learn", "Keras", "OpenCV", "Clustering Algorithms", "Reinforcement Learning"],
       color: "from-purple-500 to-pink-500"
     },
     {

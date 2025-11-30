@@ -8,6 +8,22 @@
     "skills": "Compétences",
     "contact": "Contact"
   },
+  "dates": {
+    "january": "Janvier",
+    "february": "Février",
+    "march": "Mars",
+    "april": "Avril",
+    "may": "Mai",
+    "june": "Juin",
+    "july": "Juillet",
+    "august": "Août",
+    "september": "Septembre",
+    "october": "Octobre",
+    "november": "Novembre",
+    "december": "Décembre",
+    "issued": "Émis",
+    "expires": "Expire"
+  },
   "resume": {
     "resume_link": "/resume/CV.pdf"
   },
@@ -151,7 +167,8 @@
     "status": {
       "completed": "Terminé",
       "inProgress": "En Cours"
-    }
+    },
+    "id":"ID de certification"
   },
 
   "projects": {

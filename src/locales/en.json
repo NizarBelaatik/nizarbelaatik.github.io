@@ -8,6 +8,22 @@
     "skills": "Skills",
     "contact": "Contact"
   },
+  "dates": {
+    "january": "January",
+    "february": "February",
+    "march": "March",
+    "april": "April",
+    "may": "May",
+    "june": "June",
+    "july": "July",
+    "august": "August",
+    "september": "September",
+    "october": "October",
+    "november": "November",
+    "december": "December",
+    "issued": "Issued",
+    "expires": "Expires"
+  },
   "status": {
     "completed": "Completed",
     "research": "Research",
@@ -155,7 +171,8 @@
     "status": {
       "completed": "Completed",
       "inProgress": "In Progress"
-    }
+    },
+    "id": "Certification ID"
   },
 
 

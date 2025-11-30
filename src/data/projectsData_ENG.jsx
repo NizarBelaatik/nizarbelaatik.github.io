@@ -2,8 +2,207 @@
 import getProjectImages from '../components/projects/getProjectImages';
 
 const projects_ENG = [
-  // ========== NEW AI/BLOCKCHAIN PROJECTS ==========
-  
+  // 0. Retail Zoning System for WafR
+  {
+    id: "retail-zoning-system",
+    folderid: "retail-zoning",
+    projectType: "research",
+    platforme: "Geospatial Zoning System",
+    title: "Intelligent Zoning System for Morocco's Retail Distribution Network",
+    image: getProjectImages('project-retail-zoning', [
+      'zoning-national-map.png',
+      'casablanca-zones.png', 
+      'dashboard.png',
+      'tools.png',
+      'merge.png',
+      'clustering.png'
+    ]),
+    category: "Data Science & Geospatial Analytics",
+    date: "2025",
+    client_for: "WafR - Final Year Project",
+    role: "Data Scientist & Geospatial Analyst",
+    description: "Development of a national zoning system to optimize commercial coverage of informal grocery stores in Morocco. Using geospatial data, socio-demographic indicators, and capacity-constrained clustering to balance sales territories.",
+    research_paper: "",
+    
+    technology: ["Python", "GeoPandas", "Scikit-learn", "OpenStreetMap", "QGIS", "Folium"],
+    technology_used: {
+      'data_processing': ["Pandas", "NumPy", "Data Cleaning"],
+      'geospatial': ["GeoPandas", "OpenStreetMap", "QGIS", "Folium"],
+      'ml_clustering': ["Scikit-learn", "Constrained K-Means", "Capacity Clustering"],
+      'visualization': ["Matplotlib", "Seaborn", "Folium", "QGIS"],
+      'data_sources': ["Census 2024", "Points of Interest", "Demographic Data"],
+      'ai_ml': ["Scikit-learn", "K-Means Contraint", "Clustering Capacité"]
+    },
+    
+    researchResults: {
+      keyMetrics: [
+        { metric: "Points of Interest Collected", value: "72,000", description: "Initial raw data" },
+        { metric: "Estimated Grocery Stores", value: "69,000", description: "After weighting and cleaning" },
+        { metric: "Commercial Zones Created", value: "535", description: "Balanced national zones" },
+        { metric: "Target Stores per Zone", value: "300-400", description: "Balanced workload" }
+      ],
+      cityCoverage: [
+        { city: "Casablanca", zones: 32 },
+        { city: "Marrakech", zones: 27 },
+        { city: "Rabat", zones: 13 },
+        { city: "Fès", zones: 10 },
+        { city: "Agadir", zones: 10 },
+        { city: "Salé", zones: 10 },
+        { city: "Tanger", zones: 11 }
+      ]
+    },
+    
+    RoleResp: [{
+      Title_1: "Data Scientist & Geospatial Analyst",
+      Data: [
+        {
+          Title: "Data Collection and Preprocessing",
+          Data: [
+            "Extraction and cleaning of 72,000 points of interest (mosques, souks, schools, hospitals)",
+            "Integration of 2024 census data for demographic weighting",
+            "Urban-rural classification and data deduplication"
+          ]
+        },
+        {
+          Title: "Modeling and Estimation",
+          Data: [
+            "Development of population-density-activity weighting model",
+            "Realistic estimation of grocery store distribution at national scale",
+            "Reduction from 72,000 to 69,000 points via minimization strategy"
+          ]
+        },
+        {
+          Title: "Clustering and Intelligent Zoning",
+          Data: [
+            "Implementation of capacity-constrained K-Means algorithm",
+            "Creation of 535 balanced commercial zones (300-400 stores/zone)",
+            "Ensuring spatial coherence and urban morphological alignment"
+          ]
+        }
+      ],
+    }],
+    
+    KeyFeatures: [{
+      Title_1: "Research Methodology",
+      Data: [
+        {
+          Title: "Geospatial Data Preparation",
+          Data: [
+            "Integration of administrative boundaries and census indicators",
+            "Alignment to common coordinate system",
+            "Enrichment with commune-level attributes"
+          ]
+        },
+        {
+          Title: "Demand Estimation and Weight Assignment",
+          Data: [
+            "Composite weighting based on population, density and souk activity",
+            "Capture of demographic pressure and urban intensity",
+            "Modeling of traditional market commercial activity"
+          ]
+        },
+        {
+          Title: "Capacity-Constrained Clustering",
+          Data: [
+            "Algorithm respecting maximum workload per cluster",
+            "Weighted initialization to avoid starting biases",
+            "Production of operationally fair zones"
+          ]
+        }
+      ],
+    }],
+    
+    ChallSolu: [{
+      Title_1: "Technical Challenges & Solutions",
+      Data: [
+        {
+          Title: "Informal Commerce Nature",
+          Data: [
+            "Challenge: Lack of official data on informal grocery stores",
+            "Solution: Use of geospatial proxies (POIs) and demographic weighting",
+            "Result: Realistic estimation of 69,000 stores from indirect signals"
+          ]
+        },
+        {
+          Title: "Territory Balancing",
+          Data: [
+            "Challenge: Creating balanced zones despite variable density",
+            "Solution: Capacity-constrained clustering algorithm",
+            "Result: 535 zones with 300-400 stores each, spatially coherent"
+          ]
+        },
+        {
+          Title: "National Coverage",
+          Data: [
+            "Challenge: Inclusion of rural and low-density areas",
+            "Solution: Urban-rural classification and differentiated treatment",
+            "Result: System covering entire Moroccan territory"
+          ]
+        }
+      ],
+    }],
+    
+    BusinessImpact: [{
+      Title_1: "Operational Impact for WafR",
+      Data: [
+        {
+          Title: "Field Operations Optimization",
+          Data: [
+            "Reduction of uneven coverage (overserved vs neglected areas)",
+            "Efficient deployment of commercial teams",
+            "Balanced territory assignment for sales teams"
+          ]
+        },
+        {
+          Title: "Data-Driven Decision Making",
+          Data: [
+            "Improved spatial visibility on distribution network",
+            "Integration of population and density variations in planning",
+            "Standardized and scalable framework for commercial strategy"
+          ]
+        }
+      ],
+    }],
+    
+    VisualsMedia: {
+      Maps: [
+        { 
+          image: ['zoning-national-map.png', 'casablanca-zones.png'],
+          info: [
+            'National map showing 535 commercial zones',
+            'Zoning detail in Casablanca with 32 balanced zones'
+          ]
+        }
+      ],
+      Process: [
+        { 
+          image: ['merge.png', 'clustering.png'],
+          info: [
+            'Multi-source data integration and fusion process',
+            'Visualization of capacity-constrained clustering algorithm'
+          ]
+        }
+      ],
+      Tools: [
+        { 
+          image: ['dashboard.png', 'tools.png'],
+          info: [
+            'System analysis and monitoring dashboard',
+            'Technical stack and development tools used'
+          ]
+        }
+      ]
+    },
+    
+    metrics: {
+      data_points: "72,000 POIs",
+      estimated_stores: "69,000",
+      zones_created: "535",
+      target_per_zone: "300-400",
+      coverage: "National"
+    }
+  },
+
   // 1. Intelligent RAG System
   {
     id: "rag-system",
@@ -13,12 +212,12 @@ const projects_ENG = [
     title: "Intelligent RAG System for Math Education",
     image: getProjectImages('project-rag-system'),
     category: "AI & Education",
-    date: "2024",
+    date: "2025",
     client_for: "Academic Project",
     role: "Full-Stack AI Developer",
     description: "An intelligent Retrieval-Augmented Generation system that helps students find and understand math exercises. Features web scraping, AI-powered explanations, semantic search, and a modern web interface.",
     github_link: "https://github.com/NizarBelaatik/RAG_Math_College",
-    live_demo: "#",
+    live_demo: "",
     
     technology: ["Python", "FastAPI", "React", "FAISS", "HuggingFace", "OpenRouter API"],
     technology_used: {
@@ -129,7 +328,7 @@ const projects_ENG = [
     role: "ML Research Engineer",
     description: "Comprehensive research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset.",
     github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
-    research_paper: "#",
+    research_paper: "",
     
     technology: ["PyTorch", "Python", "DCGAN", "CIFAR-10", "Adam", "RMSprop", "SGD", "Lookahead"],
     technology_used: {
@@ -456,12 +655,12 @@ const projects_ENG = [
     title: "Blockchain Certificate Registry dApp",
     image: getProjectImages('project-blockchain-certificate'),
     category: "Blockchain & Web3",
-    date: "2024", 
+    date: "2025", 
     client_for: "Academic Project",
     role: "Blockchain Full-Stack Developer",
     description: "A full-stack decentralized application for registering and managing digital certificates on the Ethereum blockchain. Users can register file hashes, transfer ownership, and manage digital assets securely.",
     github_link: "https://github.com/NizarBelaatik/digital-ownership-dapp",
-    live_demo: "#",
+    live_demo: "",
     
     technology: ["Solidity", "React", "Web3.js", "Truffle", "Ganache"],
     technology_used: {
