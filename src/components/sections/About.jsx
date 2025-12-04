@@ -11,7 +11,7 @@ const About = () => {
     { icon: Users, number: '15+', label: t('about.projectsCompleted') },
     { icon: Brain, number: currentLanguage === 'fr' ? 'Multi-Domaine' : 'Multi-Domain', label: t('about.aiSpecialization') },
   ]
-
+  const logoSrc = '/logos/Profile_Pic.jpeg'
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80 light:from-slate-50 light:to-white">
       <div className="container mx-auto px-6">
@@ -20,7 +20,7 @@ const About = () => {
           <div className="relative">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="https://media.licdn.com/dms/image/v2/D5603AQHfKq0Nxr8m5w/profile-displayphoto-shrink_800_800/B56ZPk9ButG4Ac-/0/1734713024465?e=1764806400&v=beta&t=yidZzvVKkuXGQgpu-HSTFZtnfePmjtEiEiEeZt7mZAU" 
+                src={logoSrc}
                 alt={t('about.title')} 
                 className="w-full h-auto"
               />

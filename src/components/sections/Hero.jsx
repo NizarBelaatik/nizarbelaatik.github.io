@@ -6,7 +6,7 @@ import { socialLinks } from '../../data/links'
 const Hero = () => {
   const { t, i18n } = useTranslation()
   const currentLanguage = i18n.language
-
+  const logoSrc = '/logos/Profile_Pic.jpeg'
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden mt-20 pt-10">
       {/* Background Effects */}
@@ -20,7 +20,7 @@ const Hero = () => {
         {/* Profile Image */}
         <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-accent-blue/20 shadow-2xl shadow-blue-500/25 floating">
           <img 
-            src="https://media.licdn.com/dms/image/v2/D5603AQHfKq0Nxr8m5w/profile-displayphoto-shrink_800_800/B56ZPk9ButG4Ac-/0/1734713024465?e=1764806400&v=beta&t=yidZzvVKkuXGQgpu-HSTFZtnfePmjtEiEiEeZt7mZAU" 
+            src={logoSrc}
             alt={t('hero.name')}
             className="w-full h-full object-cover"
           />
