@@ -6,7 +6,7 @@ import { socialLinks } from '../../data/links'
 const Hero = () => {
   const { t, i18n } = useTranslation()
   const currentLanguage = i18n.language
-  const logoSrc = '/logos/Profile_Pic.jpeg'
+  const logoSrc = '/logos/Profile_Pic.png'
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden mt-20 pt-10">
       {/* Background Effects */}

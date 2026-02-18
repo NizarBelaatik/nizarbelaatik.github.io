@@ -11,7 +11,7 @@ const About = () => {
     { icon: Users, number: '15+', label: t('about.projectsCompleted') },
     { icon: Brain, number: currentLanguage === 'fr' ? 'Multi-Domaine' : 'Multi-Domain', label: t('about.aiSpecialization') },
   ]
-  const logoSrc = '/logos/Profile_Pic.jpeg'
+  const logoSrc = '/logos/Profile_Pic.png'
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80 light:from-slate-50 light:to-white">
       <div className="container mx-auto px-6">
