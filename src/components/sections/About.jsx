@@ -11,14 +11,14 @@ const About = () => {
     { icon: Users, number: '15+', label: t('about.projectsCompleted') },
     { icon: Brain, number: currentLanguage === 'fr' ? 'Multi-Domaine' : 'Multi-Domain', label: t('about.aiSpecialization') },
   ]
-  const logoSrc = '/logos/Profile_Pic.png'
+  const logoSrc = '/logos/Profile_Pic0.png'
   return (
     <section id="about" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80 light:from-slate-50 light:to-white">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Image Section */}
           <div className="relative">
-            <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl">
+            <div className="relative -bottom-6 -right-6 w-full h-full border-2 border-accent-blue/30 rounded-2xl light:border-blue-200 z-10 rounded-2xl overflow-hidden shadow-2xl "> {/* relative z-10 rounded-2xl overflow-hidden shadow-2xl */}
               <img 
                 src={logoSrc}
                 alt={t('about.title')} 
