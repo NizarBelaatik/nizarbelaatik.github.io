@@ -1,138 +1,76 @@
-import React, { useState } from 'react'
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
+import SectionHead from '../v6/SectionHead'
+import Reveal from '../v6/Reveal'
+import SignalPulseCanvas from '../v6/SignalPulseCanvas'
+import { socialLinks } from '../../data/links'
 
 const Contact = () => {
   const { t } = useTranslation()
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+  const byLabel = (label) => socialLinks.find((l) => l.label === label)?.href || '#'
+  const stripProtocol = (url) => url.replace(/^https?:\/\//, '')
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-  }
-
-  const socialLinks = [
+  const rows = [
     {
-      icon: Github,
-      label: 'GitHub',
-      href: 'https://github.com/NizarBelaatik',
-      color: 'hover:text-gray-400'
+      label: t('v6.contactLinks.email'),
+      value: t('contact.methods.email.value'),
+      href: t('contact.methods.email.href')
     },
     {
-      icon: Linkedin,
-      label: 'LinkedIn',
-      href: 'https://linkedin.com/in/nizar-belaatik',
-      color: 'hover:text-blue-400'
+      label: t('v6.contactLinks.phone'),
+      value: t('contact.methods.phone.value'),
+      href: t('contact.methods.phone.href')
     },
     {
-      icon: Twitter,
-      label: 'Twitter',
-      href: 'https://twitter.com/NBelaatik',
-      color: 'hover:text-blue-400'
+      label: t('v6.contactLinks.github'),
+      value: stripProtocol(byLabel('GitHub')),
+      href: byLabel('GitHub'),
+      external: true
     },
     {
-      icon: Mail,
-      label: 'Email',
-      href: 'mailto:belaatiknizar@gmail.com',
-      color: 'hover:text-red-400'
+      label: t('v6.contactLinks.linkedin'),
+      value: stripProtocol(byLabel('LinkedIn')),
+      href: byLabel('LinkedIn'),
+      external: true
+    },
+    {
+      label: t('v6.contactLinks.resume'),
+      value: t('v6.contactLinks.resumeValue'),
+      href: t('resume.resume_link'),
+      download: true
+    },
+    {
+      label: t('v6.contactLinks.located'),
+      value: t('v6.contactLinks.locatedValue')
     }
   ]
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-b from-primary-dark to-primary-dark/80">
-      <div className="container mx-auto px-6">
-        
-        {/* Section Title */}
-        <div className="text-center mb-16">
-          <h2 className="section-title text-gradient">{t('contact.title')}</h2>
-          <p className="section-subtitle">
-            {t('contact.subtitle')}
-          </p>
-        </div>
+    <section id="contact" className="dark">
+      <SignalPulseCanvas className="section-bg" />
+      <div className="wrap">
+        <SectionHead title={t('contact.title')} index="07" label={t('v6.sections.contact')} />
 
-        {/* One Column Layout */}
-        <div className="max-w-5xl mx-auto space-y-12">
-
-          {/* Header */}
-          <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-6">{t('contact.connect')}</h3>
-            <p className="text-gray-400 mb-8">
-              {t('contact.description')}
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {/* Contact Methods */}
-            <div className="space-y-4 mb-8">
-              {['email', 'phone', 'location'].map((method) => (
+        <Reveal as="ul" className="links rv">
+          {rows.map((row) => (
+            <li key={row.label}>
+              <b>{row.label}</b>
+              {row.href ? (
                 <a
-                  key={method}
-                  href={t(`contact.methods.${method}.href`)}
-                  className="flex items-center p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-all duration-300 group"
+                  href={row.href}
+                  download={row.download || undefined}
+                  target={row.external ? '_blank' : undefined}
+                  rel={row.external ? 'noopener noreferrer' : undefined}
                 >
-                  <div className="p-3 bg-accent-blue/20 rounded-lg mr-4 group-hover:bg-accent-blue/30 transition-colors">
-                    {method === 'email' && <Mail size={20} className="text-accent-blue" />}
-                    {method === 'phone' && <Phone size={20} className="text-accent-blue" />}
-                    {method === 'location' && <MapPin size={20} className="text-accent-blue" />}
-                  </div>
-                  <div>
-                    <div className="text-white font-medium">{t(`contact.methods.${method}.label`)}</div>
-                    <div className="text-gray-400">{t(`contact.methods.${method}.value`)}</div>
-                  </div>
+                  {row.value}
                 </a>
-              ))}
-            </div>
-
-            {/* CTA Card */}
-            <div className="card flex flex-col justify-center space-y-4 mb-8 p-10 text-center">
-              <h3 className="text-2xl font-bold text-white mb-4">{t('contact.workTogether')}</h3>
-
-              <p className="text-gray-400 mb-8">
-                {t('contact.reachOut')}
-              </p>
-
-              <a
-                href="mailto:belaatiknizar@gmail.com"
-                className="btn-primary w-full inline-flex items-center justify-center"
-              >
-                {t('contact.emailMe')}
-                <Mail size={18} className="ml-2" />
-              </a>
-            </div>
-          </div>
-
-          {/* Social Links */}
-          <div className="text-center">
-            <h4 className="text-white font-semibold mb-4">{t('contact.followMe')}</h4>
-            <div className="flex justify-center space-x-4">
-              {socialLinks.map(({ icon: Icon, href, color, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`p-3 bg-white/5 rounded-lg text-gray-400 hover:text-white transition-all duration-300 transform hover:scale-110 ${color}`}
-                  aria-label={label}
-                >
-                  <Icon size={24} />
-                </a>
-              ))}
-            </div>
-          </div>
-
-        </div>
+              ) : (
+                <span>{row.value}</span>
+              )}
+            </li>
+          ))}
+        </Reveal>
       </div>
     </section>
   )

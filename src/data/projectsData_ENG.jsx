@@ -2,7 +2,276 @@
 import getProjectImages from '../components/projects/getProjectImages';
 
 const projects_ENG = [
-  // 0. Retail Zoning System for WafR
+  // Real-time B2B voice agent — end-of-studies project (PFE)
+  {
+    id: "b2b-voice-agent-pfe",
+    folderid: "b2b-voice-agent-pfe",
+    projectType: "web",
+    platforme: "Real-Time Conversational AI System",
+    title: "Real-Time AI Voice Agent for B2B Telephony",
+    image: getProjectImages('b2b-voice-agent-pfe', [
+      'system-architecture.png',
+      'dashboard-overview.png',
+      'live-call-monitoring.png',
+      'use-case-diagram.png',
+      'barge-in-sequence-diagram.png',
+      'llm-training-loss.png',
+      'tts-eval-loss.png',
+      'tts-latency-rtf.png'
+    ]),
+    category: "Conversational AI & Speech Systems",
+    date: "Feb 2026 - Present",
+    client_for: "Arboris Management · PFE",
+    role: "AI Engineer & System Architect",
+    description: "A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built as my end-of-studies project (PFE) at Arboris Management. It combines domain-adapted speech recognition, dialogue, and text-to-speech models with an asynchronous multi-call architecture and natural mid-call interruption handling, validated end to end in a sandbox environment and designed for telephony deployment via Asterisk/SIP.",
+    research_paper: "/papers/darija-asr-research-paper.docx",
+
+    technology: ["Python", "PyTorch", "Whisper", "LoRA / QLoRA", "Qwen2.5", "XTTS v2 (Coqui)", "vLLM", "FastAPI", "Asterisk", "Next.js"],
+    technology_used: {
+      'speech_and_language': ["Whisper (domain-adapted with LoRA)", "Qwen2.5-7B-Instruct (QLoRA)", "XTTS v2 (Coqui, fine-tuned)", "Automatic speech recognition", "Dialogue generation", "Speech synthesis"],
+      'architecture': ["Asynchronous microservices", "Concurrent multi-call handling", "Barge-in / interruption recovery"],
+      'telephony': ["Asterisk / SIP (architecture designed)", "Live PSTN integration: remaining work"],
+      'serving': ["vLLM", "FastAPI"],
+      'front_end': ["Next.js"]
+    },
+
+    RoleResp: [{
+      Title_1: "AI Engineer & System Architect",
+      Data: [
+        {
+          Title: "Speech, Language & Voice Synthesis",
+          Data: [
+            "Built the training corpus from real B2B call recordings and domain-adapted Whisper for speech recognition on Darija-French code-switched speech",
+            "Fine-tuned Qwen2.5-7B-Instruct for the agent's dialogue generation, tailored to B2B phone conversations",
+            "Fine-tuned XTTS v2 (Coqui) on a small, single-speaker Darija/French dataset to produce the agent's voice, evaluated through training-loss trajectory and synthesis-latency tests rather than a formal quality benchmark",
+            "Co-authored a research paper on the speech-recognition component of the system (see the linked paper for the full methodology and results)"
+          ]
+        },
+        {
+          Title: "System Architecture",
+          Data: [
+            "Designed an asynchronous, concurrent microservices architecture built to handle multiple calls at once, replacing an earlier sequential 'stop-and-go' pipeline, and validated it end to end in a sandbox test environment",
+            "Worked on the telephony integration architecture around Asterisk/SIP, with full live PSTN connection remaining as the next stage",
+            "Implemented barge-in so callers can interrupt the agent mid-sentence without it losing conversational context"
+          ]
+        },
+        {
+          Title: "Delivery",
+          Data: [
+            "Took the project from an end-of-studies internship (PFE) at Arboris Management to a validated AI voice pipeline, with live telephony integration as the next step",
+            "Built the Next.js dashboard used to monitor and manage live calls"
+          ]
+        }
+      ],
+    }],
+
+    KeyFeatures: [{
+      Title_1: "What the Agent Does",
+      Data: [
+        {
+          Title: "Bilingual, Code-Switched Conversation",
+          Data: [
+            "Understands and responds naturally to Darija mixed with French, the way B2B calls actually sound in Morocco",
+            "Domain-adapted rather than relying on a generic multilingual model"
+          ]
+        },
+        {
+          Title: "Real Interruptions, Not Scripted Turns",
+          Data: [
+            "Callers can cut the agent off mid-sentence and it recovers context instead of restarting or ignoring them",
+            "Feels like a live conversation rather than a rigid IVR menu"
+          ]
+        },
+        {
+          Title: "Handles Many Calls at Once",
+          Data: [
+            "Asynchronous architecture serves multiple concurrent calls with fast round-trip response",
+            "No sequential bottleneck between calls"
+          ]
+        }
+      ],
+    }],
+
+    ChallSolu: [{
+      Title_1: "Challenges & Solutions",
+      Data: [
+        {
+          Title: "Low-Resource, Code-Switched Speech",
+          Data: [
+            "Challenge: Moroccan Darija has limited annotated speech data and no standard orthography, and it's frequently mixed with French mid-sentence. I also hadn't worked on speech models before this project",
+            "Solution: researched and learned domain adaptation for speech models from scratch, then combined a public Darija speech corpus with purpose-collected B2B call recordings",
+            "Result: a speech-recognition component accurate enough for real B2B calls, documented in the co-authored research paper"
+          ]
+        },
+        {
+          Title: "Conversational Latency",
+          Data: [
+            "Challenge: a sequential pipeline meant each stage of the call (listen, understand, respond) waited on the last, which felt slow and unnatural over the phone",
+            "Solution: redesigned the pipeline as asynchronous microservices instead of a linear chain",
+            "Result: fast enough round-trip response that the conversation feels live"
+          ]
+        },
+        {
+          Title: "Natural Interruptions",
+          Data: [
+            "Challenge: most voice bots break or lose context if the caller talks over them",
+            "Solution: implemented barge-in detection and interruption recovery into the conversation flow",
+            "Result: callers can interrupt naturally without derailing the call"
+          ]
+        }
+      ],
+    }],
+
+    github_link: "#",
+    live_demo: ""
+  },
+
+  // 0. Domain-adaptive ASR research paper
+  {
+    id: "darija-asr-research",
+    folderid: "darija-asr-research",
+    projectType: "research",
+    platforme: "Speech Recognition Research",
+    title: "Domain-Adaptive ASR for Moroccan Darija-French Code-Switched B2B Telephony",
+    image: getProjectImages('project-darija-asr-research', [
+      'b2b-benchmark-wer.png',
+      'general-darija-benchmark-cer.png',
+      'accuracy-latency-tradeoff.png',
+      'lora-rank-effect.png',
+      'training-data-ablation.png',
+      'utterance-length-effect.png',
+      'methodology-dataflow.png'
+    ]),
+    category: "Speech Recognition & Domain Adaptation",
+    date: "2026",
+    client_for: "Academic Research",
+    role: "Lead Researcher",
+    description: "A domain-adaptive speech-recognition study for Moroccan Darija-French code-switched B2B phone calls, built as the speech-recognition component of a larger real-time voice-agent project. Whisper-large-v3-turbo was adapted with LoRA, testing different training-data mixes and adapter ranks. The best setup reached 18.22% WER on a B2B telephony benchmark and 6.64% on general Darija, with a Real-Time Factor of 0.047. Co-authored with an academic and an industry supervisor.",
+    research_paper: "/papers/darija-asr-research-paper.docx",
+
+    technology: ["Python", "PyTorch", "Whisper", "LoRA", "Hugging Face", "faster-whisper"],
+    technology_used: {
+      'modeling': ["Whisper-large-v3-turbo", "LoRA (ranks 8 / 32 / 64)", "Parameter-efficient fine-tuning"],
+      'evaluation': ["Word Error Rate", "Character Error Rate", "Real-Time Factor", "Frozen, append-only evaluation protocol"],
+      'data': ["DODa general-Darija corpus", "Recorded B2B telephony audio", "Linguistic-boundary text normalization"],
+      'tooling': ["Hugging Face Transformers", "PyTorch", "faster-whisper"]
+    },
+
+    researchResults: {
+      keyMetrics: [
+        { metric: "B2B Telephony WER", value: "18.22%", description: "n = 1,010, best configuration (LoRA r=64)" },
+        { metric: "General-Darija WER", value: "6.64%", description: "n = 1,270, held out" },
+        { metric: "Real-Time Factor", value: "0.047", description: "Single-utterance inference" }
+      ],
+      keyFindings: [
+        "Combining a small amount of domain-matched B2B audio with a general Darija corpus outperforms training on either one alone",
+        "Going from LoRA rank 8 to 64 improved accuracy on both benchmarks without hurting latency",
+        "The fine-tuned model landed on a better accuracy-latency trade-off than the public Darija ASR baselines and the original multilingual Whisper models",
+        "Conventional WER disproportionately penalizes very short utterances (1-2 words), which are common in phone calls and worth accounting for with complementary metrics"
+      ]
+    },
+
+    RoleResp: [{
+      Title_1: "Lead Researcher",
+      Data: [
+        {
+          Title: "Data & Methodology",
+          Data: [
+            "Built the domain-specific B2B telephony speech corpus and combined it with the public DODa general-Darija dataset",
+            "Defined a frozen, append-only train/eval split protocol to keep evaluation benchmarks genuinely unseen across iterations",
+            "Applied a linguistic-boundary text-normalization rule (Arabic script for Darija, Latin script for French) to the transcription data"
+          ]
+        },
+        {
+          Title: "Experimentation",
+          Data: [
+            "Fine-tuned Whisper-large-v3-turbo with LoRA across three ranks (8/32/64) and three data compositions (DODa-only, B2B-only, combined)",
+            "Benchmarked against public Moroccan Darija ASR models and original multilingual Whisper baselines under one evaluation protocol",
+            "Measured WER, CER and RTF on both a held-out general-Darija benchmark and an independently constructed B2B telephony benchmark"
+          ]
+        },
+        {
+          Title: "Analysis & Writing",
+          Data: [
+            "Ran an error analysis by conversational utterance length, showing where conventional WER overstates error on short turns",
+            "Wrote and co-authored the paper with an academic supervisor at FSBM, Hassan II University, and an industry supervisor"
+          ]
+        }
+      ],
+    }],
+
+    KeyFeatures: [{
+      Title_1: "Research Methodology",
+      Data: [
+        {
+          Title: "Controlled Dataset Ablation",
+          Data: [
+            "Models trained on: (i) general Darija speech alone, (ii) domain-specific B2B recordings alone, (iii) the combined corpus",
+            "Isolates the marginal contribution of domain-matched data versus general-domain speech",
+            "All splits frozen and append-only to prevent evaluation leakage across training iterations"
+          ]
+        },
+        {
+          Title: "LoRA Capacity Ablation",
+          Data: [
+            "Adapter rank varied across 8, 32 and 64 under otherwise identical training conditions",
+            "Evaluated jointly on accuracy (WER/CER) and inference efficiency (RTF)",
+            "Rank 64 on the combined corpus produced the best result on both benchmarks"
+          ]
+        },
+        {
+          Title: "Deployment-Aware Evaluation",
+          Data: [
+            "Held-out general-Darija benchmark (n=1,270) plus an independently built B2B telephony benchmark (n=1,010)",
+            "Real-Time Factor measured alongside WER/CER, since the ASR model is one stage of a larger real-time voice pipeline",
+            "Utterance-length error analysis to characterize WER behavior on short, real telephone turns"
+          ]
+        }
+      ],
+    }],
+
+    ChallSolu: [{
+      Title_1: "Research Challenges & Solutions",
+      Data: [
+        {
+          Title: "Low-Resource, Code-Switched, Domain-Specific Speech",
+          Data: [
+            "Challenge: Moroccan Darija has limited annotated speech data, no standard orthography, and frequent code-switching with French, worsened by B2B-specific vocabulary and channel noise",
+            "Solution: combine a public general-Darija corpus with purpose-collected B2B recordings, normalized under a consistent linguistic-boundary convention",
+            "Result: 18.22% WER on the B2B benchmark, well below every evaluated public baseline"
+          ]
+        },
+        {
+          Title: "Accuracy Without a Latency Penalty",
+          Data: [
+            "Challenge: the ASR component feeds a real-time conversational pipeline, so accuracy gains that cost inference speed are self-defeating",
+            "Solution: evaluate accuracy and Real-Time Factor jointly across every LoRA configuration rather than optimizing WER alone",
+            "Result: the best-accuracy configuration also kept RTF at 0.047, on par with (and slightly better than) the unmodified base model"
+          ]
+        },
+        {
+          Title: "Evaluation Integrity Across Iterations",
+          Data: [
+            "Challenge: iterative model development risks evaluation data leaking into training over successive rounds",
+            "Solution: a frozen, append-only train/eval split protocol that never reshuffles previously held-out data",
+            "Result: benchmark numbers stay comparable and genuinely unseen across the whole development cycle"
+          ]
+        }
+      ],
+    }],
+
+    metrics: {
+      wer_b2b: "18.22%",
+      wer_darija: "6.64%",
+      rtf: "0.047",
+      coauthors: "3 (academic + industry supervision)"
+    },
+
+    github_link: "#",
+    live_demo: ""
+  },
+
+  // 1. Retail Zoning System for WafR
   {
     id: "retail-zoning-system",
     folderid: "retail-zoning",
@@ -160,7 +429,7 @@ const projects_ENG = [
           Data: [
             "Improved spatial visibility on distribution network",
             "Integration of population and density variations in planning",
-            "Standardized and scalable framework for commercial strategy"
+            "Standardized, reusable framework for commercial strategy"
           ]
         }
       ],
@@ -328,7 +597,7 @@ const projects_ENG = [
     date: "Jun-2025",
     client_for: "Academic Research",
     role: "ML Research Engineer",
-    description: "Comprehensive research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset.",
+    description: "Research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset.",
     github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
     research_paper: "",
     
@@ -382,7 +651,7 @@ const projects_ENG = [
       Title_1: "Research Methodology",
       Data: [
         {
-          Title: "Comprehensive Benchmarking",
+          Title: "Systematic Benchmarking",
           Data: [
             "Systematic comparison of Adam, RMSprop, SGD+Momentum, and Lookahead optimizers",
             "Quantitative analysis using loss curves and Fréchet Inception Distance (FID)",
@@ -425,7 +694,7 @@ const projects_ENG = [
           Data: [
             "Challenge: Subjective nature of GAN evaluation makes comparison difficult",
             "Solution: Combined quantitative (FID scores, loss curves) and qualitative (visual inspection) methods",
-            "Result: Comprehensive assessment of both stability and output quality"
+            "Result: Assessment covering both stability and output quality"
           ]
         },
         {
@@ -491,7 +760,7 @@ const projects_ENG = [
     date: "2025",
     client_for: "Academic Project",
     role: "Full-Stack Microservices Developer & System Architect",
-    description: "A comprehensive intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV analysis, automated matching, and multi-channel notifications.",
+    description: "An intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV analysis, automated matching, and multi-channel notifications.",
     github_link: "",
     live_demo: "",
     
@@ -605,11 +874,6 @@ const projects_ENG = [
         { metric: "Service Scalability", value: "Independent Scaling", description: "Per microservice basis" },
         { metric: "Test Coverage", value: "80%", description: "Unit and integration tests" },
         { metric: "Deployment Frequency", value: "CI/CD Pipeline", description: "GitHub Actions + Argo CD" }
-      ],
-      businessImpact: [
-        "70% reduction in candidate processing time",
-        "60% improvement in matching accuracy with AI",
-        "80% user satisfaction improvement with modern UX"
       ]
     },
     

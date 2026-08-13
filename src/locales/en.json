@@ -1,12 +1,86 @@
 {
   "nav": {
     "home": "Home",
+    "about": "About",
     "projects": "Projects",
     "experience": "Experience",
     "education": "Education",
     "certifications": "Certifications",
+    "path": "Path",
     "skills": "Skills",
+    "stack": "Stack",
+    "certs": "Certs",
     "contact": "Contact"
+  },
+
+  "v6": {
+    "kicker": "AI Engineering · LLMs · Speech & Conversational AI",
+    "typedPrefix": "building",
+    "typedWords": [
+      "AI systems",
+      "real-time voice AI",
+      "LLM applications",
+      "speech & language models",
+      "conversational AI systems"
+    ],
+    "ticker": [
+      "Machine learning",
+      "Deep learning",
+      "Speech AI",
+      "NLP · LLMs",
+      "Geospatial analysis",
+      "Big data",
+      "RAG systems",
+      "Casablanca, Morocco"
+    ],
+    "hud": {
+      "caption": "Live · k-means clustering on synthetic data",
+      "iteration": "iteration",
+      "inertia": "inertia",
+      "shift": "shift"
+    },
+    "stats": {
+      "projects": "Technical projects",
+      "certifications": "Certifications",
+      "internships": "Internships",
+      "languages": "Languages spoken"
+    },
+    "facts": {
+      "based": "Based",
+      "basedValue": "Casablanca, Morocco",
+      "now": "Now",
+      "nowValue": "Arboris Management · BMM Business Connect",
+      "field": "Field",
+      "fieldValue": "AI Engineering · LLMs · Speech & Conversational AI",
+      "languages": "Languages",
+      "languagesValue": "English, French, Arabic"
+    },
+    "path": {
+      "title": "Experience & Education",
+      "sectionLabel": "Experience & education",
+      "present": "present"
+    },
+    "sections": {
+      "about": "About",
+      "projects": "Projects",
+      "stack": "Stack",
+      "path": "Experience & education",
+      "certs": "Certifications",
+      "contact": "Contact"
+    },
+    "methodologies": "Methodologies",
+    "viewProject": "View project",
+    "allProjects": "All projects ↗",
+    "contactLinks": {
+      "email": "Email",
+      "phone": "Phone",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "resume": "Resume",
+      "resumeValue": "Download PDF",
+      "located": "Located",
+      "locatedValue": "Casablanca, Morocco (GMT+1)"
+    }
   },
   "dates": {
     "january": "January",
@@ -53,6 +127,23 @@
   },
 
 
+  "projectShort": {
+    "ai-ml": "AI / ML",
+    "research": "Research",
+    "web": "Web",
+    "blockchain": "Blockchain",
+    "desktop": "Desktop"
+  },
+
+  "projectFilters": {
+    "all": "All",
+    "ai-ml": "AI & Machine Learning",
+    "research": "Research",
+    "web": "Web Applications",
+    "blockchain": "Blockchain & Web3",
+    "desktop": "Desktop Applications"
+  },
+
   "resume": {
     "resume_link": "/resume/Resume.pdf"
   },
@@ -60,21 +151,21 @@
   
   "hero": {
     "title": "Hi, I'm",
-    "name": "Nizar Belaatik", 
-    "subtitle": "Data Science Master's Student & AI Enthusiast",
-    "description": "Final-year Master's candidate in Data Science & Big Data, specializing in Deep Learning, Generative AI, and scalable data solutions. Building intelligent applications that bridge cutting-edge research with practical implementation.",
+    "name": "Nizar Belaatik",
+    "subtitle": "AI / ML Engineer, Speech AI & Conversational Systems",
+    "description": "I'm an AI/ML engineer working across machine learning, LLMs, and speech and language systems, with a focus on real-time conversational AI. My recent work includes building a real-time voice agent for B2B conversations in Moroccan Darija and French, from data preparation and model fine-tuning through system integration. What sets my profile apart is the ability to pick up unfamiliar AI domains quickly and turn them into working systems.",
     "viewWork": "View My Projects",
-    "getInTouch": "Get In Touch", 
+    "getInTouch": "Get In Touch",
     "downloadCV": "Download Resume"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Data Science Specialist with Full-Stack Expertise",
-    "content1": "I am a 2nd-year Master's student in Data Science & Big Data, specializing in the Data Science track with focus on Deep Learning, Generative AI, and advanced machine learning techniques.",
-    "content2": "My academic journey has equipped me with comprehensive expertise across the data spectrum—from statistical analysis and machine learning to big data technologies and cloud infrastructure. I've hands-on experience with Hadoop, Spark, Kafka, and distributed systems.",
-    "content3": "Through 15+ diverse projects, I've developed practical skills in building end-to-end AI solutions, from data collection and processing to model deployment and web application development.",
+    "subtitle": "AI/ML Engineer Working on Real-Time AI Systems",
+    "content1": "I'm an AI/ML engineer working across machine learning, data science, and generative AI, with a growing focus on speech and language systems. Real-time conversational AI has become an important part of my recent work. As the applied core of my MSc in Data Science & Big Data at Université Hassan II, I built a real-time voice agent for B2B conversations in Moroccan Darija mixed with French.",
+    "content2": "I came into the project without much prior experience in speech AI. The goal was to build a voice agent that could understand and respond naturally in Moroccan Darija and French. I learned what I needed along the way, from ASR and Darija-French code-switching to LoRA and QLoRA fine-tuning, streaming, VAD, and low-latency model serving with vLLM. I also worked across data collection, training, evaluation, and system integration.",
+    "content3": "The project also led to a research study on adapting speech recognition to Moroccan Darija and Darija-French code-switching. More broadly, I've worked on projects ranging from geospatial analysis and clustering to GANs, RAG systems, and conversational AI. What I enjoy most is getting into a problem I haven't worked on before, learning what is needed, and turning it into something that works.",
     "mastersYear": "2nd Year",
-    "projectsCompleted": "Technical Projects", 
+    "projectsCompleted": "Technical Projects",
     "aiSpecialization": "AI Specialization",
     "viewStory": "View Projects"
   },
@@ -82,6 +173,8 @@
   "skills": {
     "title": "Technical Expertise",
     "subtitle": "Comprehensive skills across data science, AI, software engineering, and cloud technologies",
+    "speechAi": "Speech AI & Conversational Systems",
+    "dlGenAi": "Deep Learning & Generative AI",
     "dsMlAi": "Data Science, ML & AI",
     "webDev": "Web & Software Development",
     "cloudDevOps": "Cloud & DevOps", 
@@ -100,12 +193,28 @@
   },
   "experiences": [
     {
+      "id": 2,
+      "title": "AI & Automation Engineer",
+      "company": "Arboris Management · BMM Business Connect",
+      "location": "Casablanca, Morocco",
+      "type": "End-of-Studies Internship",
+      "duration": "Jan 2026 - Present",
+      "description": "Worked across AI development, workflow automation, and data preparation, with a main focus on building a real-time conversational voice agent for B2B applications.",
+      "achievements": [
+        "Built and validated a real-time AI voice pipeline for B2B conversations in Moroccan Darija and French, working across data collection, speech and language model fine-tuning, evaluation, and system integration.",
+        "Automated internal workflows and integrated AI into existing processes to reduce repetitive manual work.",
+        "Collected, cleaned, and prepared data for AI projects, while documenting the systems and processes involved."
+      ],
+      "technologies": ["Python", "PyTorch", "Whisper", "LoRA / QLoRA", "Qwen2.5", "vLLM", "FastAPI", "Asterisk", "Next.js"],
+      "category": "internship"
+    },
+    {
       "id": 1,
       "title": "Data Science Intern",
       "company": "WafR",
       "location": "Casablanca, Morocco",
       "type": "Internship",
-      "duration": "Jul 2025 — Sep 2025",
+      "duration": "Jul 2025 - Sep 2025",
       "description": "Designed and implemented data-driven solutions for retail expansion strategy using geospatial analysis and machine learning.",
       "achievements": [
         "Designed and implemented a data-driven zoning system to identify and cluster potential grocery store locations across Morocco",
@@ -198,6 +307,10 @@
     "viewDetails": "View Details",
     "loadMore": "Load More Projects",
     "searchPlaceholder": "Search projects...",
+    "showingCount": "Showing {{shown}} of {{total}}",
+    "noResultsTitle": "No projects found",
+    "noResultsBody": "Try adjusting your search or filter selection.",
+    "categoriesLabel": "Categories",
     "sort": {
       "featured": "Featured First",
       "newest": "Newest First",
@@ -227,7 +340,14 @@
     "researchPaper": "Research Paper",
     "methodology": "Methodology",
     "findings": "Key Findings",
-    "experimentalSetup": "Experimental Setup"
+    "experimentalSetup": "Experimental Setup",
+    "resultsTitle": "Key Results",
+    "businessImpact": "Business Impact",
+    "coverage": "City Coverage",
+    "benchmark": "Benchmark",
+    "best": "Best",
+    "worst": "Worst",
+    "moreImages": "more"
   },
   
   "contact": {

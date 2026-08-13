@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+template_design/portfolio-v6.html
+other_source/*
+public/papers

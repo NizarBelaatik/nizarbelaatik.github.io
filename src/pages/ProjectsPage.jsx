@@ -1,293 +1,159 @@
-import React, { useState, useMemo } from 'react'
-import ProjectCard from '../components/projects/ProjectCard'
-import ProjectFilter from '../components/projects/ProjectFilter'
-import { Search, Filter, Grid, List } from 'lucide-react'
-//import projects_ENG from '../data/projectsData_ENG'
-
+import React, { useMemo, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { Search, LayoutGrid, List, SearchX } from 'lucide-react'
 import projects_ENG from '../data/projectsData_ENG'
 import projects_FR from '../data/projectsData_FR'
-import { useTranslation } from 'react-i18next'
-
-// Define project categories based on your new structure
-const projectCategories = {
-  'all': 'All Projects',
-  'ai-ml': 'AI & Machine Learning',
-  'blockchain': 'Blockchain & Web3',
-  'web': 'Web Applications',
-  'desktop': 'Desktop Applications',
-  'research': 'Research Projects'
-}
+import NeuralNetCanvas from '../components/v6/NeuralNetCanvas'
+import CursorGlow from '../components/v6/CursorGlow'
+import Counter from '../components/v6/Counter'
+import Reveal from '../components/v6/Reveal'
+import BentoCard from '../components/projects/BentoCard'
+import ProjectListRow from '../components/projects/ProjectListRow'
+import { PROJECT_CATEGORIES, countByCategory, matchesCategory } from '../utils/projectUtils'
 
 const ProjectsPage = () => {
+  const { t, i18n } = useTranslation()
   const [activeFilter, setActiveFilter] = useState('all')
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState('grid')
-  const [sortBy, setSortBy] = useState('featured')
 
+  const heroRef = useRef(null)
 
-  const { t, i18n } = useTranslation()
-  const projectsDATA = i18n.language === "fr" ? projects_FR : projects_ENG
+  const all = i18n.language?.startsWith('fr') ? projects_FR : projects_ENG
+  const counts = useMemo(() => countByCategory(all), [all])
+  const cats = PROJECT_CATEGORIES.filter((c) => counts[c.key] > 0)
 
-  // Filter and search projects
-  const filteredProjects = useMemo(() => {
-    let filtered = projectsDATA
+  const techCount = useMemo(() => {
+    const set = new Set()
+    all.forEach((p) => (p.technology || []).forEach((tech) => set.add(tech.toLowerCase())))
+    return set.size
+  }, [all])
 
-    // Apply category filter
-    if (activeFilter !== 'all') {
-      filtered = filtered.filter(project => {
-        switch (activeFilter) {
-          case 'ai-ml':
-            return project.category?.includes('AI') || 
-                   project.technology_used?.ai_ml ||
-                   project.title?.includes('GAN')||
-                   project.technology_used?.ml_clustering ||
-                   project.title?.includes('Data Science');
-          case 'blockchain':
-            return project.category?.includes('Blockchain') || 
-                   project.technology_used?.blockchain;
-          case 'web':
-            return project.projectType === 'web';
-          case 'desktop':
-            return project.projectType === 'desk';
-          case 'research':
-            return project.projectType === 'research';
-          default:
-            return true;
-        }
-      })
-    }
-
-    // Apply search filter
-    if (searchQuery) {
-      const query = searchQuery.toLowerCase()
-      filtered = filtered.filter(project =>
-        project.title.toLowerCase().includes(query) ||
-        project.description.toLowerCase().includes(query) ||
-        project.technology?.some(tech => tech.toLowerCase().includes(query)) ||
-        project.category?.toLowerCase().includes(query) ||
-        project.role?.toLowerCase().includes(query)
+  const filtered = useMemo(() => {
+    let list = all.filter((p) => matchesCategory(p, activeFilter))
+    if (searchQuery.trim()) {
+      const q = searchQuery.trim().toLowerCase()
+      list = list.filter(
+        (p) =>
+          p.title.toLowerCase().includes(q) ||
+          p.description.toLowerCase().includes(q) ||
+          p.technology?.some((tech) => tech.toLowerCase().includes(q)) ||
+          p.category?.toLowerCase().includes(q)
       )
     }
-
-    // Apply sorting
-    {/* //filtered projects 
-      filtered.sort((a, b) => {
-      switch (sortBy) {
-        case 'featured':
-          // Prioritize new AI/Blockchain projects
-          const aFeatured = ['retail-zoning','rag-system', 'gan-optimization', 'blockchain-certificate'].includes(a.id)
-          const bFeatured = ['retail-zoning','rag-system', 'gan-optimization', 'blockchain-certificate'].includes(b.id)
-          return (bFeatured ? 1 : 0) - (aFeatured ? 1 : 0)
-        case 'newest':
-          // Extract year from date string
-          const getYear = (date) => {
-            if (!date) return 2024
-            const yearMatch = date.match(/\b(20\d{2})\b/)
-            return yearMatch ? parseInt(yearMatch[1]) : 2024
-          }
-          return getYear(b.date) - getYear(a.date)
-        case 'oldest':
-          const getYearOldest = (date) => {
-            if (!date) return 2024
-            const yearMatch = date.match(/\b(20\d{2})\b/)
-            return yearMatch ? parseInt(yearMatch[1]) : 2024
-          }
-          return getYearOldest(a.date) - getYearOldest(b.date)
-        case 'name':
-          return a.title.localeCompare(b.title)
-        default:
-          return 0
-      }
-    })
-      */}
-
-      
-    
-
-    return filtered
-  }, [activeFilter, searchQuery, sortBy,projectsDATA])
-
-  // Calculate project counts
-  const projectsCount = useMemo(() => {
-    const counts = { all: projectsDATA.length }
-    
-    Object.keys(projectCategories).forEach(category => {
-      if (category !== 'all') {
-        counts[category] = projectsDATA.filter(project => {
-          switch (category) {
-            case 'ai-ml':
-              return project.category?.includes('AI') || 
-                     project.technology_used?.ai_ml ||
-                     project.title?.includes('GAN')||
-                    project.technology_used?.ml_clustering ||
-                    project.title?.includes('Data Science');
-            case 'blockchain':
-              return project.category?.includes('Blockchain') || 
-                     project.technology_used?.blockchain;
-            case 'web':
-              return project.projectType === 'web';
-            case 'desktop':
-              return project.projectType === 'desk';
-            case 'research':
-              return project.projectType === 'research';
-            default:
-              return false;
-          }
-        }).length
-      }
-    })
-    return counts
-  }, [])
+    return list
+  }, [all, activeFilter, searchQuery])
 
   return (
-    <div className="pt-32 pb-20 bg-gradient-to-b from-primary-dark/80 to-primary-dark">
-      <div className="container mx-auto px-6">
-        {/* Page Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-            {t('projects.viewAll')}
-          </h1>
-          {/* <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            {t('projects.discoverMyProjects', { number: projectsDATA.length })}
-          </p> */}
+    <div className="v6">
+      <div className="plhero" ref={heroRef}>
+        <NeuralNetCanvas className="netviz" />
+        <CursorGlow containerRef={heroRef} />
+
+        <div className="wrap">
+          <p className="kick mono">
+            <span className="dot" />
+            <span className="txt">{t('nav.projects')}</span>
+          </p>
+          <h1 className="pd-title">{t('projects.title')}</h1>
+          <p className="pd-desc">{t('projects.subtitle')}</p>
         </div>
 
-        {/* Controls Bar - New Certificate Style */}
-<div className="
-  flex flex-col lg:flex-row gap-6 justify-between items-center
-  mb-10 p-6 rounded-xl
-  bg-white/5 border border-white/10 backdrop-blur-lg
-  shadow-lg transition-all
-">
-  
-  {/* Search */}
-  <div className="relative w-full lg:w-72">
-    <Search
-      className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-      size={20}
-    />
-    <input
-      type="text"
-      placeholder="Search projects..."
-      value={searchQuery}
-      onChange={(e) => setSearchQuery(e.target.value)}
-      className="
-        w-full pl-10 pr-4 py-3 rounded-lg
-        bg-white/5 border border-white/10 text-white
-        placeholder-gray-400
-        focus:outline-none focus:border-accent-blue
-        transition-colors
-      "
-    />
-  </div>
+        <div className="wrap">
+          <div className="ministats">
+            <div className="ministat">
+              <div className="n">
+                <Counter to={all.length} />+
+              </div>
+              <div className="l mono">{t('v6.stats.projects')}</div>
+            </div>
+            <div className="ministat">
+              <div className="n">
+                <Counter to={cats.length - 1} />
+              </div>
+              <div className="l mono">{t('projects.categoriesLabel')}</div>
+            </div>
+            <div className="ministat">
+              <div className="n">
+                <Counter to={techCount} />+
+              </div>
+              <div className="l mono">{t('nav.stack')}</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  {/* View Controls */}
-  <div className="flex items-center gap-4">
+      <div className="wrap page-end" style={{ paddingTop: 'clamp(36px, 5vw, 56px)' }}>
+        <Reveal className="filters rv" role="group" aria-label={t('projects.title')}>
+          {cats.map((c) => (
+            <button
+              key={c.key}
+              type="button"
+              className="f"
+              aria-pressed={activeFilter === c.key}
+              onClick={() => setActiveFilter(c.key)}
+            >
+              <s />
+              <em>
+                {t(c.labelKey)}
+                <i>{counts[c.key]}</i>
+              </em>
+            </button>
+          ))}
+        </Reveal>
 
-    {/* Sort Dropdown */}
-    <div className="relative">
-  <select
-    value={sortBy}
-    onChange={(e) => setSortBy(e.target.value)}
-    className="
-      appearance-none px-4 py-3 w-48
-      bg-white/5 border border-white/10
-      rounded-lg text-white
-      focus:outline-none focus:border-accent-blue
-      transition-colors
-      cursor-pointer
-    "
-  >
-    <option className="bg-gray-900 text-white" value="featured">Featured First</option>
-    <option className="bg-gray-900 text-white" value="newest">Newest First</option>
-    <option className="bg-gray-900 text-white" value="oldest">Oldest First</option>
-    <option className="bg-gray-900 text-white" value="name">Alphabetical</option>
-  </select>
+        <div className="toolbar">
+          <div className="search">
+            <Search size={15} strokeWidth={1.6} />
+            <input
+              type="text"
+              placeholder={t('projects.searchPlaceholder')}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
 
-  {/* Custom Dropdown Arrow */}
-  <svg
-    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-300 pointer-events-none"
-    width="16" height="16" fill="none" stroke="currentColor"
-    strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-    viewBox="0 0 24 24"
-  >
-    <path d="M6 9l6 6 6-6" />
-  </svg>
-</div>
-
-
-    {/* View Toggle */}
-    <div className="
-      flex bg-white/5 rounded-lg p-1 border border-white/10
-    ">
-      <button
-        onClick={() => setViewMode('grid')}
-        className={`
-          p-2 rounded transition-colors
-          ${viewMode === 'grid'
-            ? 'bg-accent-blue/30 text-accent-blue'
-            : 'text-gray-400 hover:text-white'}
-        `}
-      >
-        <Grid size={20} />
-      </button>
-
-      <button
-        onClick={() => setViewMode('list')}
-        className={`
-          p-2 rounded transition-colors
-          ${viewMode === 'list'
-            ? 'bg-accent-blue/30 text-accent-blue'
-            : 'text-gray-400 hover:text-white'}
-        `}
-      >
-        <List size={20} />
-      </button>
-    </div>
-  </div>
-</div>
-
-
-        {/* Project Filter */}
-        <ProjectFilter 
-          activeFilter={activeFilter}
-          onFilterChange={setActiveFilter}
-          projectsCount={projectsCount}
-          categories={projectCategories}
-        />
-
-        {/* Results Info */}
-        <div className="flex justify-between items-center mb-8">
-          <div className="text-gray-400">
-            Showing {filteredProjects.length} of {projectsDATA.length} projects
-            {activeFilter !== 'all' && ` in ${projectCategories[activeFilter]}`}
-            {searchQuery && ` matching "${searchQuery}"`}
+          <div className="viewtoggle">
+            <button
+              type="button"
+              aria-pressed={viewMode === 'grid'}
+              aria-label="Grid view"
+              onClick={() => setViewMode('grid')}
+            >
+              <LayoutGrid size={15} strokeWidth={1.6} />
+            </button>
+            <button
+              type="button"
+              aria-pressed={viewMode === 'list'}
+              aria-label="List view"
+              onClick={() => setViewMode('list')}
+            >
+              <List size={15} strokeWidth={1.6} />
+            </button>
           </div>
         </div>
 
-        {/* Projects Grid/List */}
-        <div className={
-          viewMode === 'grid' 
-            ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            : "space-y-6"
-        }>
-          {filteredProjects.map(project => (
-            <ProjectCard 
-              key={project.id} 
-              project={project}
-              featured={['retail-zoning','rag-system', 'gan-optimization', 'blockchain-certificate'].includes(project.id)}
-            />
-          ))}
+        <div className="resultcount mono">
+          {t('projects.showingCount', { shown: filtered.length, total: all.length })}
         </div>
 
-        {/* No Results */}
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-20">
-            <Filter size={64} className="mx-auto text-gray-400 mb-4" />
-            <h3 className="text-2xl font-bold text-white mb-2">No projects found</h3>
-            <p className="text-gray-400">
-              Try adjusting your search criteria or filter selection
-            </p>
+        {filtered.length === 0 ? (
+          <div className="empty">
+            <SearchX size={34} strokeWidth={1.3} />
+            <h3>{t('projects.noResultsTitle')}</h3>
+            <p>{t('projects.noResultsBody')}</p>
+          </div>
+        ) : viewMode === 'grid' ? (
+          <div className="bento">
+            {filtered.map((project, i) => (
+              <BentoCard key={project.id} project={project} delay={Math.min(i, 8) * 60} />
+            ))}
+          </div>
+        ) : (
+          <div className="plist">
+            {filtered.map((project, i) => (
+              <ProjectListRow key={project.id} project={project} delay={Math.min(i, 8) * 50} />
+            ))}
           </div>
         )}
       </div>

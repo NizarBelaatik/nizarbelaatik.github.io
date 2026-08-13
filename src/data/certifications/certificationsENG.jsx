@@ -1,6 +1,34 @@
 export const certificationsENG = [
   // ALX Africa Certificates
   {
+    id: 9,
+    name: "Data Science",
+    issuer: "ALX Africa",
+    date: "Mar 2026",
+    credentialId: "HFSzL3pG2C",
+    description: "Capstone certification for the full ALX Data Science Programme: data analytics, Python and machine learning end to end.",
+    skills: ["Data Science", "Machine Learning", "Data Analytics", "Python"],
+    link: "https://savanna.alxafrica.com/certificates/HFSzL3pG2C",
+    category: "data-science",
+    level: "Advanced",
+    importance: "high",
+    logo: "alx_africa"
+  },
+  {
+    id: 10,
+    name: "Machine Learning",
+    issuer: "ALX Africa",
+    date: "Feb 2026",
+    credentialId: "GmTeHnJ3y6",
+    description: "Applied machine learning module of the ALX Data Science Programme: supervised and unsupervised learning, model evaluation and deployment basics.",
+    skills: ["Machine Learning", "Model Evaluation", "Scikit-learn", "Python"],
+    link: "https://savanna.alxafrica.com/certificates/GmTeHnJ3y6",
+    category: "machine-learning",
+    level: "Intermediate",
+    importance: "high",
+    logo: "alx_africa"
+  },
+  {
     id: 1,
     name: "Data Analytics",
     issuer: "ALX Africa",
@@ -123,12 +151,12 @@ export const certificationsENG = [
 
 export const alxProgramENG = {
   name: "ALX Data Science Program",
-  subtitle: "Comprehensive training program in progress",
+  subtitle: "Completed · ALX Africa",
   description: "Comprehensive Data Science program covering foundational to advanced topics including machine learning, statistical analysis, and data visualization through real-world projects.",
   progress: [
     { name: "Professional Foundations", status: "completed", date: "Jan 2025", duration: "14 weeks" },
     { name: "Data Analytics", status: "completed", date: "Apr 2025", duration: "14 weeks" },
     { name: "Python", status: "completed", date: "Aug 2025", duration: "8 weeks" },
-    { name: "Machine Learning", status: "current", date: "Oct 2025", duration: "16 weeks" }
+    { name: "Machine Learning", status: "completed", date: "Feb 2026", duration: "16 weeks" }
   ]
 }

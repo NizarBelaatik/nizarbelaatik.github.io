@@ -1,186 +1,217 @@
-import React from 'react'
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { useTheme } from '../../hooks/useTheme'
 import { useTranslation } from 'react-i18next'
-import { Moon, Sun, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import LanguageSwitcher from '../LanguageSwitcher'
 
+/* Section ids rendered by the home page, in document order — the index
+   numbers mirror the "01 — About" style labels each section head already
+   carries (see SectionHead), so the nav reads as the same table of
+   contents rather than a second, disconnected numbering scheme. */
+const SECTIONS = [
+  { id: 'about', idx: '01' },
+  { id: 'work', idx: '02' },
+  { id: 'skills', idx: '03' },
+  { id: 'experience', idx: '04' },
+  { id: 'education', idx: '05' },
+  { id: 'certs', idx: '06' },
+  { id: 'contact', idx: '07' }
+]
+const PROJECTS_KEY = '__projects__'
+
 const Header = () => {
-  const { isDarkMode, toggleTheme } = useTheme()
-  const { t } = useTranslation()
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false)
+  const { t, i18n } = useTranslation()
   const location = useLocation()
   const navigate = useNavigate()
+  const [open, setOpen] = useState(false)
+  const [active, setActive] = useState('')
+  const [clock, setClock] = useState('Casablanca')
+  const navRef = useRef(null)
+  const desktopRef = useRef(null)
+  const linkRefs = useRef({})
+  const indicatorRef = useRef(null)
 
-  const navigation = [
-    { name: t('nav.home'), href: '/', type: 'route', nav_name: 'home' },
-    { name: t('nav.projects'), href: '/projects', type: 'route', nav_name: 'projects' },
-    { name: t('nav.experience'), href: '#experience', type: 'anchor', nav_name: 'experience' },
-    { name: t('nav.education'), href: '#education', type: 'anchor', nav_name: 'education' },
-    { name: t('nav.certifications'), href: '#certifications', type: 'anchor', nav_name: 'certifications' },
-    { name: t('nav.skills'), href: '#skills', type: 'anchor', nav_name: 'skills' },
-    { name: t('nav.contact'), href: '#contact', type: 'anchor', nav_name: 'contact' },
-  ]
+  const isHome = location.pathname === '/'
+  const onProjects = location.pathname.startsWith('/projects')
 
-  const scrollToSection = (id) => {
-    const element = document.querySelector(id)
-    if (element) {
-      const headerHeight = 80
-      const top = element.getBoundingClientRect().top + window.scrollY - headerHeight
-      window.scrollTo({ top, behavior: 'smooth' })
+  /* nav.* keys don't map 1:1 onto section ids (work -> projects, skills ->
+     stack) — this is the one place that mapping needs to happen. */
+  const labelKey = (id) => {
+    if (id === 'work') return 'projects'
+    if (id === 'skills') return 'stack'
+    return id
+  }
+  const items = SECTIONS.map((s) => ({ ...s, label: t(`nav.${labelKey(s.id)}`) }))
+
+  /* ---- Casablanca clock ---- */
+  useEffect(() => {
+    const tick = () => {
+      setClock(
+        `${new Date().toLocaleTimeString('en-GB', {
+          timeZone: 'Africa/Casablanca',
+          hour: '2-digit',
+          minute: '2-digit'
+        })} CASA`
+      )
     }
-  }
+    tick()
+    const id = setInterval(tick, 20000)
+    return () => clearInterval(id)
+  }, [])
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  }
-
-  const handleHomeClick = (e) => {
-    e.preventDefault()
-    setIsMenuOpen(false)
-
-    if (location.pathname !== '/') {
-      navigate('/')
-      setTimeout(() => scrollToTop(), 100)
-    } else {
-      scrollToTop()
+  /* ---- scrollspy (home only) ---- */
+  useEffect(() => {
+    if (!isHome || typeof IntersectionObserver === 'undefined') {
+      setActive('')
+      return undefined
     }
-  }
+    const spy = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id)
+        })
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    )
+    SECTIONS.forEach(({ id }) => {
+      const el = document.getElementById(id)
+      if (el) spy.observe(el)
+    })
+    return () => spy.disconnect()
+  }, [isHome])
 
-  const handleAnchorClick = (id, e) => {
+  /* ---- sliding "you are here" bar under the desktop nav ---- */
+  const currentKey = onProjects ? PROJECTS_KEY : isHome ? active : ''
+
+  useLayoutEffect(() => {
+    const bar = indicatorRef.current
+    const host = desktopRef.current
+    const target = linkRefs.current[currentKey]
+    if (!bar || !host || !target) {
+      if (bar) bar.style.opacity = '0'
+      return undefined
+    }
+
+    const place = () => {
+      const hostBox = host.getBoundingClientRect()
+      const linkBox = target.getBoundingClientRect()
+      bar.style.opacity = '1'
+      bar.style.width = `${linkBox.width}px`
+      bar.style.transform = `translateX(${linkBox.left - hostBox.left}px)`
+    }
+    place()
+
+    window.addEventListener('resize', place, { passive: true })
+    return () => window.removeEventListener('resize', place)
+  }, [currentKey, i18n.language])
+
+  const scrollToSection = useCallback((id) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    const offset = navRef.current ? navRef.current.offsetHeight : 0
+    window.scrollTo({
+      top: el.getBoundingClientRect().top + window.scrollY - offset,
+      behavior: 'smooth'
+    })
+  }, [])
+
+  /* HashRouter owns location.hash, so section links never touch it —
+     they preventDefault and scroll programmatically instead. */
+  const goToSection = (id) => (e) => {
     e.preventDefault()
-    setIsMenuOpen(false)
-
-    if (location.pathname !== '/') {
-      navigate('/') // go to home page first
-      setTimeout(() => scrollToSection(id), 150)
-    } else {
+    setOpen(false)
+    if (isHome) {
       scrollToSection(id)
+    } else {
+      navigate('/')
+      setTimeout(() => scrollToSection(id), 160)
     }
   }
 
-  React.useEffect(() => {
-    if (location.pathname === '/' && location.hash) {
-      setTimeout(() => scrollToSection(location.hash), 300)
-    }
-  }, [location.pathname, location.hash])
+  const goHome = (e) => {
+    e.preventDefault()
+    setOpen(false)
+    if (isHome) window.scrollTo({ top: 0, behavior: 'smooth' })
+    else navigate('/')
+  }
 
   return (
-    <header className="fixed top-0 w-full bg-primary-dark/80 backdrop-blur-md z-50 border-b border-white/10">
-      <div className="container mx-auto px-4 sm:px-6 py-3">
-        <div className="flex items-center justify-between">
-          
-          {/* Logo - Shrinks on smaller screens */}
-          <a
-            href="/"
-            onClick={handleHomeClick}
-            className="text-xl sm:text-2xl font-bold text-gradient cursor-pointer flex-shrink-0"
+    <header className="nav" ref={navRef}>
+      <div className="wrap">
+        <a className="brand" href="/" onClick={goHome}>
+          <span className="avatar">
+            <img
+              src="/logos/Profile_Pic.png"
+              alt=""
+              onError={(e) => e.currentTarget.closest('.avatar')?.remove()}
+            />
+          </span>
+          <span className="name">Nizar Belaatik</span>
+        </a>
+
+        <nav className="desktop" ref={desktopRef}>
+          {items.map((item) => (
+            <a
+              key={item.id}
+              ref={(el) => { linkRefs.current[item.id] = el }}
+              href={`#${item.id}`}
+              className={currentKey === item.id ? 'on' : undefined}
+              onClick={goToSection(item.id)}
+            >
+              <span className="i">{item.idx}</span>
+              <span className="t">{item.label}</span>
+            </a>
+          ))}
+          <Link
+            ref={(el) => { linkRefs.current[PROJECTS_KEY] = el }}
+            to="/projects"
+            className={onProjects ? 'on' : undefined}
           >
-            Nizar Belaatik
-          </a>
+            <span className="t">{t('projects.viewAll')}</span>
+          </Link>
+          <span className="indicator" ref={indicatorRef} />
+        </nav>
 
-          {/* Desktop Nav - Better spacing and wrapping */}
-          <nav className="hidden lg:flex items-center space-x-4 xl:space-x-6 flex-wrap justify-center max-w-2xl">
-            {navigation.map((item) =>
-              item.type === 'anchor' ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={(e) => handleAnchorClick(item.href, e)}
-                  className="text-sm xl:text-base font-medium text-white hover:text-accent-blue transition-colors cursor-pointer whitespace-nowrap"
-                >
-                  {item.name}
-                </a>
-              ) : item.nav_name === 'projects' ? (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`text-sm xl:text-base font-medium transition-colors hover:text-accent-blue whitespace-nowrap ${
-                    location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                  }`}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ) : (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`text-sm xl:text-base font-medium transition-colors hover:text-accent-blue whitespace-nowrap ${
-                    location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                  }`}
-                >
-                  {item.name}
-                </a>
-              )
-            )}
-          </nav>
-
-          {/* Right Section */}
-          <div className="flex items-center space-x-2 sm:space-x-4 flex-shrink-0">
-            <LanguageSwitcher />
-
-            {/* Dark/Light Mode Toggle (commented out) */}
-            {/* <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-            >
-              {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button> */}
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors"
-            >
-              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+        <div className="tools">
+          <div id="clock">
+            <span className="live-dot" />
+            {clock}
           </div>
+          <LanguageSwitcher />
+          <button
+            type="button"
+            className="burger"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-label="Menu"
+          >
+            {open ? <X size={16} strokeWidth={1.6} /> : <Menu size={16} strokeWidth={1.6} />}
+          </button>
         </div>
+      </div>
 
-        {/* Mobile Nav */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4">
-            <nav className="flex flex-col space-y-3">
-              {navigation.map((item) =>
-                item.type === 'anchor' ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={(e) => handleAnchorClick(item.href, e)}
-                    className="text-base font-medium text-white hover:text-accent-blue transition-colors cursor-pointer py-2 px-4 rounded-lg hover:bg-white/5"
-                  >
-                    {item.name}
-                  </a>
-                ) : item.nav_name === 'projects' ? (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`text-base font-medium transition-colors hover:text-accent-blue py-2 px-4 rounded-lg hover:bg-white/5 ${
-                      location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`text-base font-medium transition-colors hover:text-accent-blue py-2 px-4 rounded-lg hover:bg-white/5 ${
-                      location.pathname === item.href ? 'text-accent-blue' : 'text-white'
-                    }`}
-                  >
-                    {item.name}
-                  </a>
-                )
-              )}
+      {open && (
+        <div className="drawer">
+          <div className="wrap">
+            <nav>
+              {items.map((item) => (
+                <a
+                  key={item.id}
+                  href={`#${item.id}`}
+                  className={currentKey === item.id ? 'on' : undefined}
+                  onClick={goToSection(item.id)}
+                >
+                  <span className="i">{item.idx}</span>
+                  <span className="t">{item.label}</span>
+                </a>
+              ))}
+              <Link to="/projects" onClick={() => setOpen(false)} className={onProjects ? 'on' : undefined}>
+                <span className="t">{t('projects.viewAll')}</span>
+              </Link>
             </nav>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   )
 }

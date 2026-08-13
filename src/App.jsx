@@ -1,6 +1,10 @@
 import React from 'react'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './hooks/useTheme'
+import BackgroundField from './components/v6/BackgroundField'
+import ScrollProgress from './components/v6/ScrollProgress'
+import ScrollToTop from './components/v6/ScrollToTop'
+import BackToTop from './components/v6/BackToTop'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Home from './pages/Home'
@@ -11,7 +15,12 @@ function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="min-h-screen  transition-colors duration-300">
+        <ScrollToTop />
+        <BackgroundField />
+        {/* `v6` is scoped per-page (see pages/Home) so the element-level
+            typography rules don't leak into the legacy project pages. */}
+        <div id="app-shell">
+          <ScrollProgress />
           <Header />
           <main>
             <Routes>
@@ -21,6 +30,7 @@ function App() {
             </Routes>
           </main>
           <Footer />
+          <BackToTop />
         </div>
       </Router>
     </ThemeProvider>

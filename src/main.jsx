@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './styles/globals.css'  // Change this import
+import './styles/globals.css'
+import './styles/v6.css'
 import './i18n'
 
 

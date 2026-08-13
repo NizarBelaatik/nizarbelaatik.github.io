@@ -1,6 +1,34 @@
 export const certificationsFR = [
     // ALX Africa Certificates
   {
+    id: 9,
+    name: "Data Science",
+    issuer: "ALX Africa",
+    date: "Mar 2026",
+    credentialId: "HFSzL3pG2C",
+    description: "Certification finale du programme complet ALX Data Science : analyse de données, Python et machine learning de bout en bout.",
+    skills: ["Data Science", "Machine Learning", "Analyse de Données", "Python"],
+    link: "https://savanna.alxafrica.com/certificates/HFSzL3pG2C",
+    category: "data-science",
+    level: "Avancé",
+    importance: "élevée",
+    logo: "alx_africa"
+  },
+  {
+    id: 10,
+    name: "Machine Learning",
+    issuer: "ALX Africa",
+    date: "Fév 2026",
+    credentialId: "GmTeHnJ3y6",
+    description: "Module de machine learning appliqué du programme ALX Data Science : apprentissage supervisé et non supervisé, évaluation de modèles et bases du déploiement.",
+    skills: ["Machine Learning", "Évaluation de Modèles", "Scikit-learn", "Python"],
+    link: "https://savanna.alxafrica.com/certificates/GmTeHnJ3y6",
+    category: "machine-learning",
+    level: "Intermédiaire",
+    importance: "élevée",
+    logo: "alx_africa"
+  },
+  {
     id: 1,
     name: "Analyse de Données",
     issuer: "ALX Africa",
@@ -124,13 +152,13 @@ export const certificationsFR = [
 
 export const alxProgramFR = {
   name: "Programme ALX Data Science",
-  subtitle: "Programme de formation complet en cours",
+  subtitle: "Terminé · ALX Africa",
   description: "Programme complet de Data Science couvrant les sujets fondamentaux et avancés, y compris l'apprentissage automatique, l'analyse statistique et la visualisation des données à travers des projets concrets.",
   progress: [
     { name: "Fondations Professionnelles", status: "completed", date: "Jan 2025", duration: "14 semaines" },
     { name: "Analyse de Données", status: "completed", date: "Avr 2025", duration: "14 semaines" },
     { name: "Python", status: "completed", date: "Août 2025", duration: "8 semaines" },
-    { name: "Apprentissage Automatique", status: "current", date: "Oct 2025", duration: "16 semaines" }
+    { name: "Apprentissage Automatique", status: "completed", date: "Fév 2026", duration: "16 semaines" }
   ]
 }
 

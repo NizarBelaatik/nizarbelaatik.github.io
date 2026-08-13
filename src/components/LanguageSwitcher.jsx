@@ -1,43 +1,69 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Globe } from 'lucide-react'
 
+const languages = [
+  { code: 'en', name: 'English', short: 'EN' },
+  { code: 'fr', name: 'Français', short: 'FR' }
+]
+
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation()
+  const [open, setOpen] = useState(false)
+  const boxRef = useRef(null)
 
-  const languages = [
-    { code: 'en', name: 'English', flag: '🇺🇸' },
-    { code: 'fr', name: 'Français', flag: '🇫🇷' }
-  ]
+  const current =
+    languages.find((l) => i18n.language?.startsWith(l.code)) || languages[0]
 
-  const currentLanguage = languages.find(lang => lang.code === i18n.language) || languages[0]
+  useEffect(() => {
+    if (!open) return undefined
+    const onDown = (e) => {
+      if (boxRef.current && !boxRef.current.contains(e.target)) setOpen(false)
+    }
+    const onKey = (e) => { if (e.key === 'Escape') setOpen(false) }
+    document.addEventListener('mousedown', onDown)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('mousedown', onDown)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [open])
 
-  const switchLanguage = (lng) => {
-    i18n.changeLanguage(lng)
+  const switchTo = (code) => {
+    i18n.changeLanguage(code)
+    setOpen(false)
   }
 
   return (
-    <div className="relative group">
-      <button className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 transition-colors">
-        <Globe size={18} />
-        <span>{currentLanguage.flag}</span>
-        <span className="hidden sm:block">{currentLanguage.name}</span>
+    <div className="lang" ref={boxRef}>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        aria-label="Change language"
+      >
+        <Globe size={13} strokeWidth={1.6} />
+        <span>{current.short}</span>
       </button>
-      
-      <div className="absolute top-full right-0 mt-2 w-48 bg-primary-dark/80 backdrop-blur-sm border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-        {languages.map((language) => (
-          <button
-            key={language.code}
-            onClick={() => switchLanguage(language.code)}
-            className={`w-full text-left px-4 py-3 hover:bg-white/10 transition-colors flex items-center gap-3 ${
-              i18n.language === language.code ? 'bg-accent-blue/20 text-accent-blue' : 'text-white'
-            }`}
-          >
-            <span className="text-lg">{language.flag}</span>
-            <span>{language.name}</span>
-          </button>
-        ))}
-      </div>
+
+      {open && (
+        <div className="menu" role="listbox">
+          {languages.map((lang) => (
+            <button
+              key={lang.code}
+              type="button"
+              role="option"
+              aria-current={lang.code === current.code}
+              aria-selected={lang.code === current.code}
+              onClick={() => switchTo(lang.code)}
+            >
+              <span>{lang.short}</span>
+              <span>{lang.name}</span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

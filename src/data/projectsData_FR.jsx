@@ -2,7 +2,276 @@
 import getProjectImages from '../components/projects/getProjectImages';
 
 const projects_FR = [
-  // 0. Retail Zoning System for WafR
+  // Agent vocal B2B temps réel — projet de fin d'études (PFE)
+  {
+    id: "b2b-voice-agent-pfe",
+    folderid: "b2b-voice-agent-pfe",
+    projectType: "web",
+    platforme: "Système d'IA Conversationnelle Temps Réel",
+    title: "Agent Vocal IA Temps Réel pour la Téléphonie B2B",
+    image: getProjectImages('b2b-voice-agent-pfe', [
+      'system-architecture.png',
+      'dashboard-overview.png',
+      'live-call-monitoring.png',
+      'use-case-diagram.png',
+      'barge-in-sequence-diagram.png',
+      'llm-training-loss.png',
+      'tts-eval-loss.png',
+      'tts-latency-rtf.png'
+    ]),
+    category: "IA Conversationnelle & Systèmes Vocaux",
+    date: "Fév 2026 - Présent",
+    client_for: "Arboris Management · PFE",
+    role: "Ingénieur IA & Architecte Système",
+    description: "Un pipeline vocal IA temps réel pour des conversations téléphoniques B2B en darija marocaine mêlée de français, développé comme projet de fin d'études (PFE) chez Arboris Management. Il combine des modèles de reconnaissance vocale, de dialogue et de synthèse vocale adaptés au domaine avec une architecture asynchrone multi-appels et une gestion naturelle des interruptions en plein appel, validé de bout en bout dans un environnement de test et conçu pour un déploiement téléphonique via Asterisk/SIP.",
+    research_paper: "/papers/darija-asr-research-paper.docx",
+
+    technology: ["Python", "PyTorch", "Whisper", "LoRA / QLoRA", "Qwen2.5", "XTTS v2 (Coqui)", "vLLM", "FastAPI", "Asterisk", "Next.js"],
+    technology_used: {
+      'speech_and_language': ["Whisper (adapté au domaine par LoRA)", "Qwen2.5-7B-Instruct (QLoRA)", "XTTS v2 (Coqui, fine-tuné)", "Reconnaissance vocale automatique", "Génération de dialogue", "Synthèse vocale"],
+      'architecture': ["Microservices asynchrones", "Gestion concurrente de plusieurs appels", "Barge-in / reprise après interruption"],
+      'telephony': ["Asterisk / SIP (architecture conçue)", "Intégration PSTN en direct : travail restant"],
+      'serving': ["vLLM", "FastAPI"],
+      'front_end': ["Next.js"]
+    },
+
+    RoleResp: [{
+      Title_1: "Ingénieur IA & Architecte Système",
+      Data: [
+        {
+          Title: "Modélisation Vocale, Linguistique & Synthèse",
+          Data: [
+            "Constitution du corpus d'entraînement à partir de vrais appels B2B et adaptation au domaine de Whisper pour la reconnaissance vocale sur de la parole darija-français à code-switching",
+            "Fine-tuning de Qwen2.5-7B-Instruct pour la génération de dialogue de l'agent, adapté aux conversations téléphoniques B2B",
+            "Fine-tuning de XTTS v2 (Coqui) sur un petit jeu de données mono-locuteur darija/français pour produire la voix de l'agent, évalué via la trajectoire de perte d'entraînement et des tests de latence de synthèse plutôt qu'un benchmark de qualité formel",
+            "Co-écriture d'un article de recherche sur le composant de reconnaissance vocale du système (voir l'article lié pour la méthodologie et les résultats complets)"
+          ]
+        },
+        {
+          Title: "Architecture Système",
+          Data: [
+            "Conception d'une architecture microservices asynchrone et concurrente pour gérer plusieurs appels à la fois, remplaçant un pipeline séquentiel antérieur, validée de bout en bout dans un environnement de test",
+            "Travail sur l'architecture d'intégration téléphonique autour d'Asterisk/SIP, la connexion PSTN complète en direct restant l'étape suivante",
+            "Implémentation du barge-in pour que les appelants puissent interrompre l'agent en pleine phrase sans perte de contexte conversationnel"
+          ]
+        },
+        {
+          Title: "Mise en Production",
+          Data: [
+            "Transition du projet d'un stage de fin d'études (PFE) chez Arboris Management vers un pipeline vocal IA validé, l'intégration téléphonique en direct restant la prochaine étape",
+            "Construction du tableau de bord Next.js utilisé pour surveiller et gérer les appels en direct"
+          ]
+        }
+      ],
+    }],
+
+    KeyFeatures: [{
+      Title_1: "Ce que Fait l'Agent",
+      Data: [
+        {
+          Title: "Conversation Bilingue à Code-Switching",
+          Data: [
+            "Comprend et répond naturellement à la darija mêlée de français, comme sonnent réellement les appels B2B au Maroc",
+            "Adapté au domaine plutôt que basé sur un modèle multilingue générique"
+          ]
+        },
+        {
+          Title: "De Vraies Interruptions, Pas des Tours Scriptés",
+          Data: [
+            "Les appelants peuvent couper l'agent en pleine phrase, qui reprend le contexte au lieu de redémarrer ou de les ignorer",
+            "Donne l'impression d'une conversation en direct plutôt que d'un menu IVR rigide"
+          ]
+        },
+        {
+          Title: "Gère Plusieurs Appels à la Fois",
+          Data: [
+            "Architecture asynchrone servant plusieurs appels simultanés avec une réponse rapide",
+            "Aucun goulot d'étranglement séquentiel entre les appels"
+          ]
+        }
+      ],
+    }],
+
+    ChallSolu: [{
+      Title_1: "Défis & Solutions",
+      Data: [
+        {
+          Title: "Parole à Faibles Ressources et à Code-Switching",
+          Data: [
+            "Défi : la darija marocaine dispose de peu de données vocales annotées, n'a pas d'orthographe standard et alterne fréquemment avec le français. Je n'avais jamais travaillé sur des modèles vocaux avant ce projet",
+            "Solution : recherche et apprentissage de l'adaptation au domaine pour les modèles vocaux depuis zéro, puis combinaison d'un corpus public de darija avec des enregistrements B2B collectés spécifiquement",
+            "Résultat : un composant de reconnaissance vocale assez précis pour de vrais appels B2B, documenté dans l'article co-écrit"
+          ]
+        },
+        {
+          Title: "Latence Conversationnelle",
+          Data: [
+            "Défi : un pipeline séquentiel faisait attendre chaque étape de l'appel (écoute, compréhension, réponse) sur la précédente, ce qui semblait lent et peu naturel au téléphone",
+            "Solution : refonte du pipeline en microservices asynchrones plutôt qu'une chaîne linéaire",
+            "Résultat : une réponse assez rapide pour que la conversation semble se dérouler en direct"
+          ]
+        },
+        {
+          Title: "Interruptions Naturelles",
+          Data: [
+            "Défi : la plupart des agents vocaux se bloquent ou perdent le contexte quand l'appelant leur coupe la parole",
+            "Solution : implémentation de la détection de barge-in et de la reprise après interruption dans le flux conversationnel",
+            "Résultat : les appelants peuvent interrompre naturellement sans faire dérailler l'appel"
+          ]
+        }
+      ],
+    }],
+
+    github_link: "#",
+    live_demo: ""
+  },
+
+  // 0. Article de recherche — ASR adaptatif au domaine
+  {
+    id: "darija-asr-research",
+    folderid: "darija-asr-research",
+    projectType: "research",
+    platforme: "Recherche en Reconnaissance Vocale",
+    title: "ASR Adaptatif au Domaine pour la Téléphonie B2B Darija-Français à Code-Switching",
+    image: getProjectImages('project-darija-asr-research', [
+      'b2b-benchmark-wer.png',
+      'general-darija-benchmark-cer.png',
+      'accuracy-latency-tradeoff.png',
+      'lora-rank-effect.png',
+      'training-data-ablation.png',
+      'utterance-length-effect.png',
+      'methodology-dataflow.png'
+    ]),
+    category: "Reconnaissance Vocale & Adaptation au Domaine",
+    date: "2026",
+    client_for: "Recherche Académique",
+    role: "Chercheur Principal",
+    description: "Une étude de reconnaissance vocale adaptative au domaine pour des appels téléphoniques B2B en darija marocaine à code-switching avec le français, menée comme composante ASR d'un projet plus large d'agent vocal conversationnel temps réel. Whisper-large-v3-turbo a été adapté par LoRA, en testant différents mélanges de données d'entraînement et rangs d'adaptateur. La meilleure configuration atteint 18,22 % WER sur un benchmark B2B indépendant et 6,64 % en darija générale, pour un facteur temps réel de 0,047. Co-écrit avec un encadrant académique et un encadrant industriel.",
+    research_paper: "/papers/darija-asr-research-paper.docx",
+
+    technology: ["Python", "PyTorch", "Whisper", "LoRA", "Hugging Face", "faster-whisper"],
+    technology_used: {
+      'modeling': ["Whisper-large-v3-turbo", "LoRA (rangs 8 / 32 / 64)", "Fine-tuning paramétriquement efficace"],
+      'evaluation': ["Word Error Rate", "Character Error Rate", "Facteur Temps Réel", "Protocole d'évaluation figé et cumulatif"],
+      'data': ["Corpus général darija DODa", "Audio téléphonique B2B enregistré", "Normalisation textuelle par frontière linguistique"],
+      'tooling': ["Hugging Face Transformers", "PyTorch", "faster-whisper"]
+    },
+
+    researchResults: {
+      keyMetrics: [
+        { metric: "WER Téléphonie B2B", value: "18,22 %", description: "n = 1 010, meilleure configuration (LoRA r=64)" },
+        { metric: "WER Darija Générale", value: "6,64 %", description: "n = 1 270, indépendant" },
+        { metric: "Facteur Temps Réel", value: "0,047", description: "Inférence à énoncé unique" }
+      ],
+      keyFindings: [
+        "Combiner une petite quantité d'audio B2B au domaine avec un corpus général de darija surpasse l'entraînement sur l'une ou l'autre source seule",
+        "Passer d'un rang LoRA de 8 à 64 améliore la précision sur les deux benchmarks sans pénaliser la latence",
+        "Le modèle fine-tuné atteint un meilleur compromis précision-latence que les modèles ASR darija publics et les modèles Whisper multilingues d'origine",
+        "Le WER conventionnel pénalise disproportionnellement les énoncés très courts (1-2 mots), fréquents en téléphonie, d'où l'intérêt de métriques complémentaires"
+      ]
+    },
+
+    RoleResp: [{
+      Title_1: "Chercheur Principal",
+      Data: [
+        {
+          Title: "Données & Méthodologie",
+          Data: [
+            "Constitution du corpus vocal B2B spécifique au domaine, combiné au jeu de données public DODa de darija générale",
+            "Définition d'un protocole de split train/eval figé et cumulatif pour garantir des benchmarks réellement indépendants entre itérations",
+            "Application d'une règle de normalisation textuelle par frontière linguistique (alphabet arabe pour la darija, latin pour le français) aux données de transcription"
+          ]
+        },
+        {
+          Title: "Expérimentation",
+          Data: [
+            "Fine-tuning de Whisper-large-v3-turbo par LoRA sur trois rangs (8/32/64) et trois compositions de données (DODa seul, B2B seul, combiné)",
+            "Comparaison avec des modèles ASR darija publics et les modèles Whisper multilingues d'origine sous un protocole d'évaluation unique",
+            "Mesure du WER, du CER et du RTF sur un benchmark darija générale indépendant et un benchmark B2B construit séparément"
+          ]
+        },
+        {
+          Title: "Analyse & Rédaction",
+          Data: [
+            "Analyse d'erreur par longueur d'énoncé conversationnel, montrant où le WER conventionnel surestime l'erreur sur les tours courts",
+            "Rédaction et co-écriture de l'article avec un encadrant académique à la FSBM, Université Hassan II, et un encadrant industriel"
+          ]
+        }
+      ],
+    }],
+
+    KeyFeatures: [{
+      Title_1: "Méthodologie de Recherche",
+      Data: [
+        {
+          Title: "Ablation Contrôlée du Jeu de Données",
+          Data: [
+            "Modèles entraînés sur : (i) la darija générale seule, (ii) les enregistrements B2B seuls, (iii) le corpus combiné",
+            "Isole la contribution marginale des données propres au domaine par rapport à la parole générale",
+            "Tous les splits figés et cumulatifs pour éviter toute fuite d'évaluation entre itérations d'entraînement"
+          ]
+        },
+        {
+          Title: "Ablation de la Capacité LoRA",
+          Data: [
+            "Rang de l'adaptateur varié entre 8, 32 et 64 dans des conditions d'entraînement par ailleurs identiques",
+            "Évaluation conjointe de la précision (WER/CER) et de l'efficacité d'inférence (RTF)",
+            "Le rang 64 sur le corpus combiné produit le meilleur résultat sur les deux benchmarks"
+          ]
+        },
+        {
+          Title: "Évaluation Orientée Déploiement",
+          Data: [
+            "Benchmark darija générale indépendant (n=1 270) plus un benchmark téléphonie B2B construit séparément (n=1 010)",
+            "Facteur Temps Réel mesuré conjointement au WER/CER, le modèle ASR n'étant qu'une étape d'un pipeline vocal temps réel plus large",
+            "Analyse d'erreur par longueur d'énoncé pour caractériser le comportement du WER sur des tours téléphoniques courts et réels"
+          ]
+        }
+      ],
+    }],
+
+    ChallSolu: [{
+      Title_1: "Défis de Recherche & Solutions",
+      Data: [
+        {
+          Title: "Parole à Faibles Ressources, à Code-Switching et Spécifique au Domaine",
+          Data: [
+            "Défi : la darija marocaine dispose de peu de données vocales annotées, n'a pas d'orthographe standard et alterne fréquemment avec le français, aggravé par le vocabulaire B2B et le bruit de canal téléphonique",
+            "Solution : combiner un corpus public de darija générale avec des enregistrements B2B collectés spécifiquement, normalisés selon une convention de frontière linguistique cohérente",
+            "Résultat : 18,22 % WER sur le benchmark B2B, largement sous chaque référence publique évaluée"
+          ]
+        },
+        {
+          Title: "Précision Sans Pénalité de Latence",
+          Data: [
+            "Défi : le composant ASR alimente un pipeline conversationnel temps réel, donc tout gain de précision qui coûte en vitesse d'inférence est contre-productif",
+            "Solution : évaluer conjointement précision et Facteur Temps Réel pour chaque configuration LoRA plutôt que d'optimiser le WER seul",
+            "Résultat : la configuration la plus précise maintient aussi un RTF de 0,047, comparable (et légèrement meilleur) au modèle de base non modifié"
+          ]
+        },
+        {
+          Title: "Intégrité de l'Évaluation Entre Itérations",
+          Data: [
+            "Défi : le développement itératif de modèles risque de faire fuiter les données d'évaluation vers l'entraînement au fil des cycles",
+            "Solution : un protocole de split train/eval figé et cumulatif qui ne remélange jamais les données déjà mises de côté",
+            "Résultat : des chiffres de benchmark qui restent comparables et réellement indépendants sur tout le cycle de développement"
+          ]
+        }
+      ],
+    }],
+
+    metrics: {
+      wer_b2b: "18,22 %",
+      wer_darija: "6,64 %",
+      rtf: "0,047",
+      coauthors: "3 (encadrement académique + industriel)"
+    },
+
+    github_link: "#",
+    live_demo: ""
+  },
+
+  // 1. Retail Zoning System for WafR
   {
     id: "retail-zoning-system",
     folderid: "retail-zoning",
@@ -160,7 +429,7 @@ const projects_FR = [
           Data: [
             "Visibilité spatiale améliorée sur le réseau de distribution",
             "Intégration des variations de population et densité dans la planification",
-            "Cadre standardisé et scalable pour la stratégie commerciale"
+            "Cadre standardisé et réutilisable pour la stratégie commerciale"
           ]
         }
       ],
@@ -328,7 +597,7 @@ const projects_FR = [
     date: "Juin-2025",
     client_for: "Recherche Académique",
     role: "Ingénieur Recherche ML",
-    description: "Recherche complète analysant l'impact des algorithmes d'optimisation (Adam, RMSprop, SGD, Lookahead) sur la stabilité de l'entraînement GAN et la qualité des sorties utilisant l'architecture DCGAN sur le dataset CIFAR-10.",
+    description: "Recherche analysant l'impact des algorithmes d'optimisation (Adam, RMSprop, SGD, Lookahead) sur la stabilité de l'entraînement GAN et la qualité des sorties utilisant l'architecture DCGAN sur le dataset CIFAR-10.",
     github_link: "https://github.com/NizarBelaatik/gan-optimization-benchmark",
     research_paper: "",
     
@@ -382,7 +651,7 @@ const projects_FR = [
       Title_1: "Méthodologie de Recherche",
       Data: [
         {
-          Title: "Benchmarking Complet",
+          Title: "Benchmarking Systématique",
           Data: [
             "Comparaison systématique des optimiseurs Adam, RMSprop, SGD+Momentum et Lookahead",
             "Analyse quantitative utilisant les courbes de perte et la Distance de Fréchet Inception (FID)",
@@ -425,7 +694,7 @@ const projects_FR = [
           Data: [
             "Défi : La nature subjective de l'évaluation GAN rend la comparaison difficile",
             "Solution : Combinaison de méthodes quantitatives (scores FID, courbes de perte) et qualitatives (inspection visuelle)",
-            "Résultat : Évaluation complète de la stabilité et de la qualité des sorties"
+            "Résultat : Évaluation couvrant à la fois la stabilité et la qualité des sorties"
           ]
         },
         {
@@ -492,7 +761,7 @@ const projects_FR = [
     date: "2025",
     client_for: "Projet Académique",
     role: "Développeur Full-Stack Microservices & Architecte Système",
-    description: "Une plateforme de recrutement intelligente complète construite avec une architecture microservices, Domain-Driven Design et une communication événementielle. Intègre l'analyse de CV par IA, l'appariement automatisé et les notifications multi-canaux.",
+    description: "Une plateforme de recrutement intelligente construite avec une architecture microservices, Domain-Driven Design et une communication événementielle. Intègre l'analyse de CV par IA, l'appariement automatisé et les notifications multi-canaux.",
     github_link: "",
     live_demo: "",
     
@@ -606,11 +875,6 @@ const projects_FR = [
         { metric: "Scalabilité des Services", value: "Mise à l'Échelle Indépendante", description: "Par microservice" },
         { metric: "Couverture de Tests", value: "80%", description: "Tests unitaires et d'intégration" },
         { metric: "Fréquence de Déploiement", value: "Pipeline CI/CD", description: "GitHub Actions + Argo CD" }
-      ],
-      businessImpact: [
-        "70% de réduction du temps de traitement des candidatures",
-        "60% d'amélioration de la pertinence des appariements grâce à l'IA",
-        "80% d'amélioration de la satisfaction utilisateur avec l'UX moderne"
       ]
     },
     

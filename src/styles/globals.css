@@ -18,23 +18,10 @@
     scroll-behavior: smooth;
   }
 
-  body {
-    @apply bg-[var(--primary-dark)] text-white transition-colors duration-300;
-  }
-
-  body.light {
-    @apply bg-[var(--primary-light)] text-slate-800;
-  }
-
-  /* Default section backgrounds using CSS variables */
-  section {
-    background: linear-gradient(to bottom, var(--primary-dark), var(--primary-dark)/80);
-    transition: background-color 0.3s;
-  }
-
-  body.light section {
-    background: linear-gradient(to bottom, var(--primary-light), #ffffff);
-  }
+  /* NOTE: body background/colour and section backgrounds now come from
+     styles/v6.css (imported after this file). The legacy dark pages
+     (/projects, /projects/:id) paint their own dark background on their
+     root wrapper, so they are unaffected. */
 }
 
 
@@ -137,30 +124,7 @@
   }
 }
 
-/* ---------------------- Scrollbar ---------------------- */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #1f2937;
-}
-::-webkit-scrollbar-thumb {
-  background: #4b5563;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #6b7280;
-}
-
-body.light ::-webkit-scrollbar-track {
-  background: #e2e8f0;
-}
-body.light ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
-}
-body.light ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
-}
+/* Scrollbar styling lives in styles/v6.css */
 
 /* ---------------------- Media Queries ---------------------- */
 @media (min-width: 1024px) {

@@ -1,12 +1,87 @@
 {
   "nav": {
     "home": "Accueil",
+    "about": "À propos",
     "projects": "Projets",
     "experience": "Expérience",
     "education": "Formation",
     "certifications": "Certifications",
+    "path": "Parcours",
     "skills": "Compétences",
+    "stack": "Stack",
+    "certs": "Certifs",
     "contact": "Contact"
+  },
+
+  "v6": {
+    "kicker": "AI Engineering · LLMs · IA Vocale & Conversationnelle",
+    "typedPrefix": "je construis",
+    "typedWords": [
+      "des systèmes d'IA",
+      "de l'IA vocale temps réel",
+      "des applications LLM",
+      "des modèles de parole & de langage",
+      "des systèmes d'IA conversationnelle"
+    ],
+    "ticker": [
+      "Machine learning",
+      "Deep learning",
+      "IA vocale",
+      "NLP · LLMs",
+      "Analyse géospatiale",
+      "Big data",
+      "Systèmes RAG",
+      "Casablanca, Maroc"
+    ],
+    "hud": {
+      "caption": "En direct · clustering k-means sur données synthétiques",
+      "iteration": "itération",
+      "inertia": "inertie",
+      "shift": "déplacement"
+    },
+    "stats": {
+      "projects": "Projets techniques",
+      "certifications": "Certifications",
+      "internships": "Stages",
+      "languages": "Langues parlées"
+    },
+    "facts": {
+      "based": "Basé à",
+      "basedValue": "Casablanca, Maroc",
+      "now": "Actuellement",
+      "nowValue": "Arboris Management · BMM Business Connect",
+      "field": "Domaine",
+      "fieldValue": "Ingénierie IA · LLM · IA Vocale & Conversationnelle",
+      "languages": "Langues",
+      "languagesValue": "Anglais, Français, Arabe"
+    },
+    "path": {
+      "title": "Expérience & Formation",
+      "sectionLabel": "Expérience & formation",
+      "present": "aujourd'hui"
+    },
+    "sections": {
+      "about": "À propos",
+      "projects": "Projets",
+      "stack": "Stack",
+      "path": "Expérience & formation",
+      "certs": "Certifications",
+      "contact": "Contact"
+    },
+    "methodologies": "Méthodologies",
+    "viewProject": "Voir le projet",
+    "allProjects": "Tous les projets ↗",
+    "contactLinks": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "github": "GitHub",
+      "linkedin": "LinkedIn",
+      "resume": "CV",
+      "resumeValue": "Télécharger le PDF",
+      "located": "Localisation",
+      "locatedValue": "Casablanca, Maroc (GMT+1)"
+    },
+    "footerNote": "Réalisé avec React · sans tracking"
   },
   "dates": {
     "january": "Janvier",
@@ -24,6 +99,23 @@
     "issued": "Émis",
     "expires": "Expire"
   },
+  "projectShort": {
+    "ai-ml": "IA / ML",
+    "research": "Recherche",
+    "web": "Web",
+    "blockchain": "Blockchain",
+    "desktop": "Bureau"
+  },
+
+  "projectFilters": {
+    "all": "Tous",
+    "ai-ml": "IA & Machine Learning",
+    "research": "Recherche",
+    "web": "Applications Web",
+    "blockchain": "Blockchain & Web3",
+    "desktop": "Applications Bureau"
+  },
+
   "resume": {
     "resume_link": "/resume/CV.pdf"
   },
@@ -58,18 +150,18 @@
   "hero": {
     "title": "Bonjour, je suis",
     "name": "Nizar Belaatik",
-    "subtitle": "Étudiant en Master Data Science & Passionné d'IA",
-    "description": "Étudiant en 2ème année de Master Data Science & Big Data, spécialisé en Deep Learning, IA Générative et solutions data scalables. Je développe des applications intelligentes qui relient la recherche de pointe à l'implémentation pratique.",
+    "subtitle": "AI / ML Engineer, IA Vocale & Systèmes Conversationnels",
+    "description": "Je suis ingénieur IA/ML et je travaille sur le machine learning, les LLM et les systèmes de parole et de langage, avec un intérêt particulier pour l’IA conversationnelle en temps réel. Mes travaux récents incluent le développement d’un agent vocal temps réel pour des conversations B2B en darija marocaine et en français, de la préparation des données au fine-tuning des modèles jusqu’à l’intégration du système. Ce qui distingue mon profil, c’est ma capacité à m’approprier rapidement de nouveaux domaines en IA et à les transformer en systèmes fonctionnels.",
     "viewWork": "Voir Mes Projets",
     "getInTouch": "Me Contacter",
     "downloadCV": "Télécharger CV"
   },
   "about": {
     "title": "À Propos",
-    "subtitle": "Spécialiste Data Science avec Expertise Full-Stack",
-    "content1": "Je suis étudiant en 2ème année de Master Data Science & Big Data, spécialisé en Data Science avec focus sur le Deep Learning, l'IA Générative et les techniques avancées de machine learning.",
-    "content2": "Mon parcours académique m'a doté d'une expertise complète à travers le spectre des données—de l'analyse statistique et du machine learning aux technologies Big Data et l'infrastructure cloud. J'ai une expérience pratique avec Hadoop, Spark, Kafka et les systèmes distribués.",
-    "content3": "À travers 15+ projets diversifiés, j'ai développé des compétences pratiques dans la construction de solutions IA de bout en bout, de la collecte et du traitement des données au déploiement de modèles et au développement d'applications web.",
+    "subtitle": "Ingénieur IA/ML, Systèmes IA Temps Réel",
+    "content1": "Je suis ingénieur IA/ML et je travaille à la croisée du machine learning, de la data science et de l'IA générative, avec un intérêt croissant pour les systèmes de parole et de langage. L'IA conversationnelle en temps réel est devenue une part importante de mes travaux récents. Dans le cadre de mon Master en Data Science & Big Data à l'Université Hassan II, j'ai développé un agent vocal temps réel pour des conversations B2B en darija marocaine mêlée de français.",
+    "content2": "Je suis arrivé sur ce projet avec peu d'expérience préalable en IA vocale. L'objectif était de créer un agent vocal capable de comprendre et de répondre naturellement en darija marocaine et en français. J'ai appris au fur et à mesure ce dont j'avais besoin, de l'ASR et de l'alternance codique darija-français au fine-tuning LoRA et QLoRA, au streaming, au VAD et au service de modèles à faible latence avec vLLM. J'ai également travaillé sur la collecte des données, l'entraînement, l'évaluation et l'intégration du système.",
+    "content3": "Ce projet a également donné lieu à une étude de recherche sur l'adaptation de la reconnaissance vocale à la darija marocaine et à l'alternance codique darija-français. Plus largement, j'ai travaillé sur des projets allant de l'analyse géospatiale et du clustering aux GANs, aux systèmes RAG et à l'IA conversationnelle. Ce que j'apprécie le plus, c'est aborder un problème que je ne connais pas encore, apprendre ce dont il a besoin et en faire quelque chose qui fonctionne.",
     "mastersYear": "2ème Année",
     "projectsCompleted": "Projets Techniques",
     "aiSpecialization": "Spécialisation IA",
@@ -79,6 +171,8 @@
   "skills": {
     "title": "Expertise Technique",
     "subtitle": "Compétences complètes en science des données, IA, ingénierie logicielle et technologies cloud",
+    "speechAi": "IA Vocale & Systèmes Conversationnels",
+    "dlGenAi": "Deep Learning & IA Générative",
     "dsMlAi": "Data Science, ML & AI",
     "webDev": "Développement Web & Logiciel",
     "cloudDevOps": "Cloud & DevOps",
@@ -97,12 +191,28 @@
   },
   "experiences": [
     {
+      "id": 2,
+      "title": "Ingénieur IA & Automatisation",
+      "company": "Arboris Management · BMM Business Connect",
+      "location": "Casablanca, Maroc",
+      "type": "Stage de fin d'études",
+      "duration": "Jan 2026 - Présent",
+      "description": "J'ai travaillé sur des projets de développement IA, d'automatisation de workflows et de préparation de données, avec un focus particulier sur la construction d'un agent vocal conversationnel temps réel pour des applications B2B.",
+      "achievements": [
+        "Conception et validation d'un pipeline vocal IA temps réel pour des conversations B2B en darija marocaine et en français, avec un travail sur la collecte des données, le fine-tuning des modèles de parole et de langage, l'évaluation et l'intégration du système.",
+        "Automatisation de workflows internes et intégration de fonctionnalités d'IA dans les processus existants afin de réduire les tâches manuelles répétitives.",
+        "Collecte, nettoyage et préparation des données pour différents projets IA, ainsi que documentation des systèmes et des processus mis en place."
+      ],
+      "technologies": ["Python", "PyTorch", "Whisper", "LoRA / QLoRA", "Qwen2.5", "vLLM", "FastAPI", "Asterisk", "Next.js"],
+      "category": "internship"
+    },
+    {
       "id": 1,
       "title": "Stagiaire en Data Science",
       "company": "WafR",
       "location": "Casablanca, Maroc",
       "type": "Stage",
-      "duration": "Juil 2025 — Sep 2025",
+      "duration": "Juil 2025 - Sep 2025",
       "description": "Conception et mise en œuvre de solutions data-driven pour la stratégie d’expansion retail en utilisant l’analyse géospatiale et le machine learning.",
       "achievements": [
         "Conçu et implémenté un système de zonage basé sur les données pour identifier et regrouper les emplacements potentiels de points de vente à travers le Maroc",
@@ -192,6 +302,10 @@
     "viewDetails": "Voir Détails",
     "loadMore": "Charger Plus de Projets",
     "searchPlaceholder": "Rechercher des projets...",
+    "showingCount": "Affichage de {{shown}} sur {{total}}",
+    "noResultsTitle": "Aucun projet trouvé",
+    "noResultsBody": "Essayez d'ajuster votre recherche ou votre filtre.",
+    "categoriesLabel": "Catégories",
     "sort": {
       "featured": "En Vedette",
       "newest": "Plus Récents",
@@ -222,8 +336,14 @@
     "researchPaper": "Article de recherche",
     "methodology": "Méthodologie",
     "findings": "Résultats clés",
-    "experimentalSetup": "Configuration expérimentale"
-
+    "experimentalSetup": "Configuration expérimentale",
+    "resultsTitle": "Résultats Clés",
+    "businessImpact": "Impact Business",
+    "coverage": "Couverture par Ville",
+    "benchmark": "Comparatif",
+    "best": "Meilleur",
+    "worst": "Moins bon",
+    "moreImages": "de plus"
   },
   "contact": {
     "title": "Contactez-moi",

@@ -1,92 +1,91 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { useTranslation } from 'react-i18next'
-import { Download, ArrowRight } from 'lucide-react'
-import { socialLinks } from '../../data/links'
+import KMeansCanvas from '../v6/KMeansCanvas'
+import CursorGlow from '../v6/CursorGlow'
+import Typewriter from '../v6/Typewriter'
 
 const Hero = () => {
-  const { t, i18n } = useTranslation()
-  const currentLanguage = i18n.language
-  const logoSrc = '/logos/Profile_Pic.png'
+  const { t } = useTranslation()
+  const heroRef = useRef(null)
+  const iterRef = useRef(null)
+  const inertiaRef = useRef(null)
+  const shiftRef = useRef(null)
+
+  const words = t('v6.typedWords', { returnObjects: true })
+  const resumeLink = t('resume.resume_link')
+
+  const scrollToWork = (e) => {
+    e.preventDefault()
+    const el = document.getElementById('work')
+    if (el) window.scrollTo({ top: el.offsetTop - 60, behavior: 'smooth' })
+  }
+
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden mt-20 pt-10">
-      {/* Background Effects */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-blue/10 rounded-full blur-3xl animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-purple/10 rounded-full blur-3xl animate-pulse-slow delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent-green/10 rounded-full blur-3xl animate-pulse-slow delay-2000"></div>
-      </div>
+    <div className="hero" id="top" ref={heroRef}>
+      <KMeansCanvas iterRef={iterRef} inertiaRef={inertiaRef} shiftRef={shiftRef} />
+      <CursorGlow containerRef={heroRef} />
+      <div className="scan" aria-hidden="true" />
 
-      <div className="container mx-auto px-6 text-center relative z-10">
-        {/* Profile Image */}
-        <div className="w-32 h-32 mx-auto mb-8 rounded-full overflow-hidden border-4 border-accent-blue/20 shadow-2xl shadow-blue-500/25 floating">
-          <img 
-            src={logoSrc}
-            alt={t('hero.name')}
-            className="w-full h-full object-cover"
-          />
-        </div>
+      <div className="wrap">
+        <div className="hgrid">
+          <div>
+            <p className="kick mono">
+              <span className="dot" />
+              <span className="txt">{t('v6.kicker')}</span>
+            </p>
 
-        {/* Main Content */}
-        <h1 className="text-5xl md:text-7xl font-bold mb-6">
-          {t('hero.title')}{' '}
-          <span className="text-gradient">{t('hero.name')}</span>
-        </h1>
-        
-        <div className="text-2xl md:text-3xl text-gray-400 mb-8">
-          {t('hero.subtitle')}
-        </div>
+            <h1>
+              <span className="ln"><i>Nizar</i></span>
+              <span className="ln"><i className="out">Belaatik</i></span>
+            </h1>
 
-        {/* Dynamic Description */}
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-          {currentLanguage === 'en' ? (
-            <>
-              Master's candidate in Data Science & Big Data specializing in machine learning, 
-              deep learning, and scalable AI solutions. Passionate about transforming complex 
-              data into intelligent applications that drive business value and innovation.
-            </>
-          ) : (
-            <>
-              Étudiant en 2ème année de Master Data Science & Big Data, spécialisé en machine learning, 
-              deep learning et solutions IA scalables. Passionné par la transformation de données complexes 
-              en applications intelligentes qui créent de la valeur business et de l'innovation.
-            </>
-          )}
-        </p>
+            <Typewriter prefix={t('v6.typedPrefix')} words={Array.isArray(words) ? words : []} />
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <a href="#projects" className="btn-primary inline-flex items-center group">
-            {t('hero.viewWork')}
-            <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </a>
-          
-          <a 
-            href={t('resume.resume_link')}
-            download
-            className="btn-outline inline-flex items-center group"
-          >
-            {t('hero.downloadCV')}
-            <Download size={20} className="ml-2 group-hover:translate-y-1 transition-transform" />
-          </a>
-        </div>
+            <p className="sum">{t('hero.description')}</p>
 
-        {/* Social Links */}
-        <div className="flex justify-center space-x-6">
-          {socialLinks.map(({ icon: Icon, href, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3 bg-white/5 rounded-full hover:bg-accent-blue hover:text-primary transition-all duration-300 transform hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
-              aria-label={label}
-            >
-              <Icon size={24} />
-            </a>
-          ))}
+            <div className="cta">
+              <a className="btn fill" href="#work" onClick={scrollToWork}>
+                <span>{t('hero.viewWork')}</span>
+              </a>
+              <a className="btn" href={resumeLink} download>
+                <s />
+                <span>{t('hero.downloadCV')} ↓</span>
+              </a>
+              <a className="btn" href={t('contact.methods.email.href')}>
+                <s />
+                <span>{t('v6.contactLinks.email')}</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="portrait">
+            <span className="aura" aria-hidden="true" />
+            <span className="cor c1" />
+            <span className="cor c2" />
+            <div className="fr">
+              <img
+                src="/logos/Profile_Pic.png"
+                alt="Nizar Belaatik"
+                onError={(e) => {
+                  const host = e.currentTarget.closest('.portrait')
+                  if (host) host.style.display = 'none'
+                }}
+              />
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+
+      <div className="wrap hud-wrap">
+        <div className="hud mono">
+          <div>{t('v6.hud.caption')}</div>
+          <div>
+            k = <b>4</b> · {t('v6.hud.iteration')} <b ref={iterRef}>0</b> · {t('v6.hud.inertia')}{' '}
+            <b ref={inertiaRef}>0.00</b> · {t('v6.hud.shift')} <b ref={shiftRef}>0.000</b>
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }
 
