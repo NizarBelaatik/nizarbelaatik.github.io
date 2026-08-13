@@ -25,7 +25,8 @@ const Experience = () => {
           {roles.map((role, i) => (
             <Reveal key={role.id} className={`ev${i === 0 ? ' first' : ''}`} threshold={0.12}>
               <div className="when">
-                {role.duration} · {role.type}
+                {role.duration}
+                {role.type && ` · ${role.type}`}
               </div>
               <h3>{role.title}</h3>
               <p className="org">

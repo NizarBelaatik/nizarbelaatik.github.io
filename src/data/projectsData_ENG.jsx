@@ -2,7 +2,7 @@
 import getProjectImages from '../components/projects/getProjectImages';
 
 const projects_ENG = [
-  // Real-time B2B voice agent — end-of-studies project (PFE)
+  // Real-time B2B voice agent
   {
     id: "b2b-voice-agent-pfe",
     folderid: "b2b-voice-agent-pfe",
@@ -20,11 +20,11 @@ const projects_ENG = [
       'tts-latency-rtf.png'
     ]),
     category: "Conversational AI & Speech Systems",
-    date: "Feb 2026 - Present",
-    client_for: "Arboris Management · PFE",
+    date: "Feb 2026 - Jul 2026",
+    client_for: "Arboris Management",
     role: "AI Engineer & System Architect",
-    description: "A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built as my end-of-studies project (PFE) at Arboris Management. It combines domain-adapted speech recognition, dialogue, and text-to-speech models with an asynchronous multi-call architecture and natural mid-call interruption handling, validated end to end in a sandbox environment and designed for telephony deployment via Asterisk/SIP.",
-    research_paper: "/papers/darija-asr-research-paper.docx",
+    description: "A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built at Arboris Management. It combines domain-adapted speech recognition, dialogue, and text-to-speech models with an asynchronous multi-call architecture and natural mid-call interruption handling, validated end to end in a sandbox environment and designed for telephony deployment via Asterisk/SIP.",
+    research_paper: "",
 
     technology: ["Python", "PyTorch", "Whisper", "LoRA / QLoRA", "Qwen2.5", "XTTS v2 (Coqui)", "vLLM", "FastAPI", "Asterisk", "Next.js"],
     technology_used: {
@@ -58,7 +58,7 @@ const projects_ENG = [
         {
           Title: "Delivery",
           Data: [
-            "Took the project from an end-of-studies internship (PFE) at Arboris Management to a validated AI voice pipeline, with live telephony integration as the next step",
+            "Took the project from an internship at Arboris Management to a validated AI voice pipeline, with live telephony integration as the next step",
             "Built the Next.js dashboard used to monitor and manage live calls"
           ]
         }
@@ -147,7 +147,7 @@ const projects_ENG = [
     client_for: "Academic Research",
     role: "Lead Researcher",
     description: "A domain-adaptive speech-recognition study for Moroccan Darija-French code-switched B2B phone calls, built as the speech-recognition component of a larger real-time voice-agent project. Whisper-large-v3-turbo was adapted with LoRA, testing different training-data mixes and adapter ranks. The best setup reached 18.22% WER on a B2B telephony benchmark and 6.64% on general Darija, with a Real-Time Factor of 0.047. Co-authored with an academic and an industry supervisor.",
-    research_paper: "/papers/darija-asr-research-paper.docx",
+    research_paper: "",
 
     technology: ["Python", "PyTorch", "Whisper", "LoRA", "Hugging Face", "faster-whisper"],
     technology_used: {

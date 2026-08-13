@@ -2,7 +2,7 @@
 import getProjectImages from '../components/projects/getProjectImages';
 
 const projects_FR = [
-  // Agent vocal B2B temps réel — projet de fin d'études (PFE)
+  // Agent vocal B2B temps réel
   {
     id: "b2b-voice-agent-pfe",
     folderid: "b2b-voice-agent-pfe",
@@ -20,11 +20,11 @@ const projects_FR = [
       'tts-latency-rtf.png'
     ]),
     category: "IA Conversationnelle & Systèmes Vocaux",
-    date: "Fév 2026 - Présent",
-    client_for: "Arboris Management · PFE",
+    date: "Fév 2026 - Juil 2026",
+    client_for: "Arboris Management",
     role: "Ingénieur IA & Architecte Système",
-    description: "Un pipeline vocal IA temps réel pour des conversations téléphoniques B2B en darija marocaine mêlée de français, développé comme projet de fin d'études (PFE) chez Arboris Management. Il combine des modèles de reconnaissance vocale, de dialogue et de synthèse vocale adaptés au domaine avec une architecture asynchrone multi-appels et une gestion naturelle des interruptions en plein appel, validé de bout en bout dans un environnement de test et conçu pour un déploiement téléphonique via Asterisk/SIP.",
-    research_paper: "/papers/darija-asr-research-paper.docx",
+    description: "Un pipeline vocal IA temps réel pour des conversations téléphoniques B2B en darija marocaine mêlée de français, développé chez Arboris Management. Il combine des modèles de reconnaissance vocale, de dialogue et de synthèse vocale adaptés au domaine avec une architecture asynchrone multi-appels et une gestion naturelle des interruptions en plein appel, validé de bout en bout dans un environnement de test et conçu pour un déploiement téléphonique via Asterisk/SIP.",
+    research_paper: "",
 
     technology: ["Python", "PyTorch", "Whisper", "LoRA / QLoRA", "Qwen2.5", "XTTS v2 (Coqui)", "vLLM", "FastAPI", "Asterisk", "Next.js"],
     technology_used: {
@@ -58,7 +58,7 @@ const projects_FR = [
         {
           Title: "Mise en Production",
           Data: [
-            "Transition du projet d'un stage de fin d'études (PFE) chez Arboris Management vers un pipeline vocal IA validé, l'intégration téléphonique en direct restant la prochaine étape",
+            "Transition du projet d'un stage chez Arboris Management vers un pipeline vocal IA validé, l'intégration téléphonique en direct restant la prochaine étape",
             "Construction du tableau de bord Next.js utilisé pour surveiller et gérer les appels en direct"
           ]
         }
@@ -147,7 +147,7 @@ const projects_FR = [
     client_for: "Recherche Académique",
     role: "Chercheur Principal",
     description: "Une étude de reconnaissance vocale adaptative au domaine pour des appels téléphoniques B2B en darija marocaine à code-switching avec le français, menée comme composante ASR d'un projet plus large d'agent vocal conversationnel temps réel. Whisper-large-v3-turbo a été adapté par LoRA, en testant différents mélanges de données d'entraînement et rangs d'adaptateur. La meilleure configuration atteint 18,22 % WER sur un benchmark B2B indépendant et 6,64 % en darija générale, pour un facteur temps réel de 0,047. Co-écrit avec un encadrant académique et un encadrant industriel.",
-    research_paper: "/papers/darija-asr-research-paper.docx",
+    research_paper: "",
 
     technology: ["Python", "PyTorch", "Whisper", "LoRA", "Hugging Face", "faster-whisper"],
     technology_used: {
