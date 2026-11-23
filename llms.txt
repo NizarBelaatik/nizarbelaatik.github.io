@@ -47,7 +47,7 @@ The project also led to a research study on adapting speech recognition to Moroc
 
 ## Education
 
-- **PhD in Artificial Intelligence, Multimodal AI**, Faculté des Sciences Ben M'Sik, UH2C (2026 - Present): Doctoral research in Artificial Intelligence, specializing in multimodal AI.
+- **PhD in Artificial Intelligence, Multimodal AI**, Faculté des Sciences Ben M'Sik, UH2C (2026 - Present): Thesis: Intelligent Multimodal Conversational AI, building efficient, secure, trustworthy and low-latency LLM architectures.
 - **Master's in Data Science & Big Data**, Faculté des Sciences Ben M'Sik, UH2C (2024 - 2026): Data Science track focused on Deep Learning, Generative AI, Machine Learning, and Big Data technologies, combining theoretical foundations with practical applications.
 - **BSc in Mathematics & Computer Science**, Faculté des Sciences Ben M'Sik, UH2C (2020 - 2023): Comprehensive foundation in computer science principles with focus on algorithms, data structures, software engineering, and web development.
 
