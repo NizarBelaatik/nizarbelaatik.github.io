@@ -1,57 +1,95 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="boot">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Nizar Belaatik</title>
-
-    <!-- Essential Meta Tags -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Nizar Belaatik · AI/ML Engineer · LLMs, RAG &amp; Speech AI · Freelance</title>
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Nizar Belaatik - Data Scientist" />
-    <meta name="description" content="Master's Student in Data Science specializing in Machine Learning, Deep Learning, and Big Data technologies. Passionate about creating intelligent solutions through code and data." />
-    <meta name="keywords" content="data science, machine learning, deep learning, big data, full-stack developer, python, react, portfolio, AI, data analysis, Morocco, Casablanca" />
+    <meta name="title" content="Nizar Belaatik · AI/ML Engineer · LLMs, RAG &amp; Speech AI · Freelance" />
+    <meta name="description" content="AI/ML Engineer and PhD candidate in Multimodal AI (Casablanca, Morocco), available for freelance and contract work: LLM &amp; RAG systems, speech AI (ASR, TTS, voice agents), fine-tuning and ML pipelines." />
+    <meta name="keywords" content="AI engineer, machine learning engineer, freelance AI engineer, AI consultant, LLM, RAG, speech AI, ASR, TTS, voice agent, Whisper, conversational AI, multimodal AI, Darija, Morocco, Casablanca, remote" />
     <meta name="author" content="Nizar Belaatik" />
-    <meta name="robots" content="index, follow" />
+    <meta name="robots" content="noindex" />
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#EDEEF2" />
     <meta name="msapplication-TileColor" content="#EDEEF2" />
 
-    <!-- Fonts (v6 design system) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Martian+Mono:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Every route ships prerendered in English. French visitors and legacy
+         /#/ links get it hidden before first paint; main.jsx then renders
+         their page from scratch. Mirrors the i18next detection order. -->
+    <script>
+      try {
+        var l = localStorage.getItem('i18nextLng') || (navigator.languages && navigator.languages[0]) || navigator.language || ''
+        var h = location.hash
+        if (/^fr/i.test(l) || /^#\/./.test(h)) document.documentElement.classList.add('no-pre')
+      } catch (e) {}
+    </script>
+    <style>.no-pre #root { display: none; }</style>
+
+    <!-- LCP image on mobile: start fetching it in parallel with the JS bundle -->
+    <link rel="preload" as="image" href="/logos/profile.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Fonts (v6 design system): self-hosted latin + latin-ext subsets of
+         Archivo (variable wdth/wght) and Martian Mono — no third-party
+         connections on the critical path. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
+    <style>
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+    </style>
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://nizarbelaatik.github.io/" />
-    <meta property="og:title" content="Nizar Belaatik - Data Scientist & Full-Stack Developer" />
-    <meta property="og:description" content="Master's Student in Data Science specializing in Machine Learning, Deep Learning, and Big Data technologies. Creating intelligent solutions through code and data." />
-    <!--<meta property="og:image" content="https://nizarbelaatik.github.io/images/og-image.jpg" />-->
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:title" content="Nizar Belaatik · AI/ML Engineer · LLMs, RAG &amp; Speech AI · Freelance" />
+    <meta property="og:description" content="AI/ML Engineer and PhD candidate in Multimodal AI (Casablanca, Morocco), available for freelance and contract work: LLM &amp; RAG systems, speech AI (ASR, TTS, voice agents), fine-tuning and ML pipelines." />
+    <meta property="og:image" content="https://nizarbelaatik.github.io/logos/profile.webp" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:site_name" content="Nizar Belaatik Portfolio" />
 
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://nizarbelaatik.github.io/" />
-    <meta property="twitter:title" content="Nizar Belaatik - Data Scientist & Full-Stack Developer" />
-    <meta property="twitter:description" content="Master's Student in Data Science specializing in Machine Learning, Deep Learning, and Big Data technologies." />
-    <!--<meta property="twitter:image" content="https://nizarbelaatik.github.io/images/twitter-image.jpg" />-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://nizarbelaatik.github.io/" />
+    <meta name="twitter:title" content="Nizar Belaatik · AI/ML Engineer · LLMs, RAG &amp; Speech AI · Freelance" />
+    <meta name="twitter:description" content="AI/ML Engineer and PhD candidate in Multimodal AI (Casablanca, Morocco), available for freelance and contract work: LLM &amp; RAG systems, speech AI (ASR, TTS, voice agents), fine-tuning and ML pipelines." />
     <meta name="twitter:creator" content="@NBelaatik" />
 
     <!-- Additional Tags -->
     <meta name="language" content="EN, FR" />
-    <meta http-equiv="content-language" content="en, fr" />
     <meta name="geo.region" content="MA-CAS" />
     <meta name="geo.placename" content="Casablanca" />
     <meta name="geo.position" content="33.5731;-7.5898" />
@@ -59,38 +97,15 @@
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://nizarbelaatik.github.io/" />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- veri -->
-    <script type="application/ld+json"></script>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Nizar Belaatik",
-        "url": "https://nizarbelaatik.github.io/",
-        "jobTitle": "Data Scientist",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Casablanca",
-          "addressCountry": "MA"
-        },
-        "sameAs": [
-          "https://github.com/nizarbelaatik",
-          "https://www.linkedin.com/in/nizar-belaatik",
-          "https://twitter.com/NBelaatik"
-        ]
-      }
-    </script>
+    <!-- JSON-LD structured data is injected per page by scripts/prerender.mjs -->
 
-    <script type="module" crossorigin src="/assets/index-CfL836x3.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-CPveyxpI.css">
+    <script type="module" crossorigin src="/assets/index-js5ojGoB.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ChMhAkUL.css">
   </head>
   <body>
     <div id="root"></div>

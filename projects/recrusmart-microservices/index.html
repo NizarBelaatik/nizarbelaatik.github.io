@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" class="boot">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RecruSmart - Intelligent Recruitment Platform · Nizar Belaatik</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="RecruSmart - Intelligent Recruitment Platform · Nizar Belaatik" />
+    <meta name="description" content="An intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV…" />
+    <meta name="keywords" content="AI engineer, machine learning engineer, freelance AI engineer, AI consultant, LLM, RAG, speech AI, ASR, TTS, voice agent, Whisper, conversational AI, multimodal AI, Darija, Morocco, Casablanca, remote" />
+    <meta name="author" content="Nizar Belaatik" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#EDEEF2" />
+    <meta name="msapplication-TileColor" content="#EDEEF2" />
+
+    <!-- Every route ships prerendered in English. French visitors and legacy
+         /#/ links get it hidden before first paint; main.jsx then renders
+         their page from scratch. Mirrors the i18next detection order. -->
+    <script>
+      try {
+        var l = localStorage.getItem('i18nextLng') || (navigator.languages && navigator.languages[0]) || navigator.language || ''
+        var h = location.hash
+        if (/^fr/i.test(l) || /^#\/./.test(h)) document.documentElement.classList.add('no-pre')
+      } catch (e) {}
+    </script>
+    <style>.no-pre #root { display: none; }</style>
+
+    <!-- LCP image on mobile: start fetching it in parallel with the JS bundle -->
+
+    <!-- Fonts (v6 design system): self-hosted latin + latin-ext subsets of
+         Archivo (variable wdth/wght) and Martian Mono — no third-party
+         connections on the critical path. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
+    <style>
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+    </style>
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nizarbelaatik.github.io/projects/recrusmart-microservices/" />
+    <meta property="og:title" content="RecruSmart - Intelligent Recruitment Platform · Nizar Belaatik" />
+    <meta property="og:description" content="An intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV…" />
+    <meta property="og:image" content="https://nizarbelaatik.github.io/assets/recrusmart-homepage-B7YhDfGw.webp" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Nizar Belaatik Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://nizarbelaatik.github.io/projects/recrusmart-microservices/" />
+    <meta name="twitter:title" content="RecruSmart - Intelligent Recruitment Platform · Nizar Belaatik" />
+    <meta name="twitter:description" content="An intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV…" />
+    <meta name="twitter:creator" content="@NBelaatik" />
+
+    <!-- Additional Tags -->
+    <meta name="language" content="EN, FR" />
+    <meta name="geo.region" content="MA-CAS" />
+    <meta name="geo.placename" content="Casablanca" />
+    <meta name="geo.position" content="33.5731;-7.5898" />
+    <meta name="ICBM" content="33.5731, -7.5898" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nizarbelaatik.github.io/projects/recrusmart-microservices/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- JSON-LD structured data is injected per page by scripts/prerender.mjs -->
+
+    <script type="module" crossorigin src="/assets/index-js5ojGoB.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ChMhAkUL.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"RecruSmart - Intelligent Recruitment Platform","url":"https://nizarbelaatik.github.io/projects/recrusmart-microservices/","description":"An intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV analysis, automated matching, and multi-channel notifications.","image":"https://nizarbelaatik.github.io/assets/recrusmart-homepage-B7YhDfGw.webp","keywords":"Spring Boot, Node.js, FastAPI, React, Docker, Kubernetes, RabbitMQ, MongoDB, MySQL","genre":"Microservices & Enterprise Architecture","author":{"@id":"https://nizarbelaatik.github.io/#person","@type":"Person","name":"Nizar Belaatik","url":"https://nizarbelaatik.github.io/"}}</script>
+  </head>
+  <body>
+    <div id="root" data-route="/projects/recrusmart-microservices"><link rel="preload" as="image" href="/logos/profile-96.webp"/><link rel="preload" as="image" href="/assets/recrusmart-homepage-B7YhDfGw.webp"/><link rel="preload" as="image" href="/assets/recrusmart-homepage-dark-DHm_1CbL.webp"/><link rel="preload" as="image" href="/assets/recrusmart-offers-CUpV6RlQ.webp"/><link rel="preload" as="image" href="/assets/recrusmart-login-B0uRyo9k.webp"/><div class="bgfx" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><canvas class="bgfx-canvas"></canvas></div><div id="app-shell"><div id="bar"></div><header class="nav"><div class="wrap"><a class="brand" href="/"><span class="avatar"><img src="/logos/profile-96.webp" alt="" width="48" height="48"/></span><span class="name">Nizar Belaatik</span></a><nav class="desktop"><a href="#about"><span class="i">01</span><span class="t">About</span></a><a href="#work"><span class="i">02</span><span class="t">Projects</span></a><a href="#skills"><span class="i">03</span><span class="t">Stack</span></a><a href="#experience"><span class="i">04</span><span class="t">Experience</span></a><a href="#education"><span class="i">05</span><span class="t">Education</span></a><a href="#certs"><span class="i">06</span><span class="t">Certs</span></a><a href="#contact"><span class="i">07</span><span class="t">Contact</span></a><a class="on" href="/projects" data-discover="true"><span class="t">View All Projects</span></a><span class="indicator"></span></nav><div class="tools"><div id="clock"><span class="live-dot"></span>Casablanca</div><div class="lang"><button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>EN</span></button></div><button type="button" class="burger" aria-expanded="false" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></header><main><!--$?--><template id="B:0"></template><div style="min-height:100vh"></div><!--/$--></main><footer class="v6-footer"><div class="wrap mono"><div>© <!-- -->2026<!-- --> Nizar Belaatik</div><div class="fnav"><a href="/projects" data-discover="true">Projects</a><a href="https://github.com/NizarBelaatik" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://linkedin.com/in/nizar-belaatik" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/NBelaatik" target="_blank" rel="noopener noreferrer">Twitter</a></div></div></footer><button type="button" id="totop" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div><script>requestAnimationFrame(function(){$RT=performance.now()});</script><div hidden id="S:0"><div class="v6"><div class="pd-hero"><div class="wrap"><a class="back" href="/projects" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>Back to Projects</a><div class="pd-tags"><span class="chip">AI / ML</span><span class="chip">2025</span><span class="chip">Academic Project</span></div><h1 class="pd-title">RecruSmart - Intelligent Recruitment Platform</h1><p class="pd-desc">An intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV analysis, automated matching, and multi-channel notifications.</p><div class="pd-meta mono"><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> <!-- -->2025</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg> <!-- -->Microservices &amp; Enterprise Architecture</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg> <!-- -->Academic Project</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg> <!-- -->Full-Stack Microservices Developer &amp; System Architect</span></div><div class="cta"></div></div></div><div class="wrap page-end" style="padding-top:clamp(32px, 5vw, 48px)"><div class="pd-gallery rv" style="margin-bottom:clamp(36px, 5vw, 56px)"><div class="main"><img src="/assets/recrusmart-homepage-B7YhDfGw.webp" alt="RecruSmart - Intelligent Recruitment Platform"/></div><div class="pd-thumbs"><button type="button" class="on"><img src="/assets/recrusmart-homepage-B7YhDfGw.webp" alt="RecruSmart - Intelligent Recruitment Platform 1"/></button><button type="button"><img src="/assets/recrusmart-homepage-dark-DHm_1CbL.webp" alt="RecruSmart - Intelligent Recruitment Platform 2"/></button><button type="button"><img src="/assets/recrusmart-offers-CUpV6RlQ.webp" alt="RecruSmart - Intelligent Recruitment Platform 3"/></button><button type="button"><img src="/assets/recrusmart-login-B0uRyo9k.webp" alt="RecruSmart - Intelligent Recruitment Platform 4"/></button><button type="button"><span class="more">+<!-- -->5<!-- --> <!-- -->more</span></button></div></div><div class="pd-block"><h2>Key Results</h2><div class="pd-metrics"><div class="m"><div class="n">&lt; 200ms</div><div class="l">API Response Time</div><div class="d">95% of requests</div></div><div class="m"><div class="n">Independent Scaling</div><div class="l">Service Scalability</div><div class="d">Per microservice basis</div></div><div class="m"><div class="n">80<!-- -->%</div><div class="l">Test Coverage</div><div class="d">Unit and integration tests</div></div><div class="m"><div class="n">CI/CD Pipeline</div><div class="l">Deployment Frequency</div><div class="d">GitHub Actions + Argo CD</div></div></div></div><div class="pd-layout"><div><div class="pd-block"><h2>Role &amp; Responsibilities</h2><div><p class="mono" style="color:var(--b600);margin-bottom:14px">System Architect &amp; Full-Stack Developer</p><div class="blockgrid"><div><h4>Domain-Driven Design Implementation</h4><ul><li>Designed and implemented 6 bounded contexts using strategic DDD patterns</li><li>Created context maps and defined ubiquitous language for recruitment domain</li><li>Implemented aggregates, domain events, and value objects across services</li></ul></div><div><h4>Microservices Architecture Development</h4><ul><li>Built 6 independent microservices using polyglot persistence</li><li>Implemented event-driven communication with RabbitMQ</li><li>Designed and deployed API Gateway with Spring Cloud Gateway</li><li>Configured service discovery using Consul</li></ul></div><div><h4>AI Integration &amp; Business Logic</h4><ul><li>Integrated NLP models for automated CV analysis and scoring</li><li>Implemented intelligent matching algorithms between candidates and job offers</li><li>Developed notification system with multi-channel delivery (Email, WhatsApp)</li></ul></div></div></div></div><div class="pd-block"><h2>Key Features</h2><div><p class="mono" style="color:var(--b600);margin-bottom:14px">Architecture &amp; Technical Features</p><div class="blockgrid"><div><h4>Microservices Architecture</h4><ul><li>6 independent services: Auth, Candidate, Offer, AI, Interview, Notification</li><li>Polyglot persistence with MongoDB and MySQL</li><li>Event-driven communication via RabbitMQ</li><li>Containerized with Docker and orchestrated with Kubernetes</li></ul></div><div><h4>Domain-Driven Design Implementation</h4><ul><li>Strategic design with bounded contexts and context mapping</li><li>Tactical patterns: Aggregates, Domain Events, Value Objects</li><li>Ubiquitous language aligned with recruitment business domain</li></ul></div><div><h4>Intelligent Recruitment Features</h4><ul><li>AI-powered CV analysis using spaCy and transformer models</li><li>Automated candidate-offer matching with scoring algorithms</li><li>Multi-language support (French/Arabic) for Moroccan market</li><li>Google Calendar and Meet integration for interview scheduling</li></ul></div></div></div></div><div class="pd-block"><h2>Challenges &amp; Solutions</h2><div><p class="mono" style="color:var(--b600);margin-bottom:14px">Architectural Challenges &amp; Solutions</p><div class="blockgrid"><div><h4>Distributed Transaction Management</h4><ul><li>Challenge: Maintaining data consistency across multiple services</li><li>Solution: Implemented event-driven sagas with compensating transactions</li><li>Result: Reliable business processes without distributed transactions</li></ul></div><div><h4>Service Communication &amp; Discovery</h4><ul><li>Challenge: Dynamic service location and load balancing</li><li>Solution: Used Consul for service discovery and API Gateway for routing</li><li>Result: Resilient communication with automatic failover</li></ul></div><div><h4>AI Integration in Distributed System</h4><ul><li>Challenge: Integrating CPU-intensive AI processing in microservices</li><li>Solution: Isolated AI service with async processing and message queues</li><li>Result: Scalable AI features without blocking other services</li></ul></div></div></div></div></div><div class="pd-side"><div class="box"><h4>Key Highlights</h4><ul class="plain"><li>— <!-- -->Microservices Architecture</li><li>— <!-- -->Domain-Driven Design Implementation</li><li>— <!-- -->Intelligent Recruitment Features</li></ul></div><div class="box"><h4>Project Metrics</h4><div class="row"><span class="k">microservices</span><span class="v">6</span></div><div class="row"><span class="k">bounded contexts</span><span class="v">6</span></div><div class="row"><span class="k">technologies</span><span class="v">9+</span></div><div class="row"><span class="k">deployment</span><span class="v">Docker + Kubernetes</span></div><div class="row"><span class="k">communication</span><span class="v">REST + RabbitMQ</span></div></div><div class="box"><h4>Technology Stack</h4><div class="techgroup"><span class="tag">backend frameworks</span><div class="chips"><span class="chip">Spring Boot (Java)</span><span class="chip">Node.js/Express</span><span class="chip">FastAPI (Python)</span></div></div><div class="techgroup"><span class="tag">frontend</span><div class="chips"><span class="chip">React 18</span><span class="chip">TypeScript</span><span class="chip">Tailwind CSS</span></div></div><div class="techgroup"><span class="tag">architecture</span><div class="chips"><span class="chip">Microservices</span><span class="chip">Domain-Driven Design</span><span class="chip">Event-Driven Architecture</span></div></div><div class="techgroup"><span class="tag">databases</span><div class="chips"><span class="chip">MongoDB</span><span class="chip">MySQL</span><span class="chip">Cloudflare R2</span></div></div><div class="techgroup"><span class="tag">messaging</span><div class="chips"><span class="chip">RabbitMQ</span><span class="chip">Event Sourcing</span></div></div><div class="techgroup"><span class="tag">infrastructure</span><div class="chips"><span class="chip">Docker</span><span class="chip">Kubernetes</span><span class="chip">Consul</span><span class="chip">Spring Cloud Gateway</span></div></div><div class="techgroup"><span class="tag">ai ml</span><div class="chips"><span class="chip">spaCy</span><span class="chip">Sentence Transformers</span><span class="chip">Mistral 7B</span><span class="chip">NLP</span></div></div></div></div></div></div></div></div><script>$RB=[];$RV=function(a){$RT=performance.now();for(var b=0;b<a.length;b+=2){var c=a[b],e=a[b+1];null!==e.parentNode&&e.parentNode.removeChild(e);var f=c.parentNode;if(f){var g=c.previousSibling,h=0;do{if(c&&8===c.nodeType){var d=c.data;if("/$"===d||"/&"===d)if(0===h)break;else h--;else"$"!==d&&"$?"!==d&&"$~"!==d&&"$!"!==d&&"&"!==d||h++}d=c.nextSibling;f.removeChild(c);c=d}while(c);for(;e.firstChild;)f.insertBefore(e.firstChild,c);g.data="$";g._reactRetry&&requestAnimationFrame(g._reactRetry)}}a.length=0};
+$RC=function(a,b){if(b=document.getElementById(b))(a=document.getElementById(a))?(a.previousSibling.data="$~",$RB.push(a,b),2===$RB.length&&("number"!==typeof $RT?requestAnimationFrame($RV.bind(null,$RB)):(a=performance.now(),setTimeout($RV.bind(null,$RB),2300>a&&2E3<a?2300-a:$RT+300-a)))):b.parentNode.removeChild(b)};$RC("B:0","S:0")</script></div>
+  </body>
+</html>

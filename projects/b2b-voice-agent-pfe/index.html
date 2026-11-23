@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" class="boot">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-Time AI Voice Agent for B2B Telephony · Nizar Belaatik</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Real-Time AI Voice Agent for B2B Telephony · Nizar Belaatik" />
+    <meta name="description" content="A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built at Arboris Management. It combines domain-adapted…" />
+    <meta name="keywords" content="AI engineer, machine learning engineer, freelance AI engineer, AI consultant, LLM, RAG, speech AI, ASR, TTS, voice agent, Whisper, conversational AI, multimodal AI, Darija, Morocco, Casablanca, remote" />
+    <meta name="author" content="Nizar Belaatik" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#EDEEF2" />
+    <meta name="msapplication-TileColor" content="#EDEEF2" />
+
+    <!-- Every route ships prerendered in English. French visitors and legacy
+         /#/ links get it hidden before first paint; main.jsx then renders
+         their page from scratch. Mirrors the i18next detection order. -->
+    <script>
+      try {
+        var l = localStorage.getItem('i18nextLng') || (navigator.languages && navigator.languages[0]) || navigator.language || ''
+        var h = location.hash
+        if (/^fr/i.test(l) || /^#\/./.test(h)) document.documentElement.classList.add('no-pre')
+      } catch (e) {}
+    </script>
+    <style>.no-pre #root { display: none; }</style>
+
+    <!-- LCP image on mobile: start fetching it in parallel with the JS bundle -->
+
+    <!-- Fonts (v6 design system): self-hosted latin + latin-ext subsets of
+         Archivo (variable wdth/wght) and Martian Mono — no third-party
+         connections on the critical path. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
+    <style>
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+    </style>
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nizarbelaatik.github.io/projects/b2b-voice-agent-pfe/" />
+    <meta property="og:title" content="Real-Time AI Voice Agent for B2B Telephony · Nizar Belaatik" />
+    <meta property="og:description" content="A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built at Arboris Management. It combines domain-adapted…" />
+    <meta property="og:image" content="https://nizarbelaatik.github.io/assets/system-architecture-DYrURd8d.webp" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Nizar Belaatik Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://nizarbelaatik.github.io/projects/b2b-voice-agent-pfe/" />
+    <meta name="twitter:title" content="Real-Time AI Voice Agent for B2B Telephony · Nizar Belaatik" />
+    <meta name="twitter:description" content="A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built at Arboris Management. It combines domain-adapted…" />
+    <meta name="twitter:creator" content="@NBelaatik" />
+
+    <!-- Additional Tags -->
+    <meta name="language" content="EN, FR" />
+    <meta name="geo.region" content="MA-CAS" />
+    <meta name="geo.placename" content="Casablanca" />
+    <meta name="geo.position" content="33.5731;-7.5898" />
+    <meta name="ICBM" content="33.5731, -7.5898" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nizarbelaatik.github.io/projects/b2b-voice-agent-pfe/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- JSON-LD structured data is injected per page by scripts/prerender.mjs -->
+
+    <script type="module" crossorigin src="/assets/index-js5ojGoB.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ChMhAkUL.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"Real-Time AI Voice Agent for B2B Telephony","url":"https://nizarbelaatik.github.io/projects/b2b-voice-agent-pfe/","description":"A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built at Arboris Management. It combines domain-adapted speech recognition, dialogue, and text-to-speech models with an asynchronous multi-call architecture and natural mid-call interruption handling, validated end to end in a sandbox environment and designed for telephony deployment via Asterisk/SIP.","image":"https://nizarbelaatik.github.io/assets/system-architecture-DYrURd8d.webp","keywords":"Python, PyTorch, Whisper, LoRA / QLoRA, Qwen2.5, XTTS v2 (Coqui), vLLM, FastAPI, Asterisk, Next.js","genre":"Conversational AI & Speech Systems","codeRepository":"#","author":{"@id":"https://nizarbelaatik.github.io/#person","@type":"Person","name":"Nizar Belaatik","url":"https://nizarbelaatik.github.io/"}}</script>
+  </head>
+  <body>
+    <div id="root" data-route="/projects/b2b-voice-agent-pfe"><link rel="preload" as="image" href="/logos/profile-96.webp"/><link rel="preload" as="image" href="/assets/system-architecture-DYrURd8d.webp"/><link rel="preload" as="image" href="/assets/dashboard-overview-DQXpy3VV.webp"/><link rel="preload" as="image" href="/assets/live-call-monitoring-Csb3VfzZ.webp"/><link rel="preload" as="image" href="/assets/use-case-diagram-pM-nJ1Po.webp"/><div class="bgfx" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><canvas class="bgfx-canvas"></canvas></div><div id="app-shell"><div id="bar"></div><header class="nav"><div class="wrap"><a class="brand" href="/"><span class="avatar"><img src="/logos/profile-96.webp" alt="" width="48" height="48"/></span><span class="name">Nizar Belaatik</span></a><nav class="desktop"><a href="#about"><span class="i">01</span><span class="t">About</span></a><a href="#work"><span class="i">02</span><span class="t">Projects</span></a><a href="#skills"><span class="i">03</span><span class="t">Stack</span></a><a href="#experience"><span class="i">04</span><span class="t">Experience</span></a><a href="#education"><span class="i">05</span><span class="t">Education</span></a><a href="#certs"><span class="i">06</span><span class="t">Certs</span></a><a href="#contact"><span class="i">07</span><span class="t">Contact</span></a><a class="on" href="/projects" data-discover="true"><span class="t">View All Projects</span></a><span class="indicator"></span></nav><div class="tools"><div id="clock"><span class="live-dot"></span>Casablanca</div><div class="lang"><button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>EN</span></button></div><button type="button" class="burger" aria-expanded="false" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></header><main><!--$--><div class="v6"><div class="pd-hero"><div class="wrap"><a class="back" href="/projects" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>Back to Projects</a><div class="pd-tags"><span class="chip">AI / ML</span><span class="chip">Feb 2026 - Jul 2026</span><span class="chip">Arboris Management</span></div><h1 class="pd-title">Real-Time AI Voice Agent for B2B Telephony</h1><p class="pd-desc">A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built at Arboris Management. It combines domain-adapted speech recognition, dialogue, and text-to-speech models with an asynchronous multi-call architecture and natural mid-call interruption handling, validated end to end in a sandbox environment and designed for telephony deployment via Asterisk/SIP.</p><div class="pd-meta mono"><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> <!-- -->2026</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg> <!-- -->Conversational AI &amp; Speech Systems</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg> <!-- -->Arboris Management</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg> <!-- -->AI Engineer &amp; System Architect</span></div><div class="cta"></div></div></div><div class="wrap page-end" style="padding-top:clamp(32px, 5vw, 48px)"><div class="pd-gallery rv" style="margin-bottom:clamp(36px, 5vw, 56px)"><div class="main"><img src="/assets/system-architecture-DYrURd8d.webp" alt="Real-Time AI Voice Agent for B2B Telephony"/></div><div class="pd-thumbs"><button type="button" class="on"><img src="/assets/system-architecture-DYrURd8d.webp" alt="Real-Time AI Voice Agent for B2B Telephony 1"/></button><button type="button"><img src="/assets/dashboard-overview-DQXpy3VV.webp" alt="Real-Time AI Voice Agent for B2B Telephony 2"/></button><button type="button"><img src="/assets/live-call-monitoring-Csb3VfzZ.webp" alt="Real-Time AI Voice Agent for B2B Telephony 3"/></button><button type="button"><img src="/assets/use-case-diagram-pM-nJ1Po.webp" alt="Real-Time AI Voice Agent for B2B Telephony 4"/></button><button type="button"><span class="more">+<!-- -->4<!-- --> <!-- -->more</span></button></div></div><div class="pd-layout"><div><div class="pd-block"><h2>Role &amp; Responsibilities</h2><div><p class="mono" style="color:var(--b600);margin-bottom:14px">AI Engineer &amp; System Architect</p><div class="blockgrid"><div><h4>Speech, Language &amp; Voice Synthesis</h4><ul><li>Built the training corpus from real B2B call recordings and domain-adapted Whisper for speech recognition on Darija-French code-switched speech</li><li>Fine-tuned Qwen2.5-7B-Instruct for the agent&#x27;s dialogue generation, tailored to B2B phone conversations</li><li>Fine-tuned XTTS v2 (Coqui) on a small, single-speaker Darija/French dataset to produce the agent&#x27;s voice, evaluated through training-loss trajectory and synthesis-latency tests rather than a formal quality benchmark</li><li>Co-authored a research paper on the speech-recognition component of the system (see the linked paper for the full methodology and results)</li></ul></div><div><h4>System Architecture</h4><ul><li>Designed an asynchronous, concurrent microservices architecture built to handle multiple calls at once, replacing an earlier sequential &#x27;stop-and-go&#x27; pipeline, and validated it end to end in a sandbox test environment</li><li>Worked on the telephony integration architecture around Asterisk/SIP, with full live PSTN connection remaining as the next stage</li><li>Implemented barge-in so callers can interrupt the agent mid-sentence without it losing conversational context</li></ul></div><div><h4>Delivery</h4><ul><li>Took the project from an internship at Arboris Management to a validated AI voice pipeline, with live telephony integration as the next step</li><li>Built the Next.js dashboard used to monitor and manage live calls</li></ul></div></div></div></div><div class="pd-block"><h2>Key Features</h2><div><p class="mono" style="color:var(--b600);margin-bottom:14px">What the Agent Does</p><div class="blockgrid"><div><h4>Bilingual, Code-Switched Conversation</h4><ul><li>Understands and responds naturally to Darija mixed with French, the way B2B calls actually sound in Morocco</li><li>Domain-adapted rather than relying on a generic multilingual model</li></ul></div><div><h4>Real Interruptions, Not Scripted Turns</h4><ul><li>Callers can cut the agent off mid-sentence and it recovers context instead of restarting or ignoring them</li><li>Feels like a live conversation rather than a rigid IVR menu</li></ul></div><div><h4>Handles Many Calls at Once</h4><ul><li>Asynchronous architecture serves multiple concurrent calls with fast round-trip response</li><li>No sequential bottleneck between calls</li></ul></div></div></div></div><div class="pd-block"><h2>Challenges &amp; Solutions</h2><div><p class="mono" style="color:var(--b600);margin-bottom:14px">Challenges &amp; Solutions</p><div class="blockgrid"><div><h4>Low-Resource, Code-Switched Speech</h4><ul><li>Challenge: Moroccan Darija has limited annotated speech data and no standard orthography, and it&#x27;s frequently mixed with French mid-sentence. I also hadn&#x27;t worked on speech models before this project</li><li>Solution: researched and learned domain adaptation for speech models from scratch, then combined a public Darija speech corpus with purpose-collected B2B call recordings</li><li>Result: a speech-recognition component accurate enough for real B2B calls, documented in the co-authored research paper</li></ul></div><div><h4>Conversational Latency</h4><ul><li>Challenge: a sequential pipeline meant each stage of the call (listen, understand, respond) waited on the last, which felt slow and unnatural over the phone</li><li>Solution: redesigned the pipeline as asynchronous microservices instead of a linear chain</li><li>Result: fast enough round-trip response that the conversation feels live</li></ul></div><div><h4>Natural Interruptions</h4><ul><li>Challenge: most voice bots break or lose context if the caller talks over them</li><li>Solution: implemented barge-in detection and interruption recovery into the conversation flow</li><li>Result: callers can interrupt naturally without derailing the call</li></ul></div></div></div></div></div><div class="pd-side"><div class="box"><h4>Key Highlights</h4><ul class="plain"><li>— <!-- -->Bilingual, Code-Switched Conversation</li><li>— <!-- -->Real Interruptions, Not Scripted Turns</li><li>— <!-- -->Handles Many Calls at Once</li></ul></div><div class="box"><h4>Technology Stack</h4><div class="techgroup"><span class="tag">speech and language</span><div class="chips"><span class="chip">Whisper (domain-adapted with LoRA)</span><span class="chip">Qwen2.5-7B-Instruct (QLoRA)</span><span class="chip">XTTS v2 (Coqui, fine-tuned)</span><span class="chip">Automatic speech recognition</span><span class="chip">Dialogue generation</span><span class="chip">Speech synthesis</span></div></div><div class="techgroup"><span class="tag">architecture</span><div class="chips"><span class="chip">Asynchronous microservices</span><span class="chip">Concurrent multi-call handling</span><span class="chip">Barge-in / interruption recovery</span></div></div><div class="techgroup"><span class="tag">telephony</span><div class="chips"><span class="chip">Asterisk / SIP (architecture designed)</span><span class="chip">Live PSTN integration: remaining work</span></div></div><div class="techgroup"><span class="tag">serving</span><div class="chips"><span class="chip">vLLM</span><span class="chip">FastAPI</span></div></div><div class="techgroup"><span class="tag">front end</span><div class="chips"><span class="chip">Next.js</span></div></div></div></div></div></div></div><!--/$--></main><footer class="v6-footer"><div class="wrap mono"><div>© <!-- -->2026<!-- --> Nizar Belaatik</div><div class="fnav"><a href="/projects" data-discover="true">Projects</a><a href="https://github.com/NizarBelaatik" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://linkedin.com/in/nizar-belaatik" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/NBelaatik" target="_blank" rel="noopener noreferrer">Twitter</a></div></div></footer><button type="button" id="totop" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div>
+  </body>
+</html>

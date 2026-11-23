@@ -1,0 +1,72 @@
+# Nizar Belaatik
+
+> AI/ML Engineer and PhD candidate in Multimodal AI (Casablanca, Morocco), available for freelance and contract work: LLM & RAG systems, speech AI (ASR, TTS, voice agents), fine-tuning and ML pipelines.
+
+I'm an AI/ML engineer with an MSc in Data Science & Big Data, now a PhD candidate in Artificial Intelligence specializing in multimodal AI. I design and integrate machine learning and generative AI solutions, from model development and fine-tuning to evaluation and inference. Most recently I built a real-time voice agent for B2B conversations in Moroccan Darija and French, from data preparation through system integration.
+
+## Availability and contact
+
+- Open to freelance and contract work alongside my PhD: LLM and RAG systems, speech AI (ASR, TTS, voice agents), model fine-tuning, and end-to-end ML pipelines from data to deployment. Remote, or on-site in Casablanca.
+- Email: belaatiknizar@gmail.com
+- LinkedIn: https://www.linkedin.com/in/nizar-belaatik
+- GitHub: https://github.com/NizarBelaatik
+- Location: Casablanca, Morocco (GMT+1); works remotely
+- Languages: Arabic (Moroccan Darija), French, English
+- [Resume (PDF)](https://nizarbelaatik.github.io/resume/Resume.pdf)
+
+## About
+
+I'm an AI/ML engineer working across machine learning, data science, and generative AI, with a growing focus on speech and language systems. Real-time conversational AI has become an important part of my recent work. During my MSc in Data Science & Big Data at Hassan II University, I built a real-time voice agent for B2B conversations in Moroccan Darija mixed with French. I'm now continuing at the same faculty as a PhD candidate in Artificial Intelligence, specializing in multimodal AI.
+
+I came into the project without much prior experience in speech AI. The goal was to build a voice agent that could understand and respond naturally in Moroccan Darija and French. I learned what I needed along the way, from ASR and Darija-French code-switching to LoRA and QLoRA fine-tuning, streaming, VAD, and low-latency model serving with vLLM. I also worked across data collection, training, evaluation, and system integration.
+
+The project also led to a research study on adapting speech recognition to Moroccan Darija and Darija-French code-switching. More broadly, I've worked on projects ranging from geospatial analysis and clustering to GANs, RAG systems, and conversational AI. What I enjoy most is getting into a problem I haven't worked on before, learning what is needed, and turning it into something that works.
+
+## Skills
+
+- AI & Machine Learning: Python · PyTorch · TensorFlow · scikit-learn · XGBoost · Hugging Face Transformers · Machine Learning · Deep Learning · Model training · Fine-tuning · Evaluation · Inference · Deployment
+- LLMs & Generative AI: LLMs · LoRA · QLoRA · vLLM · LLM fine-tuning & serving · RAG · FAISS · LangChain · AI agents · Tool calling · API integration · NLP
+- Speech & Conversational AI: Whisper · faster-whisper · ASR · XTTS v2 · TTS · Speech synthesis · VAD · Streaming · Barge-in · Multilingual & code-switched speech · Asterisk · SIP telephony
+- Data & Big Data: pandas · NumPy · GeoPandas · SQL · MySQL · PostgreSQL · MongoDB · Redis · Hadoop · Apache Spark · Kafka · Flink · ETL pipelines · Data preprocessing · Data modeling
+- Software & AI Engineering: FastAPI · Django · Spring Boot · React · Next.js · WebSockets · REST APIs · Microservices · RabbitMQ · Consul · Web scraping · Workflow & AI-driven automation
+- DevOps & Cloud: Docker · Kubernetes · AWS · Linux · Git · CI/CD · GitHub Actions · Argo CD
+- Methodologies & Best Practices: Agile Development · Scrum · Git Workflow · Technical Documentation · System Design · Experiment Tracking · ML Pipeline Design · Model Versioning
+
+## Experience
+
+- **AI & Automation Engineer**, Arboris Management · BMM Business Connect (Jan 2026 - Jul 2026): Worked across AI development, workflow automation, and data preparation, with a main focus on building a real-time conversational voice agent for B2B applications.
+  - Designed, developed, and validated a real-time AI voice pipeline for B2B conversations in Moroccan Darija and French, covering data preparation, model development, evaluation, inference, and system integration.
+  - Developed real-time streaming, Voice Activity Detection (VAD), and barge-in handling, and built FastAPI microservices to integrate the conversational AI pipeline.
+  - Developed AI-driven workflow automations and contributed to data collection, cleaning, preprocessing, monitoring, and technical documentation.
+  - Took technical ownership of the project, driving architecture, implementation, experimentation, and system integration in coordination with project stakeholders.
+- **Data Science Intern**, WafR (Jul 2025 - Sep 2025): Designed and implemented data-driven solutions for retail expansion strategy using geospatial analysis and machine learning.
+  - Designed and implemented a data-driven zoning system to identify and cluster potential grocery store locations across Morocco
+  - Developed a capacity-constrained clustering algorithm integrating demographic and geographic data to balance zones by store count and population
+  - Collected, cleaned, and analyzed large-scale geospatial datasets using Python, pandas, geopandas, and scikit-learn
+  - Created predictive models and interactive Folium maps to support strategic retail expansion decisions
+
+## Education
+
+- **PhD in Artificial Intelligence, Multimodal AI**, Faculté des Sciences Ben M'Sik, UH2C (2026 - Present): Doctoral research in Artificial Intelligence, specializing in multimodal AI.
+- **Master's in Data Science & Big Data**, Faculté des Sciences Ben M'Sik, UH2C (2024 - 2026): Data Science track focused on Deep Learning, Generative AI, Machine Learning, and Big Data technologies, combining theoretical foundations with practical applications.
+- **BSc in Mathematics & Computer Science**, Faculté des Sciences Ben M'Sik, UH2C (2020 - 2023): Comprehensive foundation in computer science principles with focus on algorithms, data structures, software engineering, and web development.
+
+## Projects
+
+- [Real-Time AI Voice Agent for B2B Telephony](https://nizarbelaatik.github.io/projects/b2b-voice-agent-pfe/) (Feb 2026 - Jul 2026): A real-time AI voice pipeline for B2B phone conversations in Moroccan Darija mixed with French, built at Arboris Management. It combines domain-adapted speech recognition, dialogue, and text-to-speech models with an asynchronous multi-call architecture and natural mid-call interruption handling, validated end to end in a sandbox environment and designed for telephony deployment via Asterisk/SIP. Tech: Python, PyTorch, Whisper, LoRA / QLoRA, Qwen2.5, XTTS v2 (Coqui), vLLM, FastAPI, Asterisk, Next.js.
+- [Domain-Adaptive ASR for Moroccan Darija-French Code-Switched B2B Telephony](https://nizarbelaatik.github.io/projects/darija-asr-research/) (2026): A domain-adaptive speech-recognition study for Moroccan Darija-French code-switched B2B phone calls, built as the speech-recognition component of a larger real-time voice-agent project. Whisper-large-v3-turbo was adapted with LoRA, testing different training-data mixes and adapter ranks. The best setup reached 18.22% WER on a B2B telephony benchmark (a 38.7% relative WER reduction against the strongest public baseline) and 6.64% on general Darija, with a Real-Time Factor of 0.047. Co-authored with an academic and an industry supervisor. Tech: Python, PyTorch, Whisper, LoRA, Hugging Face, faster-whisper.
+- [Intelligent Zoning System for Morocco's Retail Distribution Network](https://nizarbelaatik.github.io/projects/retail-zoning-system/) (2025): Development of a national zoning system to optimize commercial coverage of informal grocery stores in Morocco. Using geospatial data, socio-demographic indicators, and capacity-constrained clustering to balance sales territories. Tech: Python, GeoPandas, Scikit-learn, OpenStreetMap, QGIS, Folium, FastAPI, React.
+- [Intelligent RAG System for Math Education](https://nizarbelaatik.github.io/projects/rag-system/) (2025): An intelligent Retrieval-Augmented Generation system that helps students find and understand math exercises. Features web scraping, AI-powered explanations, semantic search, and a modern web interface. Tech: Python, FastAPI, React, FAISS, HuggingFace, OpenRouter API.
+- [GAN Optimization: Comparative Study of Optimization Algorithms](https://nizarbelaatik.github.io/projects/gan-optimization/) (Jun-2025): Research analyzing the impact of optimization algorithms (Adam, RMSprop, SGD, Lookahead) on GAN training stability and output quality using DCGAN architecture on CIFAR-10 dataset. Tech: PyTorch, Python, DCGAN, CIFAR-10, Adam, RMSprop, SGD, Lookahead.
+- [RecruSmart - Intelligent Recruitment Platform](https://nizarbelaatik.github.io/projects/recrusmart-microservices/) (2025): An intelligent recruitment platform built with microservices architecture, Domain-Driven Design, and event-driven communication. Features AI-powered CV analysis, automated matching, and multi-channel notifications. Tech: Spring Boot, Node.js, FastAPI, React, Docker, Kubernetes, RabbitMQ, MongoDB, MySQL.
+- [Blockchain Certificate Registry dApp](https://nizarbelaatik.github.io/projects/blockchain-certificate/) (2025): A full-stack decentralized application for registering and managing digital certificates on the Ethereum blockchain. Users can register file hashes, transfer ownership, and manage digital assets securely. Tech: Solidity, React, Web3.js, Truffle, Ganache.
+- [Integrated Project Management Platform](https://nizarbelaatik.github.io/projects/1/) (September 2023 - February 2024): A comprehensive platform designed to centralize project management tasks, including data collection, processing, and verification. The platform integrates form submission, data management, real-time communication, and role-based access control. Additionally, it includes a backup server to ensure data integrity and recovery. Tech: Python, Django, RESTful API, HTML, CSS, JavaScript, Jquery, Bootstrap.
+- [Student Life Management System](https://nizarbelaatik.github.io/projects/student-life-management-system/) (February 2023 - June 2023): The Student Life Management System is a web application designed to streamline student interactions with their academic institution. It facilitates the management of various aspects such as scheduling, document requests, and administrative tasks. The system aims to enhance the student experience by providing a user-friendly platform for accessing and managing academic and administrative services. Tech: JAVA, JEE, HTML, CSS, JavaScript.
+- [Real-Time Live Chat Application](https://nizarbelaatik.github.io/projects/3/) (June 2024): The Real-Time Live Chat Application is a web-based platform that allows users to engage in single or group chats in real-time. Users can send text messages, images, and files, making it ideal for both casual conversations and professional collaboration. Tech: Python, Django, RESTful API, HTML, CSS, JavaScript, Jquery, Bootstrap.
+- [Twitch Channel Points TTS (Text-to-Speech)](https://nizarbelaatik.github.io/projects/4/) (May 2020 - June 2020): Developed a Twitch Channel Points TTS (Text-to-Speech) application that allows streamers to convert messages redeemed by viewers using channel points into speech. This enhances audience interaction by giving a voice to viewers during live streams. Tech: Python, PyQt5, Selenium.
+- [YouTube Video & Music Downloader](https://nizarbelaatik.github.io/projects/5/) (july 2022): The YouTube Video & Music Downloader is a desktop application that allows users to download videos or music from YouTube. Users can choose between single video downloads or entire playlists, with the option to select from multiple quality choices, including HD, SD, and audio-only formats. Tech: Python, PyQt5.
+
+## Pages
+
+- [Home](https://nizarbelaatik.github.io/)
+- [All projects](https://nizarbelaatik.github.io/projects/)

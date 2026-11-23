@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en" class="boot">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YouTube Video &amp; Music Downloader · Nizar Belaatik</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="YouTube Video &amp; Music Downloader · Nizar Belaatik" />
+    <meta name="description" content="The YouTube Video &amp; Music Downloader is a desktop application that allows users to download videos or music from YouTube. Users can choose between single…" />
+    <meta name="keywords" content="AI engineer, machine learning engineer, freelance AI engineer, AI consultant, LLM, RAG, speech AI, ASR, TTS, voice agent, Whisper, conversational AI, multimodal AI, Darija, Morocco, Casablanca, remote" />
+    <meta name="author" content="Nizar Belaatik" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#EDEEF2" />
+    <meta name="msapplication-TileColor" content="#EDEEF2" />
+
+    <!-- Every route ships prerendered in English. French visitors and legacy
+         /#/ links get it hidden before first paint; main.jsx then renders
+         their page from scratch. Mirrors the i18next detection order. -->
+    <script>
+      try {
+        var l = localStorage.getItem('i18nextLng') || (navigator.languages && navigator.languages[0]) || navigator.language || ''
+        var h = location.hash
+        if (/^fr/i.test(l) || /^#\/./.test(h)) document.documentElement.classList.add('no-pre')
+      } catch (e) {}
+    </script>
+    <style>.no-pre #root { display: none; }</style>
+
+    <!-- LCP image on mobile: start fetching it in parallel with the JS bundle -->
+
+    <!-- Fonts (v6 design system): self-hosted latin + latin-ext subsets of
+         Archivo (variable wdth/wght) and Martian Mono — no third-party
+         connections on the critical path. -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/archivo-latin.woff2" crossorigin />
+    <style>
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400 800;
+    font-stretch: 100% 118%;
+    font-display: swap;
+    src: url(/fonts/archivo-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Martian Mono';
+    font-style: normal;
+    font-weight: 300 500;
+    font-display: swap;
+    src: url(/fonts/martian-mono-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+    </style>
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://nizarbelaatik.github.io/projects/5/" />
+    <meta property="og:title" content="YouTube Video &amp; Music Downloader · Nizar Belaatik" />
+    <meta property="og:description" content="The YouTube Video &amp; Music Downloader is a desktop application that allows users to download videos or music from YouTube. Users can choose between single…" />
+    <meta property="og:image" content="https://nizarbelaatik.github.io/assets/YD_1-DVKUVtCD.webp" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Nizar Belaatik Portfolio" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content="https://nizarbelaatik.github.io/projects/5/" />
+    <meta name="twitter:title" content="YouTube Video &amp; Music Downloader · Nizar Belaatik" />
+    <meta name="twitter:description" content="The YouTube Video &amp; Music Downloader is a desktop application that allows users to download videos or music from YouTube. Users can choose between single…" />
+    <meta name="twitter:creator" content="@NBelaatik" />
+
+    <!-- Additional Tags -->
+    <meta name="language" content="EN, FR" />
+    <meta name="geo.region" content="MA-CAS" />
+    <meta name="geo.placename" content="Casablanca" />
+    <meta name="geo.position" content="33.5731;-7.5898" />
+    <meta name="ICBM" content="33.5731, -7.5898" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://nizarbelaatik.github.io/projects/5/" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+
+    <!-- JSON-LD structured data is injected per page by scripts/prerender.mjs -->
+
+    <script type="module" crossorigin src="/assets/index-js5ojGoB.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-ChMhAkUL.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CreativeWork","name":"YouTube Video & Music Downloader","url":"https://nizarbelaatik.github.io/projects/5/","description":"The YouTube Video & Music Downloader is a desktop application that allows users to download videos or music from YouTube. Users can choose between single video downloads or entire playlists, with the option to select from multiple quality choices, including HD, SD, and audio-only formats.","image":"https://nizarbelaatik.github.io/assets/YD_1-DVKUVtCD.webp","keywords":"Python, PyQt5","genre":"Software Development","codeRepository":"#","author":{"@id":"https://nizarbelaatik.github.io/#person","@type":"Person","name":"Nizar Belaatik","url":"https://nizarbelaatik.github.io/"}}</script>
+  </head>
+  <body>
+    <div id="root" data-route="/projects/5"><link rel="preload" as="image" href="/logos/profile-96.webp"/><link rel="preload" as="image" href="/assets/YD_1-DVKUVtCD.webp"/><link rel="preload" as="image" href="/assets/YD_2-BlzC8wKH.webp"/><div class="bgfx" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span><canvas class="bgfx-canvas"></canvas></div><div id="app-shell"><div id="bar"></div><header class="nav"><div class="wrap"><a class="brand" href="/"><span class="avatar"><img src="/logos/profile-96.webp" alt="" width="48" height="48"/></span><span class="name">Nizar Belaatik</span></a><nav class="desktop"><a href="#about"><span class="i">01</span><span class="t">About</span></a><a href="#work"><span class="i">02</span><span class="t">Projects</span></a><a href="#skills"><span class="i">03</span><span class="t">Stack</span></a><a href="#experience"><span class="i">04</span><span class="t">Experience</span></a><a href="#education"><span class="i">05</span><span class="t">Education</span></a><a href="#certs"><span class="i">06</span><span class="t">Certs</span></a><a href="#contact"><span class="i">07</span><span class="t">Contact</span></a><a class="on" href="/projects" data-discover="true"><span class="t">View All Projects</span></a><span class="indicator"></span></nav><div class="tools"><div id="clock"><span class="live-dot"></span>Casablanca</div><div class="lang"><button type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg><span>EN</span></button></div><button type="button" class="burger" aria-expanded="false" aria-label="Menu"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg></button></div></div></header><main><!--$--><div class="v6"><div class="pd-hero"><div class="wrap"><a class="back" href="/projects" data-discover="true"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left" aria-hidden="true"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>Back to Projects</a><div class="pd-tags"><span class="chip">Desktop</span><span class="chip">july 2022</span><span class="chip">Freelance</span></div><h1 class="pd-title">YouTube Video &amp; Music Downloader</h1><p class="pd-desc">The YouTube Video &amp; Music Downloader is a desktop application that allows users to download videos or music from YouTube. Users can choose between single video downloads or entire playlists, with the option to select from multiple quality choices, including HD, SD, and audio-only formats.</p><div class="pd-meta mono"><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg> <!-- -->2022</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-tag" aria-hidden="true"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"></path><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"></circle></svg> <!-- -->Software Development</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building" aria-hidden="true"><path d="M12 10h.01"></path><path d="M12 14h.01"></path><path d="M12 6h.01"></path><path d="M16 10h.01"></path><path d="M16 14h.01"></path><path d="M16 6h.01"></path><path d="M8 10h.01"></path><path d="M8 14h.01"></path><path d="M8 6h.01"></path><path d="M9 22v-3a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3"></path><rect x="4" y="2" width="16" height="20" rx="2"></rect></svg> <!-- -->Freelance</span><span><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg> <!-- -->Software Dev</span></div><div class="cta"></div></div></div><div class="wrap page-end" style="padding-top:clamp(32px, 5vw, 48px)"><div class="pd-gallery rv" style="margin-bottom:clamp(36px, 5vw, 56px)"><div class="main"><img src="/assets/YD_1-DVKUVtCD.webp" alt="YouTube Video &amp; Music Downloader"/></div><div class="pd-thumbs"><button type="button" class="on"><img src="/assets/YD_1-DVKUVtCD.webp" alt="YouTube Video &amp; Music Downloader 1"/></button><button type="button"><img src="/assets/YD_2-BlzC8wKH.webp" alt="YouTube Video &amp; Music Downloader 2"/></button></div></div><div class="pd-layout"><div><div class="pd-block"><h2>Role &amp; Responsibilities</h2><div><div class="blockgrid"><div><h4>Designed and developed the entire application, from initial concept to final deployment.</h4><ul></ul></div><div><h4>Packaged the application for cross-platform distribution using PyInstaller.</h4><ul></ul></div></div></div></div><div class="pd-block"><h2>Key Features</h2><div><div class="blockgrid"><div><h4>Single Video Download:</h4><ul><li>Users can paste a YouTube video URL and choose the desired download quality (1080p, 720p, 480p, 360p, audio-only).</li></ul></div><div><h4>Playlist Download:</h4><ul><li>The application supports downloading entire playlists with the option to select video quality for each video or download all as audio files.</li></ul></div><div><h4>Quality Selection:</h4><ul><li>Users can choose from available resolutions or download only the audio in MP3 format.</li></ul></div><div><h4>Download Management:</h4><ul><li> The application provides a progress bar for each download, pause/resume functionality, and a download history tab.</li></ul></div><div><h4>Batch Processing:</h4><ul><li>Ability to queue multiple downloads.</li></ul></div></div></div></div></div><div class="pd-side"><div class="box"><h4>Key Highlights</h4><ul class="plain"><li>— <!-- -->Single Video Download</li><li>— <!-- -->Playlist Download</li><li>— <!-- -->Quality Selection</li><li>— <!-- -->Download Management</li><li>— <!-- -->Batch Processing</li></ul></div><div class="box"><h4>Technology Stack</h4><div class="techgroup"><span class="tag">Proglang</span><div class="chips"><span class="chip">Python</span><span class="chip">PyQt5</span></div></div><div class="techgroup"><span class="tag">techFra</span><div class="chips"><span class="chip">Qt Designer</span><span class="chip">Git</span></div></div></div></div></div></div></div><!--/$--></main><footer class="v6-footer"><div class="wrap mono"><div>© <!-- -->2026<!-- --> Nizar Belaatik</div><div class="fnav"><a href="/projects" data-discover="true">Projects</a><a href="https://github.com/NizarBelaatik" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://linkedin.com/in/nizar-belaatik" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://twitter.com/NBelaatik" target="_blank" rel="noopener noreferrer">Twitter</a></div></div></footer><button type="button" id="totop" aria-label="Back to top"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up" aria-hidden="true"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg></button></div></div>
+  </body>
+</html>
