@@ -1,12 +1,12 @@
 # Nizar Belaatik
 
-> AI/ML Engineer and PhD candidate in Multimodal AI (Casablanca, Morocco), available for freelance and contract work: LLM & RAG systems, speech AI (ASR, TTS, voice agents), fine-tuning and ML pipelines.
+> Freelance AI/ML Engineer and Data Scientist in Casablanca, Morocco, and PhD candidate in Multimodal AI. LLM & RAG systems, AI agents and automation, speech AI (voice agents), machine learning. Open to new opportunities.
 
 I'm an AI/ML engineer with an MSc in Data Science & Big Data, now a PhD candidate in Artificial Intelligence specializing in multimodal AI. I design and integrate machine learning and generative AI solutions, from model development and fine-tuning to evaluation and inference. Most recently I built a real-time voice agent for B2B conversations in Moroccan Darija and French, from data preparation through system integration.
 
 ## Availability and contact
 
-- Open to freelance and contract work alongside my PhD: LLM and RAG systems, speech AI (ASR, TTS, voice agents), model fine-tuning, and end-to-end ML pipelines from data to deployment. Remote, or on-site in Casablanca.
+- Open to new opportunities. I work on LLM and RAG systems, AI agents and automation, speech AI (ASR, TTS, voice agents), data science, and ML pipelines from data to deployment. Based in Casablanca, available remotely or on-site.
 - Email: belaatiknizar@gmail.com
 - LinkedIn: https://www.linkedin.com/in/nizar-belaatik
 - GitHub: https://github.com/NizarBelaatik
